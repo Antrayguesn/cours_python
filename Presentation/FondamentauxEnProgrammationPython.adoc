@@ -1,0 +1,645 @@
+= Fondamentaux en programmation - Python
+:toc:
+
+== Un peu d'histoire
+
+De quand date le premier programme informatique ?
+
+NOTE: 1843 : Note G De Ada Lovelace 
+
+Cette note calcul le nombre de Bernoulli
+
+Charles Babbage crée la machine analytique en 1834
+
+De la Note G à la machine de Turing en 1936 pas grand chose.
+
+Alan Turing pionier de l'informatique et de la crytanalyse
+
+Il écrit la machine de Turing et donne la base de la programmation et des programmes informatique
+
+Travaux sur le déchiffrement d'enigma, qui écourte (selon estimation) le conflit de la seconde geurre mondial de 2 ans 
+
+L'objection de Lady Lovelace par Alan Turing :
+
+> La machine analytique n'a nullement la prétention de créer quelque chose par elle-même. Elle peut exécuter tout ce que nous saurons lui ordonner d'exécuter […] Son rôle est de nous aider à effectuer ce que nous savons déjà dominer.
+
+== C'est quoi un programme informatique ?
+
+---
+
+Comment sont écrits les premiers programmes ?
+
+NOTE: Carte perforée
+
+Métier à tisser de Jacquard, qui a été réalisé en 1801
+
+Première unité de stockage
+
+Carte perforé de 80 colonnes
+
+---
+
+Qu'est qu'un langage de programamtion ? 
+
+Langage informatique qui implémente des algorithmes exécuté dans un programe informatique
+
+Qu'est qu'un algorithme ? 
+
+> Un algorithme est une suite finie et non ambiguë d'instructions et d’opérations permettant de résoudre un problème.
+
+Qu'est un programme informatique ?
+
+> Ensemble d'instruction et d'opérations destinées à être exécutées par un ordinateur
+---
+
+
+Langage de programation par histoire :
+
+* Premier système d'exploitation
+* 1954 : Un langage d'assemblage ou langage assembleur est, en programmation informatique, le langage de plus bas niveau qui représente le langage machine sous une forme lisible par un humain
+* 1959 : Cobol est un langage de programmation créé en 1959. Son nom est l’acronyme de COmmon Business Oriented Language qui révèle sa vocation originelle : être un langage commun pour la programmation d'applications de gestion.
+* 1970 : Le langage Pascal a été le premier langage de ce type
+* 1970 : Inventé au début des années , C est un langage de programmation impératif, généraliste et de bas niveau.  pour réécrire Unix, C
+* 1985 : C++ evolution du C
+* 1991 : Python est un langage de programmation interprété, multiparadigme et multiplateformes. Il favorise la programmation impérative structurée, fonctionnelle et orientée objet. Il est doté d'un typage dynamique fort, d'une gestion automatique de la mémoire par ramasse-miettes et d'un système de gestion d'exceptions
+
+== Lois de la programmation
+
+* Reutilisable
+* Fermé à l'extension mais ouvert à l'extension
+* 
+
+* https://fr.wikipedia.org/wiki/SOLID_(informatique)
+* https://fr.wikipedia.org/wiki/Principe_KISS
+* https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas
+
+=== Interprété ou compilé ?
+
+=== Compile
+
+Traduit en amont les instruction d'un programe en langage machine pour qu'il soit éxécuté.
+
+La traduction est assuré par un compilateur 
+
+Langage compilé 
+
+* C (gcc)
+* C++ (g++)
+* Golang (go)
+
+=== Interprété
+
+Traduit les instruction au moment de l'éxecution les instruction en langage machine
+
+La traduction est assuré par un intérpreteur
+
+Moins performant qu'un langage compilé
+
+* Ruby
+* Perl
+* Lua
+
+
+== Pourquoi Python, c'est cool ?
+
+* Langage interprété
+* Haut niveau
+* Syntaxe simple
+
+Simple d'utilisation, syntaxe comprénsible, bas niveau
+
+
+=== Version
+
+Version de Python : 3.12
+
+Gros changement entre Python 2 et Python 3 (Imcopatibilité)
+
+=== Cas d'utilisation
+
+Le python m'a toujours accoompagné dans mon parcours
+
+* Premier script pour une entreprise
+
+Filtrage d'une mesure 3D
+
+[source, python]
+----
+#-*- coding: utf-8 -*-
+#_____________Initialisation_____________#
+strFichierContenuFinalPoint = []
+listContenuEchant = []
+tabNuage=[]
+tabPts=[0.0,0.0,0.0]
+Fichier = 'PlatinePI3'
+strCheminFichierPoint = 'entre\\' + Fichier +'.txt'
+strCheminFichierEnregistrer = 'sortie\ ' + Fichier +'Moyenne.txt'
+tabFloatPointZ = [0.0,1.1,2.2,3.3,4.4,5.5,6.6]
+tabNuageOUT=[]
+tabBufferPts=[]
+ind = 0
+#_________________Lecture_________________#
+#Ouverture du fichier
+print ("Debut de la premiere lecture")
+i=-1
+with open(strCheminFichierPoint,'r') as FichierPoint:
+
+    ligne = FichierPoint.readline()
+
+    for ligne in FichierPoint:
+        listNombre = ligne.split("\t")
+        LongeurChaine = len(listNombre[2])
+        LongeurChaine -= 2
+        strNombre = listNombre[2]
+        listNombre[2] = strNombre[:LongeurChaine]
+
+        listNombre[0] = float(listNombre[0])
+        listNombre[2] = float(listNombre[2])
+
+        tabPts = listNombre
+        tabNuage.append(tabPts)
+
+
+
+#__________________Calcul__________________#
+for i in range (3,(len(tabNuage)-3)):
+
+
+    tabFloatPointZ[0]=tabNuage[i-3][2]
+    tabFloatPointZ[1]=tabNuage[i-2][2]
+    tabFloatPointZ[2]=tabNuage[i-1][2]
+    tabFloatPointZ[3]=tabNuage[i][2]
+    tabFloatPointZ[4]=tabNuage[i+1][2]
+    tabFloatPointZ[5]=tabNuage[i+2][2]
+    tabFloatPointZ[6]=tabNuage[i+3][2]
+
+    MoyenneZ = (sum(tabFloatPointZ)/7)
+    floatIntervalePos = 0.03000 + MoyenneZ
+    floatIntervaleNeg = MoyenneZ - 0.03000
+    if floatIntervaleNeg < tabFloatPointZ[3] and floatIntervalePos > tabFloatPointZ[3]:
+        tabNuageOUT.append(str(tabNuage[i][0])+'\t'+tabNuage[i][1]+'\t'+str(tabFloatPointZ[3])+'\n')
+
+    i += 1
+    ind += 1
+#_______________Enregistrement______________#
+with open(strCheminFichierEnregistrer,'w') as File:
+    File.writelines (tabNuageOUT)
+print ('Fin')
+----
+
+* Automatisation de la sécurité d'un ordinateur
+
+Programmation evenementiel
+
+* API Rest
+
+* Script d'exploitation
+
+== Notre premier programme
+
+Comme tout le monde, on va écrire notre premier programme.
+
+Ecrire dans un fichier `helloworld.py` :
+
+[source, python]
+----
+print("Hello world")
+----
+
+Executer notre programme :
+
+[source, bash]
+----
+python3 helloworld.py
+----
+
+== Jouer avec l'interpréteur
+
+Ouvrir l'intépréteur python3
+
+[source, ]
+----
+Python 3.11.6 (main, Nov 14 2023, 09:36:21) [GCC 13.2.1 20230801] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+----
+
+Taper des instruction simple, des calculs arithmétique : 
+
+
+Très utile pour comprendre un fonctionnement ou de tester des comportements et voir le resultat.
+
+NOTE: Demo sur l'adition de liste
+Une raison de plus qui rend python cool
+
+== C'est quoi une variable ?
+
+=== Définition
+
+NOTE: Demo avec un ordonanceur
+L'ordonanceur représente la mémoire d'un ordinateur
+Mettre un papier avec un nombre une case (zone memoire)
+Adresse mémoire = Ligne col 
+Mettre une etiquette sur la case 
+
+Une variable est une zone dans la mémoire qui stocke une donnée.
+Une zone mémoire à une adresse
+
+Une variable porte un nom (étiquette) qui permet d'y accéder
+
+[source, python]
+----
+a = 42
+----
+
+Question ?
+
+* Le nom de ma variable ? 
+* La valeur ?
+* L'adresse mémoire ? (id(a))
+
+On parle de déclare de variable et d'initialisation.
+En Python, fait au même moment :
+
+[source, c]
+----
+int a;
+a = 42;
+----
+
+La gestion de la mémoire est automatique.
+
+[source, c]
+----
+int *a = new int;
+*a = 42;
+
+delete a;
+----
+
+
+=== Type de données
+
+==== Primitifs
+
+Composé d'aucun autre type
+
+* Entier : int
+* Nombre décimaux : float
+* Booléan (True/False) bool
+* Chaine de caractère : str
+
+
+==== Typage dynamique
+
+L'interpréteur Python reconnait lui même les types
+
+[source, python]
+----
+>>> a = 42
+>>> type(a)
+<class 'int'>
+----
+
+[source, python]
+----
+>>> a = "Toto"
+>>> type(a)
+<class 'str'>
+----
+
+=== Constante
+
+Une constante est une variable dont sa valeur ne sera pas changer au cours 
+
+=== Comment nommer ma variable ? 
+
+> "Il y a seulement 2 problèmes compliqués en informatique : nommer les choses, et l'invalidation de cache" Phil Karlton.
+
+
+* https://realpython.com/python-pep8/
+
+Que disent les standards 
+
+* Camel case : maVariable
+* Snake case : ma_variable
+
+Ouvrir le lien PEP8 pour présenter les normes
+
+* Zen of Python
+
+[source, python]
+----
+import this
+----
+
+
+=== Rammasse miette, Garbage collector, GC
+
+Le rammasse miette va libérer la mémoire lorsqu'elle n'est plus utilisé
+
+Programme ponctuelle qui va liberer les zonnes mémoires qui ne sont plus référencé par un programme
+
+NOTE: Demo sur l'organisateur, retirer une étquette d'une case
+
+== Opérateur et expression
+
+=== Arithmetique
+
+* Addition : +
+* Soustraction : -
+* Division : /
+* Multiplication : *
+
+* Module : % (Renvoie les reste de la division)
+
+=== Comparaison
+
+Renvoie True si la condition est rempli sinon False
+
+* Inférieur à : <
+* Supérieur à : >
+* Inférieur ou égale : <= 
+* Supérieur ou égale : >=
+
+[source, python]
+----
+>>> 5 < 10
+True
+>>> 15 < 10
+False
+>>> 15 > 10
+True
+----
+
+
+* Instance : is
+
+[source, python]
+----
+>>> a = 42
+>>> type(a) is int
+True
+----
+
+=== Logique
+
+Permet de comparer deux conditions
+
+* and
+* or
+
+[source, python]
+----
+
+----
+
+=== Affectation
+
+* Affectation : =
+* Opérande et affectation : += -= *= /=
+
+=== for
+=== while
+
+* Affiche un sapin
+
+== Structure de contrôle
+
+=== if 
+
+* Evaluation d'une condition
+
+=== if else
+
+=== if elif else
+
+=== match case
+
+* Depuis Python 3
+
+== Chaine de caratère et liste
+
+=== Liste
+
+* Comprenhension de liste
+
+=== Chaine de caratère
+
+* Type de données permettant de manipuler des chaines de caratères
+
+* Dans les langages bas niveau, une chaine de caratères est une tableau (liste) de caractère. Le caractère étant un type primitif
+
+
+== Types de données complexes
+
+=== Collection
+
+Les collections indexent des éléments pouvant être parcouru de manière itératives
+
+En python, les éléments des collections ne sont pas typé 
+
+==== dict
+
+* Collection d'éléments stocké sous forme de clé/valeur
+
+
+=== Tuples
+
+* Collection d'elements immutable
+
+[source,python]
+----
+>>> a = (1, 2)
+>>> a
+(1, 2)
+>>> a[0]
+----
+
+==== set
+
+=== Date
+
+==== time
+
+==== datetime
+
+== Fonctions, modules
+
+* built-in https://docs.python.org/fr/3.11/library/functions.html
+
+
+
+== Programmations orientée objet
+
+* paradigme de programmation
+
+Composition d'un programme composé d'objet qui peuvent intéragir entre eux.
+
+=== C'est quoi un objet ? 
+
+Il faut voir un objet comme représentation d'un concept, d'une idée ou d'un bien physique.
+
+Cet objet est construit avec une structure de données et des opérations
+
+* Attribut / Propriété : Caractéristique de l'objet (varaible)
+* Methode  : Action des objects (fonction)
+
+Depuis le début, nous travaillons avec des objets.
+
+En python, tout est objet !
+
+[source, python]
+----
+>>> a = "Test"
+>>> isinstance(a, str)
+>>> True
+>>> isinstance(a, objet)
+>>> True
+>>> isinstance(a, int)
+>>> False
+----
+
+3 principes
+
+=== Comment implémenté mon objet ?
+
+Avec des classe
+
+* Implémentation d'un objet
+* Une classe est la définition d’un type
+
+* CamelCase avec la 1er lettre en majuscule
+
+* Structure de données
+
+[source,python]
+----
+class Message:
+  pass
+----
+
+[source,python]
+----
+class Message:
+  message = None
+  pass
+----
+
+==== Constructeur
+
+* Definit comment l'état initial de l'objet
+* Constructeur par defaut
+
+En python, doit être nommé `__init__`
+
+`self` est une réference sur l'objet lui même 
+
+[source,python]
+----
+class Message:
+  
+  message = None
+
+  def __init__(self):
+    self._message = ""
+
+----
+
+[source,python]
+----
+class Message:
+  
+  _message = None
+
+  def __init__(self, message_: str = None):
+    self._message = message_
+
+----
+
+=== Encapsulation
+
+Masquer la strucuture de données interne de l'objet pour garantir la stabilité de son état
+
+Un objet doit fonctionner comme une boîte noire.
+
+Les atributs peuvent être accéder ou modifier via des methodes que l'on expose.
+
+NOTE: Trouver une image pour ilustrer
+
+NOTE: Exemple d'une montre, on remonte les aiguilles avec le truc qui tourne
+
+==== Niveau de visibilité
+
+Dans la litérature, un attribut peut être
+
+* Privé
+* Publique
+* Protégé
+
+Publique : Accessible par tout le monde
+Privé    : Seulement accèssible par la classe elle même
+Protegé  : Accessible par les classes fille 
+
+En python, pas de sytanxe pour la visibilité des attributs mais des conventions :
+
+Un attribut privé sera préfixé d'un '_'.
+
+https://www.pythoniste.fr/python/la-signification-des-traits-de-soulignement-_-en-python/
+
+
+==== Getter
+
+Un getter est une methode qui definit l'accès a une variable, par convention, son nom commence par `get` 
+
+[source, python]
+----
+def get_message(self):
+  return self._message
+----
+
+==== Setter
+
+un setter est une methode qui définit le changement d'état d'un attrbiut, par convention son nom commence par `set`
+
+[source, python]
+----
+def get_message(self):
+  return self._message
+----
+
+==== Propriété
+
+=== Héritage
+
+==== Duck typing
+
+> Si je vois un oiseau qui vole comme un canard, cancane comme un canard, et nage comme un canard, alors j'appelle cet oiseau un canard
+
+La sémentique de l'objet est determiné par l'ensemble de ses methodes et attribut et non par un type définit et statique.
+
+=== Polymorphisme
+
+
+== Les classes en Python
+
+== Gestion d'erreur et exeception
+
+* https://docs.python.org/fr/3/tutorial/errors.html
+
+=== try .. except
+=== finaly
+=== else
+
+=== raise
+
+On peut lever une execption
+
+== Un peu plus
+
+* Déorateur
+* Pylint
+* 
+
+== Packaging
+
