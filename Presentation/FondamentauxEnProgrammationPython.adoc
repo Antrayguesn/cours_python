@@ -1,12 +1,16 @@
 = Fondamentaux en programmation - Python
 :toc:
 
+
 == Un peu d'histoire
 
 De quand date le premier programme informatique ?
 
-NOTE: 1843 : Note G De Ada Lovelace 
-
+[.notes]
+--
+1843 : Note G De Ada Lovelace 
+--
+==
 Cette note calcul le nombre de Bernoulli
 
 Charles Babbage crée la machine analytique en 1834
@@ -19,6 +23,10 @@ Il écrit la machine de Turing et donne la base de la programmation et des progr
 
 Travaux sur le déchiffrement d'enigma, qui écourte (selon estimation) le conflit de la seconde geurre mondial de 2 ans 
 
+Puis les autorités britanniques déclassifièrent progressivement les techniques de décryptage d'Enigma jusqu'à 2000.
+
+Computing Machinery and Intelligence
+
 L'objection de Lady Lovelace par Alan Turing :
 
 > La machine analytique n'a nullement la prétention de créer quelque chose par elle-même. Elle peut exécuter tout ce que nous saurons lui ordonner d'exécuter […] Son rôle est de nous aider à effectuer ce que nous savons déjà dominer.
@@ -27,7 +35,7 @@ L'objection de Lady Lovelace par Alan Turing :
 
 ---
 
-Comment sont écrits les premiers programmes ?
+Comment sont stocké programmes ?
 
 NOTE: Carte perforée
 
@@ -53,7 +61,7 @@ Qu'est un programme informatique ?
 ---
 
 
-Langage de programation par histoire :
+== Langage de programation par histoire :
 
 * Premier système d'exploitation
 * 1954 : Un langage d'assemblage ou langage assembleur est, en programmation informatique, le langage de plus bas niveau qui représente le langage machine sous une forme lisible par un humain
@@ -68,6 +76,8 @@ Langage de programation par histoire :
 * Reutilisable
 * Fermé à l'extension mais ouvert à l'extension
 * 
+[%step]
+* Loi de Pareto (Principe 80/20)
 
 * https://fr.wikipedia.org/wiki/SOLID_(informatique)
 * https://fr.wikipedia.org/wiki/Principe_KISS
@@ -310,7 +320,7 @@ L'interpréteur Python reconnait lui même les types
 
 === Constante
 
-Une constante est une variable dont sa valeur ne sera pas changer au cours 
+Une constante est une variable dont sa valeur ne sera pas changer au cours de l'éxécution
 
 === Comment nommer ma variable ? 
 
@@ -349,6 +359,7 @@ NOTE: Demo sur l'organisateur, retirer une étquette d'une case
 * Addition : +
 * Soustraction : -
 * Division : /
+* Division entière : //
 * Multiplication : *
 
 * Module : % (Renvoie les reste de la division)
@@ -399,24 +410,6 @@ Permet de comparer deux conditions
 * Affectation : =
 * Opérande et affectation : += -= *= /=
 
-=== for
-=== while
-
-* Affiche un sapin
-
-== Structure de contrôle
-
-=== if 
-
-* Evaluation d'une condition
-
-=== if else
-
-=== if elif else
-
-=== match case
-
-* Depuis Python 3
 
 == Chaine de caratère et liste
 
@@ -430,21 +423,124 @@ Permet de comparer deux conditions
 
 * Dans les langages bas niveau, une chaine de caratères est une tableau (liste) de caractère. Le caractère étant un type primitif
 
+== Structure de contrôle
+
+Les structures de contrôle en programmation sont des mécanismes qui permettent de diriger le flux d'exécution d'un programme. En Python, les structures de contrôle comprennent les boucles (`for` et `while`) ainsi que les structures conditionnelles (`if`, `else`, `elif`). Ces éléments sont cruciaux pour élaborer des programmes efficaces et flexibles.
+
+=== structures conditionnelles
+
+Les structures conditionnelles permettent d'exécuter des blocs de code en fonction de certaines conditions.
+
+=== if
+
+* `if` : Exécution conditionnelle
+
+[source,python]
+----
+note = 75
+if note >= 60:
+    print("Félicitations ! Vous avez réussi.")
+----
+
+=== else
+
+* `else` : Sinon 
+
+[source,python]
+----
+note = 45
+if note >= 60:
+    print("Félicitations ! Vous avez réussi.")
+else:
+    print("Dommage, vous n'avez pas réussi.")
+----
+
+=== elif
+
+* `elif` : Plusieurs possibilité
+
+[source,python]
+----
+note = 75
+if note >= 90:
+    print("Excellent !")
+elif 70 <= note < 90:
+    print("Bien fait !")
+else:
+    print("Peut mieux faire.")
+----
+
+=== structures itératives
+
+Les structures itératives permettent d'exécuter des blocs de code en boucle selon une condition.
+
+=== Boucle for
+
+* La boucle `for` permet d'itérer sur une séquence
+
+=== Utilisation avec la `range()`
+[source,python]
+----
+for i in range(5):
+    print(i)
+----
+
+=== Itération sur une séquence
+[source,python]
+----
+for lettre in "MaChaineDeCaratère":
+    print(lettre)
+----
+
+
+
+=== Boucle `while`
+
+La boucle `while` permet d'exécuter un bloc de code tant qu'une condition est vraie.
+
+=== Exécution tant que la condition est vraie
+[source,python]
+----
+compteur = 0
+while compteur < 5:
+    print(compteur)
+    compteur += 1
+----
+
+=== Contrôle des boucles
+
+* `break` : Quitte la boucle
+* `continue` : Passe à l'itération suivante
+
+[source,python]
+----
+compteur = 0
+while compteur < 10:
+    if compteur == 5:
+        break  // Quitte la boucle
+    if compteur % 2 == 0:
+        compteur += 1
+        continue  // Passe à l'itération suivante sans exécuter le reste du bloc
+    print(compteur)
+    compteur += 1
+----
+
+
 
 == Types de données complexes
 
-=== Collection
+== Collection
 
 Les collections indexent des éléments pouvant être parcouru de manière itératives
 
 En python, les éléments des collections ne sont pas typé 
 
-==== dict
+== dict
 
 * Collection d'éléments stocké sous forme de clé/valeur
 
 
-=== Tuples
+== Tuples
 
 * Collection d'elements immutable
 
@@ -472,9 +568,11 @@ En python, les éléments des collections ne sont pas typé
 
 == Programmations orientée objet
 
-* paradigme de programmation
+* Paradigme de programmation
 
 Composition d'un programme composé d'objet qui peuvent intéragir entre eux.
+
+* https://fr.wikipedia.org/wiki/SOLID_(informatique)
 
 === C'est quoi un objet ? 
 
@@ -560,6 +658,8 @@ class Message:
 === Encapsulation
 
 Masquer la strucuture de données interne de l'objet pour garantir la stabilité de son état
+
+Cela permet de cacher certains détails d'implémentation à l'extérieur de la classe et de fournir une interface cohérente pour interagir avec les objets.
 
 Un objet doit fonctionner comme une boîte noire.
 

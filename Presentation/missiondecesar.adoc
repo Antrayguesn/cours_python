@@ -1,0 +1,146 @@
+= La mission de César
+:revealjs_theme: white
+:highlightjsdir: highlight
+:highlightjs-languages: yaml, bash, python, shell
+:imagesdir: images
+:revealjs_center: false
+:customcss: custom.css
+:revealjs_width: 2000
+
+[background-color="black"]
+== La mission de César
+image::romain.jpg[canvas, size=cover]
+
+[%step]
+* Jules César vous convoque pour mettre au point un algorithme de chiffrement pour communiquer avec ses alliès.
+
+* Pour cela, vous décider de créer `Le chiffre de César`
+
+[background-color="black"]
+=== Le chiffre de César
+image::romain.jpg[canvas, size=cover]
+
+Objectif du chiffre de César
+
+* Rendre confidentiel un texte par décalage des lettres de l'alphabet.
+* La clé est le décalage choisi
+
+Chiffrement symétrique:
+
+* La clé est une variable de l'algorithme qui le rend secret
+* Le chiffrement et le déchiffrement s'effectue avec la même clé
+
+
+[background-color="black"]
+=== Implémentation du chiffre de César
+image::romain.jpg[canvas, size=cover]
+
+Chiffrement :
+
+* Choisir un décalage
+* Additioner ce décalage à la position de la lettre dans l'alphabet
+** Si la nouvelle position est supérieur à 26, alors on revient au début (24 + 10 = 8)
+* Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
+
+[background-color="black"]
+=== Implémentation du chiffre de César
+image::romain.jpg[canvas, size=cover]
+
+Déchiffrement :
+
+* Soustraire la clé à la position de la lettre dans l'alphabet
+** Si la nouvelle position est supérieur à 26, alors on retourne à la fin (6 - 10 = 22)
+* Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
+
+[background-color="black"]
+=== Implémentation du chiffre de César
+image::romain.jpg[canvas, size=cover]
+
+image::cesar2.png[Cesar]
+
+[background-color="black"]
+[.columns]
+=== Exemple du chiffre de César
+image::romain.jpg[canvas, size=cover]
+
+[.column]
+--
+* Clair :
+
+....
+Python (prononcé /pi.tɔ̃/) est un langage de
+programmation interprété,
+multiparadigme et multiplateformes
+....
+--
+
+[.column]
+--
+
+* Chiffré :
+....
+Sbwkrq (surqrqfh /sl.wɔ̃/) hvw xq odqjdjh gh
+surjudppdwlrq lqwhusuhwh,
+pxowlsdudgljph hw pxowlsodwhiruphv
+....
+--
+
+[background-color="black"]
+=== A vos claviers !
+image::romain.jpg[canvas, size=cover]
+
+NOTE: 15 min
+
+. Enregistrer une chaine de caractère provenant de l'entrée standard
+. Afficher chaque lettre du message
+
+---
+
+* `input()` : Pour récuperer la saisie
+* `print(str)` : Pour afficher
+
+[background-color="black"]
+=== A vos claviers !
+image::romain.jpg[canvas, size=cover]
+
+NOTE: 45 min
+
+. Ecrire un script qui prend en entrée un message et un nombre.
+. Convertir chaque en lettre en `ASCII`
+. Décaler chaque lettre du message du nombre saisi
+.. Si la valeur n'est pas une lettre ([A-Za-z]) ne pas la modifier
+. Convertir le nouveau code `ASCII` en lettre
+. Afficher la nouvelle chaine
+
+[background-color="black"]
+=== A savoir
+image::romain.jpg[canvas, size=cover]
+
+* `int(variable)` : Converti la variable passé en int
+* `ord(caractere)` : Retourne le code `ASCII` du caractère passé en paramètre
+* `chr(codeAscii)` : Retourne la lettre corespondant au code `ASCII`
+
+* Pensez à utiliser des constantes
+* 65 = A en `ASCII` / 97 = a en `ASCII`
+
+[background-color="black"]
+=== A vos claviers !
+image::romain.jpg[canvas, size=cover]
+
+NOTE: 45 min
+
+. Ecrire une fonction `chiffrer_cesar()` qui prend en paramètre un message et la clé
+. La fonction opére le décalage sur la position de l'alphabet
+. 
+
+
+[background-color="black"]
+=== A savoir
+image::romain.jpg[canvas, size=cover]
+
+* `int(variable)` : Converti la variable passé en int
+* `ord(caractere)` : Retourne le code `ASCII` du caractère passé en paramètre
+* `chr(codeAscii)` : Retourne la lettre corespondant au code `ASCII`
+
+* Pensez à utiliser des constantes
+* 65 = A en `ASCII` / 97 = a en `ASCII`
