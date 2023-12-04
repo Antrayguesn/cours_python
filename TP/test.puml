@@ -1,0 +1,7 @@
+@startuml Message
+class Message {
+{field} Chiffrement algorithme_chiffrement
+{method} chiffrer()
+{method} dehiffrer()
+}
+@enduml

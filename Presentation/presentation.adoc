@@ -1,12 +1,11 @@
 = Fondamentaux en programmation - Python
 
 :revealjs_theme: white
-:highlightjsdir: highlight
-:highlightjs-languages: yaml, bash, python, shell
 :imagesdir: images
 :revealjs_center: false
 :customcss: custom.css
 :revealjs_width: 1500
+:source-highlighter: rouge
 
 
 == Un peu d'histoire ?

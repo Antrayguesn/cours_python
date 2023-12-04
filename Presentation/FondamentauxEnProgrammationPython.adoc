@@ -1,4 +1,6 @@
 = Fondamentaux en programmation - Python
+:source-highlighter: rouge
+
 :toc:
 
 
@@ -719,9 +721,6 @@ def get_message(self):
 La sémentique de l'objet est determiné par l'ensemble de ses methodes et attribut et non par un type définit et statique.
 
 === Polymorphisme
-
-
-== Les classes en Python
 
 == Gestion d'erreur et exeception
 

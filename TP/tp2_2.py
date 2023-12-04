@@ -99,7 +99,40 @@ def occurence_lettre_livre(cheminLivre: str) -> Counter:
 
   return counter_lettre(frequence_lettre_livre)
 
-print(occurence_lettre_livre("livres/livre1.txt"))
+def decrypter_cesar(message: str, frequence_lettre_langue: Counter) -> str:
+
+  freq_chiffre = Counter(message.lower())
+  freq_chiffre = counter_lettre(freq_chiffre)
+  
+  range_ = len(freq_chiffre)
+  
+  most_common_freq_chiffre = freq_chiffre.most_common()[:range_]
+  most_common_freq_langue = frequence_lettre_langue.most_common()[:range_]
+
+  score_cle_probable = {}
+
+  for i in range(range_):
+    pos_caratere_chiffre = ord(most_common_freq_chiffre[i][0]) 
+    pos_caractere_langue = ord(most_common_freq_langue[i][0])
+
+    cle_probable = (pos_caratere_chiffre - pos_caractere_langue) % 26
+
+    try:
+      score_cle_probable[cle_probable] += most_common_freq_chiffre[i][1]
+    except KeyError:
+      score_cle_probable[cle_probable] = most_common_freq_chiffre[i][1]
+    
+  sorted_clef = sorted(score_cle_probable.items(), key=lambda x: x[1], reverse=True)[:3]
+  return [s[0] for s in sorted_clef]
+
+
+message = lire_message("message_chiffre.txt")
+
+cles = decrypter_cesar(message, occurence_lettre_livre("livres/vmlslm.txt"))
+
+for c in cles:
+  print(dechiffrer_cesar(message, c))
+
 
   
 

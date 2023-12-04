@@ -1,5 +1,6 @@
 = La mission de César
 :imagesdir: images
+:source-highlighter: rouge
 
 Jules César vous donne une mission pour son siège d'Alesia
 
@@ -106,6 +107,7 @@ FIN_MINUSCULE = DEBUT_MINUSCULE + 26
 ----
 
 Construire une chaine de caractère:
+
 [source, python]
 ----
 ma_chaine = ""
@@ -149,14 +151,16 @@ python3 -i tp1_3.py
 >>> dechiffrer_cesar(chiffre, clef)
 ----
 
-=== Fonction
+=== A savoir
+
+==== Fonction
 
 Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique
 
 * Elle peut prendre des paramètre
 * Elle peut retourner une valeur
 
-==== Synatxe
+===== Synatxe
 
 [source, python]
 ----
@@ -210,7 +214,9 @@ python3 -i tp1_3.py
 >>> ecrire_message(chiffre)
 ----
 
-=== Les fichiers
+=== A savoir
+
+==== Les fichiers
 
 Ouvrir un fichier et le lire ligne par ligne :
 
@@ -245,7 +251,7 @@ with open("fichier", "r") as mon_fichier:
 
 https://docs.python.org/fr/3.6/library/functions.html#open
 
-== TP 2 : Tout casser !
+== TP 2 : Vercingétorix
 
 Vercingétorix trouve sur un soldat romain l'étrange message suivant : 
 
@@ -255,8 +261,48 @@ Téoqwvviqzm, dwca êbma kpizoé lm ti uqaaqwv kzckqitm xzwbéomz tm kwvdwq lm z
 
 Il apprend que vous êtes le créateur de la méthode de chiffrement, il vous capture pour decrypter le message !
 
+---
 
-== TP 2.1 : Decrypter l'algorithme de Cesar
+=== Implémentation
+
+La methode de decryptage que nous allons implémenter va comparer la fréquence des lettres dans une langue donnée avec la fréquence des lettres du message chiffré.
+
+Pour trouver la fréquence des lettres d'un langue, nous allons parcourir un livre.
+
+Nous prendrons Vingt Milles Lieux sous les Mers : https://www.gutenberg.org/cache/epub/5097/pg5097.txt
+
+On compare les lettres les plus fréquentes du message chiffrée avec ce de la langue. La comparaison des deux letrtes nous donne une clé probable. 
+
+On attribue un classment aux clés trouvée sur le nombre d'occurence de la lettre chiffrée
+
+Le calcul se fait sur une base 26
+
+[source, python]
+----
+frequence_lettre_message = ['w', 'k', 'f', 'm', 'a', 'j']
+frequence_lettre_langue  = ['e', 's', 'a', 'n', 'i', 't']
+----
+
+....
+
+cle_probable = (frequence_lettre_message - frequence_lettre_langue) % 26
+
+w = 22 e = 4
+k = 10 s = 18
+f = 5  a = 0
+n = 13 m = 12
+
+(w - e) % 26
+
+(22 - 4)  % 26 = 18
+(10 - s)  % 26 = 18
+(5 - 0)   % 26 = 5
+(13 - 12) % 26 = 1
+...
+
+....
+
+== TP 2.1 : Analyse de langue
 
 NOTE: 20 + 20 minutes
 
@@ -264,7 +310,8 @@ NOTE: 20 + 20 minutes
 . Ecrire une fonction `occurence_lettre_livre(cheminLivre: str)`
 ** Elle prend en paramètre le chemin vers un livre
 ** Elle retourne le nombre d'occurence de lettre dans ce chiffier
-
+. Compter le nombre de d'occurence de chaque lettre du livre
+** Mettre chaque lettre en minuscule
 
 Test :
 
@@ -273,12 +320,26 @@ Test :
 print(occurence_lettre_livre("livres/vmlslm.txt"))
 ----
 
-A savoir :
+---
 
-* Bien étudier les différentes collections, tester avec l'interpréteur
-* 
+* Bien étudier les différentes collections
+* Tester avec l'interpréteur
+* `str.lower()` Pour mettre en minuscule une chaîne de caractère
 
-=== Collection
+.Indice
+[%collapsible]
+====
+[source,python]
+----
+>>> from collections import Counter
+>>> Counter("Je suis un super message")
+Counter({'s': 5, 'e': 4, ' ': 4, 'u': 3, 'J': 1, 'i': 1, 'n': 1, 'p': 1, 'r': 1, 'm': 1, 'a': 1, 'g': 1})
+----
+====
+
+=== A savoir
+
+==== Collections
 
 Les collections indexent des éléments pouvant être parcouru de manière itératives
 
@@ -287,7 +348,7 @@ En python, les éléments des collections ne sont pas typé
 * https://docs.python.org/3/tutorial/datastructures.html
 * https://docs.python.org/3/library/collections.html
 
-=== Module
+==== Bibliothéque
 
 Un ensemble de fonctions s'appelle une librairie.
 
@@ -313,5 +374,167 @@ print(time())
 Les imports se trouvent en haut du fichier
 
 
+== TP 2.2 Decrypter le chiffre le Cesar
+
+NOTE: 1 heure
+
+* Ecrire une fonction `decrypter_cesar(message: str) -> list`
+** Cette fonction prend en paramètre un message
+** Elle retourne une liste des 3 clés les plus probable classé par probabilité
+* 
+* Afficher les messages dechiffrer à l'aide des 3 clés
+
+Test :
+
+[source, python]
+----
+message = lire_message("message_chiffre.txt")
+
+cles = decrypter_cesar(message, occurence_lettre_livre("livres/vmlslm.txt"))
+
+for c in cles:
+  print(dechiffrer_cesar(message, c))
+----
+
+=== A savoir
+
+==== Gestion des erreurs
+
+try 
+
+except
+
+liste des exception
+
+==== Dictionnaire
+
+[source, python]
+----
+score_cle_probable = {}
 
 
+score_cle_probable[cle_probable] = 12
+
+score_cle_probable[cle_probable] += 1
+
+mon_dictionnaire = {}
+
+if cle_probable in mon_dictionnaire: # True si la clé existe sinon False
+  mon_dictionnaire[cle_probable] += 1
+else:
+  mon_dictionnaire[cle_probable] = 0
+
+try:
+  mon_dictionnaire[cle_probable] += 1
+except KeyError:
+  mon_dictionnaire[cle_probable] = 0
+----
+
+==== Counter
+
+[source, python]
+----
+frequence_lettre_langue = occurence_lettre_livre("livres/vmlslm.txt")
+frequence_lettre_langue.most_common() # Retourne une liste des occurences triées par occurences
+
++frequence_lettre_langue # Retourne un Counter sans les éléments vide ou à zero
+-frequence_lettre_langue # Retourne un Counter avec uniquement les éléments vide ou à zero
+----
+
+== TP 3 : Hasta siempre !
+
+2000 ans après vos exploits auprès de Jules César, votre nom se fait connaître à Cuba où une révolution est en cours.
+
+Comme nous l'avons demontrée, le chiffre de César n'est pas fiable, il est facilement decryptable.
+
+Vous êtes contacté par Che Guevara pour mettre en place un algorithme plus sécurisé et de pouvoir transmettre la clé simplement.
+
+Vous vous inspirer des conceptes du `Chiffre de Vernam` ou du `Masque jetable`:
+* La clé doit être une suite de caractères au moins aussi longue que le message à chiffrer.
+* Les caractères composant la clé doivent être choisis de façon totalement aléatoire.
+* Chaque clé, ou masque, ne doit être utilisée qu'une seule fois (d'où le nom de masque jetable).
+
+Pour répondre à ces principes et au besoin, vous decidez :
+* La clé sera récuperé depuis un livre
+* La clé sera récuperé après un nombre de caractère aléatoire
+* Le nombre de caractère aléatoire est compris entre 0 et la fin du fichier - taille du message
+* La clé sera uniquement composé de lettre
+
+
+== TP 3.1 : Drole de types
+
+NOTE: 1 heure
+
+[plantuml, format="svg", id="classMessage"]
+----
+class Message {
+{field} Chiffrement algorithme_chiffrement
+{field} str message
+
+__init__(algorithme_chiffrement: Chiffrement)
+{method} chiffrer() -> str
+{method} dehiffrer() -> str
+message_from_fichier(cheminMessage: str)
+ecrire_dans_fichier(cheminMessage: str)
+}
+
+Chiffrement o-- Message
+
+Chiffrement <|-- ChiffrementDecalage
+
+ChiffrementDecalage <|-- Cesar
+@enduml
+----
+
+* Dans le fichier `chiffrement.py`, écrire la classe `Chiffrement`
+** 
+
+
+
+* Dans le fichier `message.py`, ecrire la classe `Message`
+
+
+** chiffrer()
+
+== TP 3.2 : L'héritage
+
+
+[plantuml, format="svg", id="classMessageChiffrement"]
+----
+@startuml Chiffrement
+class Chiffrement {
+
+__init__(clef: object)
+{method} chiffrer(message: str) -> str
+{method} dehiffrer(message: str) -> str
+}
+
+class ChiffrementDecalage {
+  _est_majuscule(lettre: str) -> int
+  _est_lettre(lettre: str) -> bool
+  alphabet_to_ascii(position_lettre: int, typeLettre: int) -> str
+  ascii_to_alphabet(lettre: str) -> (str, int)
+}
+
+class Cesar {
+
+}
+
+class Message {
+{field} Chiffrement algorithme_chiffrement
+{field} str message
+
+__init__(algorithme_chiffrement: Chiffrement)
+{method} chiffrer() -> str
+{method} dehiffrer() -> str
+message_from_fichier(cheminMessage: str)
+ecrire_dans_fichier(cheminMessage: str)
+}
+
+Chiffrement o-- Message
+
+Chiffrement <|-- ChiffrementDecalage
+
+ChiffrementDecalage <|-- Cesar
+@enduml
+----

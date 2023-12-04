@@ -413,13 +413,126 @@ ul.byline {
 ul.byline li + li {
   margin-top: 0.25em;
 }
+</style><style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
 </style><link rel="stylesheet" href="custom.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Fondamentaux en programmation - Python</h1></section><section><section id="_un_peu_dhistoire"><h2>Un peu d&#8217;histoire ?</h2></section><section id="_premier_programme_informatique"><h2>Premier programme informatique</h2><div class="slide-content"><div class="paragraph"><p>De quand date le premier programme informatique ?</p></div>
 <div class="ulist"><ul><li class="fragment"><p>1843</p></li><li class="fragment"><p>Note G</p></li><li class="fragment"><p>Ada Lovelace</p></li><li class="fragment"><p>Permet le calcul le nombre de Bernoulli</p></li></ul></div></div></section><section id="_ada_lovelace" class="columns"><div class="slide-content"><div class="openblock column"><div class="content"><div class="imageblock center"><img src="images/noteg.jpg" alt="Note G" width="400px"></div></div></div>
 <div class="openblock column"><div class="content"><div class="imageblock center"><img src="images/ada.jpg" alt="Ada" width="400px"></div></div></div></div></section><section id="_machine_analytique"><h2>Machine analytique</h2><div class="slide-content"><div class="ulist"><ul><li><p>Créer par Charles Babbage en 1834</p></li><li><p>Assilimé au premier ordinateur</p></li></ul></div>
 <div class="imageblock"><img src="images/moulin.jpg" alt="moulin"></div></div></section><section id="_alan_turing"><h2>Alan Turing</h2><div class="slide-content"><div class="ulist"><ul><li><p>Pionier de l&#8217;informatique et de la crytanalyse</p></li><li><p>Decryptage d&#8217;Enigma</p></li><li><p>En 1950 conçoit le Test de Turing</p></li><li><p>Ecrit Computing Machinery and Intelligence et donne la base de la programmation et des programmes informatique</p></li></ul></div></div></section><section id="_alan_turing_2"><div class="slide-content"><div class="openblock column"><div class="content"><div class="imageblock"><img src="images/turing.jpg" alt="Turing" width="400px"></div></div></div></div></section><section id="_lobjection_de_lady_lovelace_par_alan_turing"><h2>L&#8217;objection de Lady Lovelace par Alan Turing</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>La machine analytique n&#8217;a nullement la prétention de créer quelque chose par elle-même. Elle peut exécuter tout ce que nous saurons lui ordonner d&#8217;exécuter […] Son rôle est de nous aider à effectuer ce que nous savons déjà dominer.</p></div></blockquote></div></div></section></section>
-<section><section id="_cest_quoi_un_programme_informatique"><h2>C&#8217;est quoi un programme informatique ?</h2><div class="slide-content"><div class="ulist"><ul><li><p>C&#8217;est quoi un programme informatique ?</p></li></ul></div><div class="paragraph fragment"><p>Un programme informatique est une série d&#8217;opérations logiques et d&#8217;algorithmes qui indiquent à l&#8217;ordinateur comment traiter les données d&#8217;entrée pour produire les résultats souhaités en sortie.</p></div></div></section><section id="_cest_quoi_quun_algorithme"><h2>C&#8217;est quoi qu&#8217;un algorithme ?</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>Un algorithme est une suite finie et non ambiguë d&#8217;instructions et d’opérations permettant de résoudre un problème.</p></div></blockquote></div></div></section><section id="_quest_quun_langage_de_programation"><h2>Qu&#8217;est qu&#8217;un langage de programation ?</h2><div class="slide-content"><div class="paragraph"><p>Langage informatique qui implémente des algorithmes exécuté dans un programe informatique</p></div>
-<div class="paragraph"><p>Un langage de programmation est composé de règles syntaxiques spécifiques compréhensibles par les ordinateurs.</p></div></div></section><section id="_encore_un_peu_dhistoire" class="columns"><h2>Encore un peu d&#8217;histoire ?</h2><div class="slide-content"><div class="ulist timeline"><ul><li><p><strong>1954</strong> : Premier système d&#8217;exploitation</p></li><li><p><strong>1954</strong> : Assembleur</p></li><li><p><strong>1959</strong> : Cobol</p></li><li><p><strong>1970</strong> : C</p></li><li><p><strong>1985</strong> : C++ evolution du C</p></li><li><p><strong>1991</strong> : Python</p></li><li><p><strong>2006</strong> : Rust</p></li><li><p><strong>2008</strong> : Python 3</p></li><li><p><strong>2009</strong> : Golang</p></li></ul></div></div></section><section id="_principe_de_programmation"><h2>Principe de programmation</h2><div class="slide-content"><div class="ulist"><ul><li><p>SOLID</p></li><li><p>Kiss</p></li><li><p>Dry</p></li><li><p>Zen of Python</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">import this</code></pre></div></div></div></section><section id="_interprété_ou_compilé"><h2>Interprété ou compilé ?</h2></section><section id="_compilé"><h2>Compilé</h2><div class="slide-content"><div class="paragraph"><p>Traduit en amont les instruction d&#8217;un programe en langage machine pour qu&#8217;il soit éxécuté.</p></div>
+<section><section id="_cest_quoi_un_programme_informatique"><h2>C&#8217;est quoi un programme informatique ?</h2><div class="slide-content"><div class="paragraph fragment"><p>Un programme informatique est une série d&#8217;opérations logiques et d&#8217;algorithmes qui indiquent à l&#8217;ordinateur comment traiter les données d&#8217;entrée pour produire les résultats souhaités en sortie.</p></div></div></section><section id="_cest_quoi_quun_algorithme"><h2>C&#8217;est quoi qu&#8217;un algorithme ?</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>Un algorithme est une suite finie et non ambiguë d&#8217;instructions et d’opérations permettant de résoudre un problème.</p></div></blockquote></div></div></section><section id="_quest_quun_langage_de_programation"><h2>Qu&#8217;est qu&#8217;un langage de programation ?</h2><div class="slide-content"><div class="paragraph"><p>Langage informatique qui implémente des algorithmes exécuté dans un programe informatique</p></div>
+<div class="paragraph"><p>Un langage de programmation est composé de règles syntaxiques spécifiques compréhensibles par les ordinateurs.</p></div></div></section><section id="_principe_de_programmation"><h2>Principe de programmation</h2><div class="slide-content"><div class="ulist"><ul><li><p>SOLID</p></li><li><p>Kiss</p></li><li><p>Dry</p></li><li><p>Zen of Python</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">this</span></code></pre></div></div></div></section><section id="_interprété_ou_compilé"><h2>Interprété ou compilé ?</h2></section><section id="_compilé"><h2>Compilé</h2><div class="slide-content"><div class="paragraph"><p>Traduit en amont les instruction d&#8217;un programe en langage machine pour qu&#8217;il soit éxécuté.</p></div>
 <div class="paragraph"><p>Assuré par un compilateur</p></div>
 <div class="paragraph"><p>Langage compilé :</p></div>
 <div class="ulist"><ul><li><p>C (gcc)</p></li><li><p>C++ ( g+\+ )</p></li><li><p>Golang (go)</p></li></ul></div></div></section><section id="_interprété"><h2>Interprété</h2><div class="slide-content"><div class="paragraph"><p>Traduit les instruction au moment de l&#8217;éxecution les instruction en langage machine</p></div>
@@ -431,100 +544,134 @@ ul.byline li + li {
 <div class="openblock column"><div class="content"><div class="ulist"><ul><li><p>Python 3 :</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre>print("Coucou")</pre></div></div></div></div></div></section><section id="_cas_dutilisation"><h2>Cas d&#8217;utilisation</h2></section></section>
 <section><section id="_notre_premier_programme"><h2>Notre premier programme !</h2></section><section id="_hello_world"><h2>Hello world</h2><div class="slide-content"><div class="olist arabic"><ol class="arabic"><li><p>Ouvrir un fichier <code>helloworld.py</code></p></li><li><p>Ecrire la ligne suivante</p></li></ol></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">print("Hello world")</code></pre></div></div></div></section><section id="_executer_notre_programme"><h2>Executer notre programme</h2><div class="slide-content"><div class="paragraph"><p>Avec une console :</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-bash" data-lang="bash">python3 helloworld.py</code></pre></div></div></div></section><section id="_jouer_avec_linterpréteur"><h2>Jouer avec l&#8217;interpréteur</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code>$ python3
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello world</span><span class="sh">"</span><span class="p">)</span></code></pre></div></div></div></section><section id="_executer_notre_programme"><h2>Executer notre programme</h2><div class="slide-content"><div class="paragraph"><p>Avec une console :</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="bash">python3 helloworld.py</code></pre></div></div></div></section><section id="_jouer_avec_linterpréteur"><h2>Jouer avec l&#8217;interpréteur</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code>$ python3
 Python 3.11.6 (main, Nov 14 2023, 09:36:21) [GCC 13.2.1 20230801] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; print("Hello world")
 Hello world</code></pre></div></div>
 <div class="ulist"><ul><li><p>Tester le fonctionne et le comportement d&#8217;instruction</p></li></ul></div></div></section></section>
-<section><section id="_cest_quoi_une_variable"><h2>C&#8217;est quoi une variable ?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Zone mémoire où l&#8217;on stocke une donnée</p></li><li><p>Une variable porte un nom (étiquette) qui permet d&#8217;y accéder</p></li><li><p>Une zone mémoire à une adresse</p></li></ul></div></div></section><section id="_cest_quoi_une_variable_2"><h2>C&#8217;est quoi une variable ?</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">ma_variable = 42</code></pre></div></div>
+<section><section id="_cest_quoi_une_variable"><h2>C&#8217;est quoi une variable ?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Zone mémoire où l&#8217;on stocke une donnée</p></li><li><p>Une variable porte un nom (étiquette) qui permet d&#8217;y accéder</p></li><li><p>Une zone mémoire à une adresse</p></li></ul></div></div></section><section id="_cest_quoi_une_variable_2"><h2>C&#8217;est quoi une variable ?</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">ma_variable</span> <span class="o">=</span> <span class="mi">42</span></code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>Le nom de ma variable ?</p></li><li class="fragment"><p>La valeur ?</p></li></ul></div></div></section><section id="_la_vie_dune_varible"><h2>La vie d&#8217;une varible</h2><div class="slide-content"><div class="ulist"><ul><li><p>Réservation de la mémoire</p></li><li><p>Declaration</p></li><li><p>Instantiation</p></li><li><p>Affectation</p></li><li><p>Suppression en mémoire</p></li></ul></div></div></section><section id="_la_vie_dune_varible_2"><h2>La vie d&#8217;une varible</h2><div class="slide-content"><div class="ulist"><ul><li><p>Python fait la déclaration, l&#8217;instatiation et l&#8217;affectation au même moment</p></li><li><p>La gestion de la mémoire est automatique</p></li></ul></div></div></section><section id="_cest_quand_même_bien_python" class="columns"><h2>C&#8217;est quand même bien Python</h2><div class="slide-content"><div class="openblock column"><div class="content"><div class="paragraph"><p>En C :</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-c" data-lang="c">int *a;
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="c"><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
 
-a = new int;
-*a = 42;
+<span class="n">a</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">;</span>
+<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
 
-delete a;</code></pre></div></div></div></div>
+<span class="n">delete</span> <span class="n">a</span><span class="p">;</span></code></pre></div></div></div></div>
 <div class="openblock column"><div class="content"><div class="paragraph"><p>En Python :</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">ma_variable = 42</code></pre></div></div></div></div></div></section><section id="_type_de_données_primitif"><h2>Type de données (Primitif)</h2><div class="slide-content"><div class="ulist"><ul><li><p>Entier : <code>int</code></p></li><li><p>Nombre décimaux : <code>float</code></p></li><li><p>Booléan (True/False) <code>bool</code></p></li><li><p>Chaine de caractère : <code>str</code></p></li></ul></div></div></section><section id="_typage_dynamique"><h2>Typage dynamique</h2><div class="slide-content"><div class="paragraph"><p>L&#8217;interpréteur Python reconnait lui même les types</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; ma_variable = 42
-&gt;&gt;&gt; type(ma_variable)
-&lt;class 'int'&gt;</code></pre></div></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; ma_variable = "Toto"
-&gt;&gt;&gt; type(ma_variable)
-&lt;class 'str'&gt;</code></pre></div></div></div></section><section id="_constante"><h2>Constante</h2><div class="slide-content"><div class="ulist"><ul><li><p>Une constante est une variable dont sa valeur ne sera pas changer au cours de l&#8217;éxécution</p></li><li><p>Par convention, écrit en majuscule</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">PREFIX_LOG_ERROR = "[ERROR]"
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">ma_variable</span> <span class="o">=</span> <span class="mi">42</span></code></pre></div></div></div></div></div></section><section id="_type_de_données_primitif"><h2>Type de données (Primitif)</h2><div class="slide-content"><div class="ulist"><ul><li><p>Entier : <code>int</code></p></li><li><p>Nombre décimaux : <code>float</code></p></li><li><p>Booléan (True/False) <code>bool</code></p></li><li><p>Chaine de caractère : <code>str</code></p></li></ul></div></div></section><section id="_typage_dynamique"><h2>Typage dynamique</h2><div class="slide-content"><div class="paragraph"><p>L&#8217;interpréteur Python reconnait lui même les types</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">ma_variable</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">type</span><span class="p">(</span><span class="n">ma_variable</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">int</span><span class="sh">'</span><span class="s">&gt;</span></code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">ma_variable</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Toto</span><span class="sh">"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">type</span><span class="p">(</span><span class="n">ma_variable</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">str</span><span class="sh">'</span><span class="s">&gt;</span></code></pre></div></div></div></section><section id="_constante"><h2>Constante</h2><div class="slide-content"><div class="ulist"><ul><li><p>Une constante est une variable dont sa valeur ne sera pas changer au cours de l&#8217;éxécution</p></li><li><p>Par convention, écrit en majuscule</p></li><li><p><a href="https://docs.python.org/fr/3/library/constants.html" class="bare">https://docs.python.org/fr/3/library/constants.html</a></p></li></ul></div></div></section><section id="_conversion_de_type"><h2>Conversion de type</h2><div class="slide-content"><div class="ulist"><ul><li><p>Aussi appellé <code>cast</code></p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="nf">int</span><span class="p">(</span><span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">str</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="sh">"</span><span class="s">10</span><span class="sh">"</span></code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">PREFIX_LOG_ERROR</span> <span class="o">=</span> <span class="sh">"</span><span class="s">[ERROR]</span><span class="sh">"</span>
 
-print(PREFIX_LOG_ERROR + " une erreur est survenue")</code></pre></div></div></div></section><section id="_comment_nommer_ma_variable"><h2>Comment nommer ma variable ?</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Il y a seulement 2 problèmes compliqués en informatique : nommer les choses, et l'invalidation de cache" .</pre></div></div>
+<span class="nf">print</span><span class="p">(</span><span class="n">PREFIX_LOG_ERROR</span> <span class="o">+</span> <span class="sh">"</span><span class="s"> une erreur est survenue</span><span class="sh">"</span><span class="p">)</span></code></pre></div></div></div></section><section id="_comment_nommer_ma_variable"><h2>Comment nommer ma variable ?</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>Il y a seulement 2 problèmes compliqués en informatique : nommer les choses, et l'invalidation de cache" .</pre></div></div>
 <div class="ulist"><ul><li><p>Camel case : maVariable</p></li><li><p>Snake case : ma_variable</p></li><li><p><a href="https://realpython.com/python-pep8/" class="bare">https://realpython.com/python-pep8/</a></p></li></ul></div></div></section><section id="_rammasse_miette"><h2>Rammasse miette</h2><div class="slide-content"><div class="paragraph"><p>Programme qui va liberer les zonnes mémoires qui ne sont plus référencé par un programme</p></div>
 <div class="paragraph"><p>En anglais :</p></div>
 <div class="ulist"><ul><li><p>Garbage collector / GC</p></li></ul></div></div></section></section>
-<section><section id="_opérateur_et_expression"><h2>Opérateur et expression</h2></section><section id="_arithmetique"><h2>Arithmetique</h2><div class="slide-content"><div class="ulist"><ul><li><p>Addition : <code>+</code></p></li><li><p>Soustraction : <code>-</code></p></li><li><p>Division : <code>/</code></p></li><li><p>Division entière : <code>//</code></p></li><li><p>Multiplication : <code>*</code></p></li><li><p>Modulo : <code>%</code> (Renvoie le reste de la division)</p></li></ul></div></div></section><section id="_comparaison"><h2>Comparaison</h2><div class="slide-content"><div class="paragraph"><p>Renvoie <code>True</code> si la condition est rempli sinon <code>False</code></p></div>
+<section><section id="_opérateur_et_expression"><h2>Opérateur et expression</h2></section><section id="_arithmetique"><h2>Arithmetique</h2><div class="slide-content"><div class="ulist"><ul><li><p>Addition : <code>+</code></p></li><li><p>Soustraction : <code>-</code></p></li><li><p>Division : <code>/</code></p></li><li><p>Division entière : <code>//</code></p></li><li><p>Multiplication : <code>*</code></p></li><li><p>Exposant : <code>**</code></p></li><li><p>Modulo : <code>%</code> (Renvoie le reste de la division)</p></li></ul></div></div></section><section id="_comparaison"><h2>Comparaison</h2><div class="slide-content"><div class="paragraph"><p>Renvoie <code>True</code> si la condition est rempli sinon <code>False</code></p></div>
 <div class="ulist"><ul><li><p>Inférieur à : <code>&lt;</code></p></li><li><p>Supérieur à : <code>&gt;</code></p></li><li><p>Inférieur ou égale : `&#8656; `</p></li><li><p>Supérieur ou égale : <code>&gt;=</code></p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; 5 &lt; 10
-True
-&gt;&gt;&gt; 15 &lt; 10
-False
-&gt;&gt;&gt; 15 &gt; 10
-True</code></pre></div></div></div></section><section id="_comparaison_dinstance"><h2>Comparaison d&#8217;instance</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; True is True
-True
-&gt;&gt;&gt; True is False
-False</code></pre></div></div></div></section><section id="_logique"><h2>Logique</h2><div class="slide-content"><div class="paragraph"><p>Permet de comparer deux conditions</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">15</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">15</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="bp">True</span></code></pre></div></div></div></section><section id="_comparaison_dinstance"><h2>Comparaison d&#8217;instance</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span> <span class="ow">is</span> <span class="bp">True</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span> <span class="ow">is</span> <span class="bp">False</span>
+<span class="bp">False</span></code></pre></div></div></div></section><section id="_logique"><h2>Logique</h2><div class="slide-content"><div class="paragraph"><p>Permet de comparer deux conditions</p></div>
 <div class="ulist"><ul><li><p><code>and</code></p></li><li><p><code>or</code></p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; True and False
-False
-&gt;&gt;&gt; False and False
-False
-&gt;&gt;&gt; True or False
-True
-&gt;&gt;&gt; False or False
-False</code></pre></div></div></div></section><section id="_affectation"><h2>Affectation</h2><div class="slide-content"><div class="ulist"><ul><li><p>Affectation : =</p></li><li><p>Opérande et affectation : += -= *= /=</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; ma_varaible = 42
-&gt;&gt;&gt; ma_varaible
-42
-&gt;&gt;&gt; ma_variable += 8
-&gt;&gt;&gt; ma_variable
-50
-&gt;&gt;&gt; ma_variable -= 8
-&gt;&gt;&gt; ma_variable
-42</code></pre></div></div></div></section></section>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span> <span class="ow">and</span> <span class="bp">False</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">False</span> <span class="ow">and</span> <span class="bp">False</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span> <span class="ow">or</span> <span class="bp">False</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="bp">False</span> <span class="ow">or</span> <span class="bp">False</span>
+<span class="bp">False</span></code></pre></div></div></div></section><section id="_affectation"><h2>Affectation</h2><div class="slide-content"><div class="ulist"><ul><li><p>Affectation : =</p></li><li><p>Opérande et affectation : += -= *= /=</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">ma_varaible</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_varaible</span>
+<span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_variable</span> <span class="o">+=</span> <span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_variable</span>
+<span class="mi">50</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_variable</span> <span class="o">-=</span> <span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_variable</span>
+<span class="mi">42</span></code></pre></div></div></div></section></section>
+<section id="_fonctions_natives"><h2>Fonctions natives</h2><div class="slide-content"><div class="ulist"><ul><li><p><a href="https://docs.python.org/fr/3/library/functions.html" class="bare">https://docs.python.org/fr/3/library/functions.html</a></p></li></ul></div></div></section>
+<section><section id="_chaine_de_caractère_et_liste"><h2>Chaine de caractère et liste</h2></section><section id="_liste"><h2>Liste</h2><div class="slide-content"><div class="ulist"><ul><li><p>Séquences muables</p></li><li><p>généralement utilisées pour stocker des collections d&#8217;éléments homogènes (le degré de similitude varie selon l&#8217;usage).</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">ma_liste</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_liste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_liste</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ma_liste</span></code></pre></div></div>
+<div class="paragraph"><p>*
+* <a href="https://docs.python.org/fr/3/library/stdtypes.html#list" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#list</a></p></div></div></section><section id="_chaine_de_caractère"><h2>Chaine de caractère</h2><div class="slide-content"><div class="ulist"><ul><li><p>Séquence de caractères</p></li><li><p>Délimitée par des guillemets (quote) simples  <code>'</code> ou doubles <code>"</code></p></li><li><p>Itérable</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">ma_chaine</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Je suis une chaine de caractère</span><span class="sh">"</span></code></pre></div></div>
+<div class="ulist"><ul><li><p><a href="https://docs.python.org/fr/3/library/stdtypes.html#str" class="bare">https://docs.python.org/fr/3/library/stdtypes.html#str</a></p></li></ul></div></div></section></section>
 <section><section id="_structure_de_contrôle"><h2>Structure de contrôle</h2><div class="slide-content"><div class="paragraph"><p>2 types :</p></div><div class="ulist"><ul><li><p>Strucutre conditionnelles</p></li><li><p>Boucles</p></li></ul></div></div></section><section id="_structures_conditionnelles"><h2>Structures conditionnelles</h2><div class="slide-content"><div class="paragraph"><p>Les structures conditionnelles permettent d&#8217;exécuter des blocs de code en fonction de certaines conditions.</p></div></div></section><section id="_if"><h2>if</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>if</code> : Exécution conditionnelle</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">note = 75
-if note &gt;= 60:
-    print("Félicitations ! Vous avez réussi.")</code></pre></div></div></div></section><section id="_else"><h2>else</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>else</code> : Sinon</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">note = 45
-if note &gt;= 60:
-    print("Félicitations ! Vous avez réussi.")
-else:
-    print("Dommage, vous n'avez pas réussi.")</code></pre></div></div></div></section><section id="_elif"><h2>elif</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>elif</code> : Plusieurs possibilité</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">note = 75
-if note &gt;= 90:
-    print("Excellent !")
-elif 70 &lt;= note &lt; 90:
-    print("Bien fait !")
-else:
-    print("Peut mieux faire.")</code></pre></div></div></div></section><section id="_boucle"><h2>Boucle</h2><div class="slide-content"><div class="paragraph"><p>Les boucles permettent de répeter des blocs de code selon une condition</p></div></div></section><section id="_boucle_for"><h2>Boucle for</h2><div class="slide-content"><div class="ulist"><ul><li><p>La boucle <code>for</code> permet d&#8217;itérer sur une séquence</p></li></ul></div></div></section><section id="_utilisation_avec_la_range"><h2>Utilisation avec la <code>range()</code></h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">for i in range(5):
-    print(i)</code></pre></div></div></div></section><section id="_itération_sur_une_séquence"><h2>Itération sur une séquence</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">for lettre in "MaChaineDeCaratère":
-    print(lettre)</code></pre></div></div></div></section><section id="_boucle_while"><h2>Boucle <code>while</code></h2><div class="slide-content"><div class="paragraph"><p>La boucle <code>while</code> permet d&#8217;exécuter un bloc de code tant qu&#8217;une condition est vraie.</p></div></div></section><section id="_exécution_tant_que_la_condition_est_vraie"><h2>Exécution tant que la condition est vraie</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">compteur = 0
-while compteur &lt; 5:
-    print(compteur)
-    compteur += 1</code></pre></div></div></div></section><section id="_contrôle_des_boucles"><h2>Contrôle des boucles</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>break</code> : Quitte la boucle</p></li><li><p><code>continue</code> : Passe à l&#8217;itération suivante</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">compteur = 0
-while compteur &lt; 10:
-    if compteur == 5:
-        break  // Quitte la boucle
-    if compteur % 2 == 0:
-        compteur += 1
-        continue  // Passe à l'itération suivante sans exécuter le reste du bloc
-    print(compteur)
-    compteur += 1</code></pre></div></div></div></section></section>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">note</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="k">if</span> <span class="n">note</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Félicitations ! Vous avez réussi.</span><span class="sh">"</span><span class="p">)</span></code></pre></div></div></div></section><section id="_else"><h2>else</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>else</code> : Sinon</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">note</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="k">if</span> <span class="n">note</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Félicitations ! Vous avez réussi.</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Dommage, vous n</span><span class="sh">'</span><span class="s">avez pas réussi.</span><span class="sh">"</span><span class="p">)</span></code></pre></div></div></div></section><section id="_elif"><h2>elif</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>elif</code> : Plusieurs possibilité</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">note</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="k">if</span> <span class="n">note</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Excellent !</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="mi">70</span> <span class="o">&lt;=</span> <span class="n">note</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Bien fait !</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Peut mieux faire.</span><span class="sh">"</span><span class="p">)</span></code></pre></div></div></div></section><section id="_boucle"><h2>Boucle</h2><div class="slide-content"><div class="paragraph"><p>Les boucles permettent de répeter des blocs de code selon une condition</p></div></div></section><section id="_boucle_for"><h2>Boucle for</h2><div class="slide-content"><div class="ulist"><ul><li><p>La boucle <code>for</code> permet d&#8217;itérer sur une séquence</p></li></ul></div></div></section><section id="_utilisation_avec_la_range"><h2>Utilisation avec la <code>range()</code></h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></code></pre></div></div></div></section><section id="_itération_sur_une_séquence"><h2>Itération sur une séquence</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">lettre</span> <span class="ow">in</span> <span class="sh">"</span><span class="s">MaChaineDeCaratère</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">lettre</span><span class="p">)</span></code></pre></div></div></div></section><section id="_boucle_while"><h2>Boucle <code>while</code></h2><div class="slide-content"><div class="paragraph"><p>La boucle <code>while</code> permet d&#8217;exécuter un bloc de code tant qu&#8217;une condition est vraie.</p></div></div></section><section id="_exécution_tant_que_la_condition_est_vraie"><h2>Exécution tant que la condition est vraie</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">compteur</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">compteur</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">compteur</span><span class="p">)</span>
+    <span class="n">compteur</span> <span class="o">+=</span> <span class="mi">1</span></code></pre></div></div></div></section><section id="_contrôle_des_boucles"><h2>Contrôle des boucles</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>break</code> : Quitte la boucle</p></li><li><p><code>continue</code> : Passe à l&#8217;itération suivante</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">compteur</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">compteur</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">compteur</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>  <span class="c1"># Quitte la boucle
+</span>    <span class="k">if</span> <span class="n">compteur</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">compteur</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">continue</span>  <span class="c1"># Passe à l'itération suivante sans exécuter le reste du bloc
+</span>    <span class="nf">print</span><span class="p">(</span><span class="n">compteur</span><span class="p">)</span>
+    <span class="n">compteur</span> <span class="o">+=</span> <span class="mi">1</span></code></pre></div></div></div></section></section>
+<section><section id="_fonction"><h2>Fonction</h2><div class="slide-content"><div class="paragraph"><p>Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique</p></div><div class="ulist"><ul><li><p>Elle peut prendre des paramètre</p></li><li><p>Elle peut retourner une valeur</p></li></ul></div></div></section><section id="_synatxe"><h2>Synatxe</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">ma_fonction</span><span class="p">():</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Ceci est une fonction</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="n">arg1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">arg2</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Ceci est une fonction avec des arguments : </span><span class="sh">"</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="n">arg1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">arg2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Ceci est une fonction avec des arguments : </span><span class="sh">"</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ma_fonction_qui_retourne_une_valeur</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+  <span class="k">return</span> <span class="sh">"</span><span class="s">Je suis le retour d</span><span class="sh">'</span><span class="s">une fonction</span><span class="sh">"</span></code></pre></div></div></div></section><section id="_synatxe_2"><h2>Synatxe</h2><div class="slide-content"><div class="ulist"><ul><li><p>Appeller une fonction</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction</span><span class="p">()</span>
+<span class="n">Ceci</span> <span class="n">est</span> <span class="n">une</span> <span class="n">fonction</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Arguments positionnels
+</span><span class="n">Ceci</span> <span class="n">est</span> <span class="n">une</span> <span class="n">fonction</span> <span class="n">avec</span> <span class="n">des</span> <span class="n">arguments</span> <span class="p">:</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="n">arg2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">arg1</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># Argument par mot-clé
+</span><span class="n">Ceci</span> <span class="n">est</span> <span class="n">une</span> <span class="n">fonction</span> <span class="n">avec</span> <span class="n">des</span> <span class="n">arguments</span> <span class="p">:</span> <span class="mi">8</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction_qui_retourne_une_valeur</span><span class="p">()</span>
+<span class="sh">"</span><span class="s">Je suis le retour d</span><span class="sh">'</span><span class="s">une fonction</span><span class="sh">"</span></code></pre></div></div></div></section></section>
 <section><section id="_types_de_données_complexes"><h2>Types de données complexes</h2></section><section id="_collection"><h2>Collection</h2><div class="slide-content"><div class="paragraph"><p>Les collections indexent des éléments pouvant être parcouru de manière itératives</p></div>
-<div class="paragraph"><p>En python, les éléments des collections ne sont pas typé</p></div></div></section><section id="_dict"><h2>dict</h2><div class="slide-content"><div class="ulist"><ul><li><p>Collection d&#8217;éléments stocké sous forme de clé/valeur</p></li></ul></div></div></section><section id="_tuples"><h2>Tuples</h2><div class="slide-content"><div class="ulist"><ul><li><p>Collection d&#8217;elements immutable</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; a = (1, 2)
-&gt;&gt;&gt; a
-(1, 2)
-&gt;&gt;&gt; a[0]</code></pre></div></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<div class="paragraph"><p>En python, les éléments des collections ne sont pas typé</p></div>
+<div class="ulist"><ul><li><p><a href="https://docs.python.org/3/tutorial/datastructures.html" class="bare">https://docs.python.org/3/tutorial/datastructures.html</a></p></li></ul></div></div></section></section>
+<section><section id="_fichier"><h2>Fichier</h2><div class="slide-content"><div class="paragraph"><p><a href="https://docs.python.org/fr/3.6/library/functions.html#open" class="bare">https://docs.python.org/fr/3.6/library/functions.html#open</a></p></div></div></section><section id="_collection_2"><h2>Collection</h2><div class="slide-content"><div class="paragraph"><p>Les collections indexent des éléments pouvant être parcouru de manière itératives</p></div>
+<div class="paragraph"><p>En python, les éléments des collections ne sont pas typé</p></div>
+<div class="ulist"><ul><li><p><a href="https://docs.python.org/3/tutorial/datastructures.html" class="bare">https://docs.python.org/3/tutorial/datastructures.html</a></p></li></ul></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;

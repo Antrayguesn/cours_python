@@ -1,1 +1,9 @@
-Légionnaire, vous êtes chargé de la mission cruciale protéger le convoi de ravitaillement en provenance de Gergovia, le convoi passera à la tomber de la nuit. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.
+Un objet ChainMap regroupe plusieurs dictionnaires (ou autres tableaux de correspondance) en une vue que l'on peut mettre à jour. Si le paramètre maps est vide, un dictionnaire vide est fourni de telle manière qu'une nouvelle chaîne possède toujours au moins un dictionnaire.
+
+Les dictionnaires sous-jacents sont stockés dans une liste. Celle-ci est publique et peut être consultée ou mise à jour via l'attribut maps. Il n'y a pas d'autre état.
+
+Les recherches s'effectuent successivement dans chaque dictionnaire jusqu'à la première clé correspondante. En revanche, les écritures, mises à jour et suppressions n'affectent que le premier dictionnaire.
+
+Un objet ChainMap incorpore les dictionnaires sous-jacents par leur référence. Ainsi, si l'un d'eux est modifié, les changements affectent également la ChainMap.
+
+Toutes les méthodes usuelles des dictionnaires sont gérées. De plus, cette classe fournit un attribut maps, une méthode pour créer de nouveaux sous-contextes et une propriété pour accéder à tous les dictionnaires sous-jacents excepté le premier :
