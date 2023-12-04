@@ -7,13 +7,14 @@ FIN_MINUSCULE = DEBUT_MINUSCULE + 26
 MAJUSCULE = 1
 MINUSCULE = -1
 
-print("Saisir le message à chiffrer : ")
-message_saisi = input()
+def lire_message(cheminMessage: str) -> str:
+  with open(cheminMessage, "r") as fichierMessage:
+    return fichierMessage.read()
 
-print("Saisir la clé : ")
-clef_str = input()
+def ecrire_message(message: str) -> str:
+  with open("message_chiffre.txt", "w") as fichierMessage:
+    fichierMessage.write(message)
 
-clef = int(clef_str)
 
 def est_majuscule(lettre: str) -> bool:
   """ Retourne :
@@ -64,7 +65,12 @@ def dechiffrer_cesar(message: str, clef: int):
     message_chiffre += decaler_lettre(lettre, -clef)
   return message_chiffre
 
+
+print("Saisir la clé : ")
+clef_str = input()
+
+clef = int(clef_str)
+
+message_saisi = lire_message("message.txt")
 chiffre = chiffrer_cesar(message_saisi, clef)
-print(chiffre)
-dechiffre = dechiffrer_cesar(chiffre, clef)
-print(dechiffre)
+ecrire_message(chiffre)

@@ -12,9 +12,9 @@
 image::romain.jpg[canvas, size=cover]
 
 [%step]
-* Jules César vous convoque pour mettre au point un algorithme de chiffrement pour communiquer avec ses alliès.
+* Mettre au point un algorithme de chiffrement pour communiquer avec ses alliès.
 
-* Pour cela, vous décider de créer `Le chiffre de César`
+* Vous décider de créer `Le chiffre de César`
 
 [background-color="black"]
 === Le chiffre de César
@@ -30,6 +30,12 @@ Chiffrement symétrique:
 * La clé est une variable de l'algorithme qui le rend secret
 * Le chiffrement et le déchiffrement s'effectue avec la même clé
 
+
+[background-color="black"]
+=== Implémentation du chiffre de César
+image::romain.jpg[canvas, size=cover]
+
+image::cesar2.png[Cesar] 
 
 [background-color="black"]
 === Implémentation du chiffre de César
@@ -53,12 +59,6 @@ Déchiffrement :
 * Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
 
 [background-color="black"]
-=== Implémentation du chiffre de César
-image::romain.jpg[canvas, size=cover]
-
-image::cesar2.png[Cesar]
-
-[background-color="black"]
 [.columns]
 === Exemple du chiffre de César
 image::romain.jpg[canvas, size=cover]
@@ -69,21 +69,32 @@ image::romain.jpg[canvas, size=cover]
 
 ....
 Python (prononcé /pi.tɔ̃/) est un langage de
-programmation interprété,
-multiparadigme et multiplateformes
+programmation interprété, multiparadigme
+et multiplateformes. Il favorise la programmation
+impérative structurée, fonctionnelle et orientée objet.
+Il est doté d'un typage dynamique fort, d'une gestion
+automatique de la mémoire par ramasse-miettes
+et d'un système de gestion d'exceptions ; il est ainsi similaire
+à Perl, Ruby, Scheme, Smalltalk et Tcl.
 ....
 --
 
 [.column]
 --
 
-* Chiffré :
+* Chiffré (décalage à 6):
 ....
-Sbwkrq (surqrqfh /sl.wɔ̃/) hvw xq odqjdjh gh
-surjudppdwlrq lqwhusuhwh,
-pxowlsdudgljph hw pxowlsodwhiruphv
+Veznut (vxututik /vo.zɔ̃/) kyz at rgtmgmk jk
+vxumxgssgzout otzkxvxkzk, sarzovgxgjomsk 
+kz sarzovrgzkluxsky. Or lgbuxoyk rg vxumxgssgzout
+osvkxgzobk yzxaizaxkk, lutizouttkrrk kz uxoktzkk uhpkz.
+Or kyz juzk j'at zevgmk jetgsowak luxz, j'atk mkyzout
+gazusgzowak jk rg sksuoxk vgx xgsgyyk-sokzzky
+kz j'at yeyzksk jk mkyzout j'kdikvzouty ; or kyz gotyo yosorgoxk
+g Vkxr, Xahe, Yinksk, Ysgrrzgrq kz Zir. 
 ....
 --
+//TP 1.1
 
 [background-color="black"]
 === A vos claviers !
@@ -96,8 +107,10 @@ NOTE: 15 min
 
 ---
 
-* `input()` : Pour récuperer la saisie
-* `print(str)` : Pour afficher
+* `input()` : Pour récuperer la saisie en chaine de caractère
+* `print(str)` : Pour afficher une valeur
+
+// TP 1.2
 
 [background-color="black"]
 === A vos claviers !
@@ -124,23 +137,46 @@ image::romain.jpg[canvas, size=cover]
 * 65 = A en `ASCII` / 97 = a en `ASCII`
 
 [background-color="black"]
-=== A vos claviers !
+=== Programmation fonctionnelle !
 image::romain.jpg[canvas, size=cover]
 
 NOTE: 45 min
 
-. Ecrire une fonction `chiffrer_cesar()` qui prend en paramètre un message et la clé
-. La fonction opére le décalage sur la position de l'alphabet
-. 
+* Identifier les différentes fonction du code
 
 
 [background-color="black"]
-=== A savoir
+=== Programmation fonctionnelle !
 image::romain.jpg[canvas, size=cover]
 
-* `int(variable)` : Converti la variable passé en int
-* `ord(caractere)` : Retourne le code `ASCII` du caractère passé en paramètre
-* `chr(codeAscii)` : Retourne la lettre corespondant au code `ASCII`
 
-* Pensez à utiliser des constantes
-* 65 = A en `ASCII` / 97 = a en `ASCII`
+[%step]
+
+* est_majuscule(lettre: str) -> str
+* alphabet_to_ascii(lettre: str)
+* ascii_to_alphabet(lettre: str, typeLettre: int) -> str 
+* decaler_lettre(lettre: str, decalage: int)
+* chiffrer_cesar 
+
+[background-color="black"]
+=== Tout casser !
+image::romain.jpg[canvas, size=cover]
+
+NOTE: 45 min
+
+* Decrypter le chiffre de Cesar
+
+
+[background-color="black"]
+=== Tout casser !
+image::romain.jpg[canvas, size=cover]
+
+
+[%step]
+
+* est_majuscule(lettre: str) -> str
+* alphabet_to_ascii(lettre: str)
+* ascii_to_alphabet(lettre: str, typeLettre: int) -> str 
+* decaler_lettre(lettre: str, decalage: int)
+* chiffrer_cesar 
+

@@ -66,8 +66,6 @@ image::turing.jpg[Turing, width=400px]
 
 == C'est quoi un programme informatique ?
 
-* C'est quoi un programme informatique ?
-
 [%step]
 
 Un programme informatique est une série d'opérations logiques et d'algorithmes qui indiquent à l'ordinateur comment traiter les données d'entrée pour produire les résultats souhaités en sortie.
@@ -82,20 +80,6 @@ Langage informatique qui implémente des algorithmes exécuté dans un programe 
 
 Un langage de programmation est composé de règles syntaxiques spécifiques compréhensibles par les ordinateurs.
 
-[.columns]
-=== Encore un peu d'histoire ?
-
-[.timeline]
-* *1954* : Premier système d'exploitation
-* *1954* : Assembleur
-* *1959* : Cobol
-* *1970* : C 
-* *1985* : C++ evolution du C
-* *1991* : Python
-* *2006* : Rust
-* *2008* : Python 3
-* *2009* : Golang
-
 === Principe de programmation
 
 * SOLID
@@ -108,7 +92,6 @@ Un langage de programmation est composé de règles syntaxiques spécifiques com
 ----
 import this
 ----
-
 
 === Interprété ou compilé ?
 
@@ -223,7 +206,6 @@ Hello world
 * Une zone mémoire à une adresse
 
 
-
 === C'est quoi une variable ?
 
 [source, python]
@@ -313,6 +295,8 @@ L'interpréteur Python reconnait lui même les types
 
 * Par convention, écrit en majuscule
 
+* https://docs.python.org/fr/3/library/constants.html
+
 === Conversion de type
 
 * Aussi appellé `cast`
@@ -361,6 +345,7 @@ En anglais :
 * Division : `/`
 * Division entière : `//`
 * Multiplication : `*`
+* Exposant : `**`
 
 * Modulo : `%` (Renvoie le reste de la division)
 
@@ -430,6 +415,44 @@ False
 >>> ma_variable
 42
 ----
+
+== Fonctions natives
+
+* https://docs.python.org/fr/3/library/functions.html
+
+== Chaine de caractère et liste
+
+=== Liste
+
+* Séquences muables
+* généralement utilisées pour stocker des collections d'éléments homogènes (le degré de similitude varie selon l'usage).
+
+[source, python]
+----
+>>> ma_liste  = [1,2,3,4]
+>>> ma_liste[1]
+2
+>>> ma_liste.append(4)
+>>> ma_liste
+
+----
+
+*  
+* https://docs.python.org/fr/3/library/stdtypes.html#list
+
+=== Chaine de caractère
+
+* Séquence de caractères 
+* Délimitée par des guillemets (quote) simples  `'` ou doubles `"`
+* Itérable
+
+
+[source, python]
+----
+>>> ma_chaine = "Je suis une chaine de caractère"
+----
+
+* https://docs.python.org/fr/3/library/stdtypes.html#str
 
 == Structure de contrôle
 
@@ -506,7 +529,6 @@ for lettre in "MaChaineDeCaratère":
 ----
 
 
-
 === Boucle `while`
 
 La boucle `while` permet d'exécuter un bloc de code tant qu'une condition est vraie.
@@ -539,12 +561,14 @@ while compteur < 10:
     compteur += 1
 ----
 
+
+
 == Fonction
 
 Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique
 
 * Elle peut prendre des paramètre
-* Et retourné une valeur
+* Elle peut retourner une valeur
 
 === Synatxe
 
@@ -554,13 +578,35 @@ def ma_fonction():
   print("Ceci est une fonction")
 
 def ma_fonction_avec_arguments(arg1: int, arg2: int):
-  print("Ceci est une fonction avec des arguments")
+  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
+
+def ma_fonction_avec_arguments(arg1: int, arg2: int = None):
+  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
 
 def ma_fonction_qui_retourne_une_valeur() -> str:
   return "Je suis le retour d'une fonction"
 ----
 
+=== Synatxe
+
+* Appeller une fonction
+
+[source, python]
+----
+>>> ma_fonction()
+Ceci est une fonction
+>>> ma_fonction_avec_arguments(2, 3) # Arguments positionnels
+Ceci est une fonction avec des arguments : 2 3
+>>> ma_fonction_avec_arguments(arg2=1, arg1=8) # Argument par mot-clé
+Ceci est une fonction avec des arguments : 8 1
+>>> ma_fonction_qui_retourne_une_valeur()
+"Je suis le retour d'une fonction"
+----
+
+// TP 1.3
+
 == Types de données complexes
+
 
 === Collection
 
@@ -568,24 +614,24 @@ Les collections indexent des éléments pouvant être parcouru de manière itér
 
 En python, les éléments des collections ne sont pas typé 
 
-=== dict
+* https://docs.python.org/3/tutorial/datastructures.html
 
-* Collection d'éléments stocké sous forme de clé/valeur
+== Fichier
 
 
-=== Tuples
+https://docs.python.org/fr/3.6/library/functions.html#open
 
-* Collection d'elements immutable
+=== Collection
 
-[source,python]
-----
->>> a = (1, 2)
->>> a
-(1, 2)
->>> a[0]
-----
+Les collections indexent des éléments pouvant être parcouru de manière itératives
 
-// TP 1
+En python, les éléments des collections ne sont pas typé 
+
+* https://docs.python.org/3/tutorial/datastructures.html
+
+
+
+// TP 2
 
 
 

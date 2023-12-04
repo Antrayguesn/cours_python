@@ -1,0 +1,317 @@
+= La mission de César
+:imagesdir: images
+
+Jules César vous donne une mission pour son siège d'Alesia
+
+Mettre au point un algorithme de chiffrement pour communiquer avec ses troupes.
+
+Le premier message qu'il vous donne à envoyé est le suivant : 
+
+....
+Légionnaire, vous êtes chargé de la mission cruciale de d'explorer les environs d'Alésia pour recueillir des renseignements sur les mouvements et les effectifs des forces gauloises. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.
+....
+
+== Le chiffre de César
+
+Objectif du chiffre de César
+
+* Rendre confidentiel un texte par décalage des lettres de l'alphabet.
+* La clé est le décalage choisi
+
+Chiffrement symétrique:
+
+* La clé est une variable de l'algorithme qui le rend secret
+* Le chiffrement et le déchiffrement s'effectue avec la même clé
+
+== Implémentation du chiffre de César
+
+image::cesar2.png[Cesar] 
+
+
+Chiffrement :
+
+* Choisir un décalage
+* Additioner ce décalage à la position de la lettre dans l'alphabet
+** Si la nouvelle position est supérieur à 26, alors on revient au début (24 + 10 = 8)
+* Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
+
+Déchiffrement :
+
+* Soustraire la clé à la position de la lettre dans l'alphabet
+** Si la nouvelle position est supérieur à 26, alors on retourne à la fin (6 - 10 = 22)
+* Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
+
+== Exemple du chiffre de César
+
+* Clair :
+
+....
+Python (prononcé /pi.tɔ̃/) est un langage de programmation interprété, multiparadigme et multiplateformes. Il favorise la programmation impérative structurée, fonctionnelle et orientée objet. Il est doté d'un typage dynamique fort, d'une gestion automatique de la mémoire par ramasse-miettes et d'un système de gestion d'exceptions ; il est ainsi  imilaire à Perl, Ruby, Scheme, Smalltalk et Tcl.
+....
+
+* Chiffré (décalage à 6):
+....
+Veznut (vxututik /vo.zɔ̃/) kyz at rgtmgmk jk vxumxgssgzout otzkxvxkzk, sarzovgxgjomsk kz sarzovrgzkluxsky. Or lgbuxoyk rg vxumxgssgzout osvkxgzobk yzxaizaxkk, lutizouttkrrk kz xoktzkk uhpkz. Or kyz juzk j'at zevgmk jetgsowak luxz, j'atk mkyzout gazusgzowak jk rg sksuoxk vgx xgsgyyk-sokzzky kz j'at yeyzksk jk mkyzout j'kdikvzouty ; or kyz gotyo  osorgoxk g Vkxr, Xahe, Yinksk, Ysgrrzgrq kz Zir. 
+....
+
+//TP 1.1
+
+== TP 1.1 : Jouer avec l'entrée standard
+
+NOTE: 15 min
+
+. Enregistrer une chaine de caractère provenant de l'entrée standard
+. Afficher chaque lettre du message
+
+---
+
+* `input()` : Pour récuperer la saisie en chaine de caractère
+* `print(str)` : Pour afficher une valeur
+
+
+// TP 1.2
+
+== TP 1.2 : Chiffre de César !
+
+NOTE: 1 heure
+
+. Ecrire un script qui prend en entrée un message et un nombre.
+. Convertir chaque en lettre en `ASCII`
+** Determiner si la lettre en minuscule ou majascule
+. Décaler chaque lettre du message du nombre saisi
+** Si la valeur n'est pas une lettre ([A-Za-z]) ne pas la modifier
+. Convertir le nouveau code `ASCII` en lettre
+. Afficher la nouvelle chaine
+
+---
+
+A savoir :
+
+* `int(variable)` : Convertie la variable passé en `int`
+* `ord(caractere)` : Retourne le code `ASCII` du caractère passé en paramètre
+* `chr(codeAscii)` : Retourne la lettre corespondant au code `ASCII`
+* 65 = A en `ASCII` / 97 = a en `ASCII`
+
+---
+
+Pensez à utiliser des constantes:
+
+[source, python]
+----
+DEBUT_MAJUSCULE = 65
+DEBUT_MINUSCULE = 97
+
+FIN_MAJUSCULE = DEBUT_MAJUSCULE + 26
+FIN_MINUSCULE = DEBUT_MINUSCULE + 26
+----
+
+Construire une chaine de caractère:
+[source, python]
+----
+ma_chaine = ""
+
+for i in range(10):
+  ma_chaine += str(i)
+
+print(ma_chaine)
+0123456789
+----
+
+== TP 1.3 : Programmation fonctionnelle !
+
+NOTE: 30 min
+
+. Télécharger le code suivant : 
+. Identifier les différentes fonction du code
+. Ranger le code ecrit dans des fonctions
+. Ecrire la fonction `dechiffrer_cesar(message: str, cle: str) -> str`
+
+
+.Fonctions à trouver
+[%collapsible]
+====
+* ```est_majuscule(lettre: str) -> str```
+* ```alphabet_to_ascii(lettre: str, typeLettre: int) -> str```
+* ```ascii_to_alphabet(lettre: str) -> (str, int) # Retourne le type de lettre majuscule ou minuscule```
+* ```decaler_lettre(lettre: str, decalage: int) -> str```
+* ```chiffrer_cesar(message: str, cle: int) -> str```
+* ```dechiffrer_cesar(message: str, cle: str) -> str:```
+====
+
+Pour tester :
+
+[source, bash]
+----
+python3 -i tp1_3.py
+>>> chiffre = chiffrer_cesar(message_saisi, clef)
+>>> chiffre
+...
+>>> dechiffrer_cesar(chiffre, clef)
+----
+
+=== Fonction
+
+Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique
+
+* Elle peut prendre des paramètre
+* Elle peut retourner une valeur
+
+==== Synatxe
+
+[source, python]
+----
+def ma_fonction():
+  print("Ceci est une fonction")
+
+def ma_fonction_avec_arguments(arg1: int, arg2: int):
+  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
+
+def ma_fonction_avec_arguments(arg1: int, arg2: int = None):
+  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
+
+def ma_fonction_qui_retourne_une_valeur() -> str:
+  return "Je suis le retour d'une fonction"
+----
+
+Appeller une fonction :
+
+[source, python]
+----
+>>> ma_fonction()
+Ceci est une fonction
+>>> ma_fonction_avec_arguments(2, 3) # Arguments positionnels
+Ceci est une fonction avec des arguments : 2 3
+>>> ma_fonction_avec_arguments(arg2=1, arg1=8) # Argument par mot-clé
+Ceci est une fonction avec des arguments : 8 1
+>>> ma_fonction_qui_retourne_une_valeur()
+"Je suis le retour d'une fonction"
+----
+
+== TP 1.4 : Légionnaire !
+
+NOTE: 20 min
+
+* Entrée du message par fichier et non entrée standard
+* Sortie du message par fichier et non entrée standard
+
+---
+
+. Ecrire le message que vous à confier Jules César dans un fichier
+. Ecrire la fonction `lire_message(cheminMessage: str) -> str` qui retourne le contenu du fichier ciblé par le chemin en paramètre
+. Ecrire la fonction `ecrire_message(message: str) -> None` qui ecrit le message dans un fichier nommé `message_chiffre.txt`
+
+Test : 
+
+[source, bash]
+----
+python3 -i tp1_3.py
+>>> message_saisi = lire_message("message.txt")
+>>> chiffre = chiffrer_cesar(message_saisi, clef)
+>>> ecrire_message(chiffre)
+----
+
+=== Les fichiers
+
+Ouvrir un fichier et le lire ligne par ligne :
+
+[source, python]
+----
+mon_fichier = open("fichier", "r")
+
+for ligne in mon_fichier:
+  print(ligne)
+
+mon_fichier.close()
+----
+
+Avec un contexte manager : 
+
+[source, python]
+----
+with open("fichier", "r") as mon_fichier: # Le fichier est ouvert
+  for ligne in mon_fichier:
+    print(ligne)
+# Le fichier est fermé
+----
+
+
+Lire le contenu entier du fichier :
+
+[source, python]
+----
+with open("fichier", "r") as mon_fichier:
+  print(mon_fichier.read()) # Retourne tout le fichier
+----
+
+https://docs.python.org/fr/3.6/library/functions.html#open
+
+== TP 2 : Tout casser !
+
+Vercingétorix trouve sur un soldat romain l'étrange message suivant : 
+
+....
+Téoqwvviqzm, dwca êbma kpizoé lm ti uqaaqwv kzckqitm xzwbéomz tm kwvdwq lm zidqbiqttmumvb mv xzwdmvivkm lm Omzowdqi, tm kwvdwq xiaamzi à ti bwujmz lm ti vcqb. Awgmh dqoqtivb, ioqaamh idmk lébmzuqvibqwv mb zixxmtmh-dwca ycm tm lmabqv lm Zwum zmxwam acz dwa éxictma. Ycm ti nwzbcvm dwca ocqlm.
+....
+
+Il apprend que vous êtes le créateur de la méthode de chiffrement, il vous capture pour decrypter le message !
+
+
+== TP 2.1 : Decrypter l'algorithme de Cesar
+
+NOTE: 20 + 20 minutes
+
+. Récuperer le fichier : https://www.gutenberg.org/cache/epub/5097/pg5097.txt
+. Ecrire une fonction `occurence_lettre_livre(cheminLivre: str)`
+** Elle prend en paramètre le chemin vers un livre
+** Elle retourne le nombre d'occurence de lettre dans ce chiffier
+
+
+Test :
+
+[source,python]
+----
+print(occurence_lettre_livre("livres/vmlslm.txt"))
+----
+
+A savoir :
+
+* Bien étudier les différentes collections, tester avec l'interpréteur
+* 
+
+=== Collection
+
+Les collections indexent des éléments pouvant être parcouru de manière itératives
+
+En python, les éléments des collections ne sont pas typé
+
+* https://docs.python.org/3/tutorial/datastructures.html
+* https://docs.python.org/3/library/collections.html
+
+=== Module
+
+Un ensemble de fonctions s'appelle une librairie.
+
+Les librairies peuvent être importer dans des scripts.
+
+Python posséde une bibliothéque standard qui étends ces possibilités.
+
+* https://docs.python.org/fr/3/library/index.html
+
+Pour les importer :
+
+[source, python]
+----
+import time # Importer toute la librairie
+
+print(time.time())
+
+from time import time # Import de la fonction time()
+
+print(time())
+----
+
+Les imports se trouvent en haut du fichier
+
+
+
+

@@ -529,18 +529,18 @@ while compteur < 10:
 
 == Types de données complexes
 
-== Collection
+=== Collection
 
 Les collections indexent des éléments pouvant être parcouru de manière itératives
 
 En python, les éléments des collections ne sont pas typé 
 
-== dict
+=== dict
 
 * Collection d'éléments stocké sous forme de clé/valeur
 
 
-== Tuples
+=== Tuples
 
 * Collection d'elements immutable
 
