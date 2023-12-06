@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="author" content="Nicolas ANTRAYGUES - AIGYRE Consult">
 <title>La mission de César</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -432,45 +433,164 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
 <h1>La mission de César</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
+<div class="details">
+<span id="author" class="author">Nicolas ANTRAYGUES - AIGYRE Consult</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Sommaire</div>
 <ul class="sectlevel1">
-<li><a href="#_le_chiffre_de_césar">Le chiffre de César</a></li>
-<li><a href="#_implémentation_du_chiffre_de_césar">Implémentation du chiffre de César</a>
+<li><a href="#_le_chiffre_de_césar">1. Le chiffre de César</a></li>
+<li><a href="#_implémentation_du_chiffre_de_césar">2. Implémentation du chiffre de César</a>
 <ul class="sectlevel2">
-<li><a href="#_chiffrement">Chiffrement</a></li>
-<li><a href="#_déchiffrement">Déchiffrement</a></li>
+<li><a href="#_chiffrement">2.1. Chiffrement</a></li>
+<li><a href="#_déchiffrement">2.2. Déchiffrement</a></li>
 </ul>
 </li>
-<li><a href="#_exemple_du_chiffre_de_césar">Exemple du chiffre de César</a></li>
-<li><a href="#_tp_1">TP 1</a>
+<li><a href="#_exemple_du_chiffre_de_césar">3. Exemple du chiffre de César</a></li>
+<li><a href="#_tp_1_le_chiffre_de_césar">4. TP 1 : Le chiffre de César</a>
 <ul class="sectlevel2">
-<li><a href="#_tp_1_1_jouer_avec_lentrée_standard">TP 1.1 : Jouer avec l&#8217;entrée standard</a></li>
-<li><a href="#_tp_1_2_chiffre_de_césar">TP 1.2 : Chiffre de César !</a></li>
-<li><a href="#_instruction">Instruction</a></li>
-<li><a href="#_programmation_fonctionnelle">Programmation fonctionnelle !</a></li>
-<li><a href="#_tp_1_3">TP 1.3</a></li>
-<li><a href="#_obectif">Obectif</a></li>
-<li><a href="#_instruction_2">Instruction</a></li>
-<li><a href="#_tp_1_4_légionnaire">TP 1.4 : Légionnaire !</a></li>
+<li><a href="#_tp_1_1_jouer_avec_lentrée_standard">4.1. TP 1.1 : Jouer avec l&#8217;entrée standard</a></li>
+<li><a href="#_tp_1_2_chiffre_de_césar">4.2. TP 1.2 : Chiffre de César !</a></li>
+<li><a href="#_instruction">4.3. Instruction</a></li>
+<li><a href="#_tp_1_3_programmation_fonctionnelle">4.4. TP 1.3 Programmation fonctionnelle !</a></li>
+<li><a href="#_instruction_2">4.5. Instruction</a></li>
+<li><a href="#_bonus">4.6. Bonus</a></li>
+<li><a href="#_tp_1_4_légionnaire">4.7. TP 1.4 : Légionnaire !</a></li>
 </ul>
 </li>
-<li><a href="#_tp_2_vercingétorix">TP 2 : Vercingétorix</a>
+<li><a href="#_tp_2_vercingétorix">5. TP 2 : Vercingétorix</a>
 <ul class="sectlevel2">
-<li><a href="#_implémentation">Implémentation</a></li>
-<li><a href="#_analyse_de_langue">Analyse de langue</a></li>
-<li><a href="#_tp_2_2_decrypter_le_chiffre_de_césar">TP 2.2 Decrypter le chiffre de César</a></li>
-<li><a href="#_objectif_2">Objectif</a></li>
-<li><a href="#_instruction_3">Instruction</a></li>
+<li><a href="#_implémentation">5.1. Implémentation</a></li>
+<li><a href="#_analyse_de_langue">5.2. Analyse de langue</a></li>
+<li><a href="#_tp_2_2_decrypter_le_chiffre_de_césar">5.3. TP 2.2 Decrypter le chiffre de César</a></li>
+<li><a href="#_objectif_2">5.4. Objectif</a></li>
+<li><a href="#_instruction_3">5.5. Instruction</a></li>
 </ul>
 </li>
-<li><a href="#_tp_3_hasta_siempre">TP 3 : Hasta siempre !</a></li>
-<li><a href="#_tp_3_1_drole_de_types">TP 3.1 : Drole de types</a></li>
-<li><a href="#_tp_3_2_lhéritage">TP 3.2 : L&#8217;héritage</a></li>
+<li><a href="#_tp_3_hasta_siempre">6. TP 3 : Hasta siempre !</a></li>
+<li><a href="#_tp_3_1_drole_de_types">7. TP 3.1 : Drole de types</a></li>
+<li><a href="#_tp_3_2_lhéritage">8. TP 3.2 : L&#8217;héritage</a></li>
+<li><a href="#_tp_3_3_le_chiffre_de_vernam">9. TP 3.3 Le chiffre de Vernam</a></li>
+<li><a href="#_tp_00000011_00000100">10. TP 00000011.00000100</a></li>
 </ul>
 </div>
 </div>
@@ -491,7 +611,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_le_chiffre_de_césar">Le chiffre de César</h2>
+<h2 id="_le_chiffre_de_césar">1. Le chiffre de César</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Objectif du chiffre de César</p>
@@ -522,7 +642,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_implémentation_du_chiffre_de_césar">Implémentation du chiffre de César</h2>
+<h2 id="_implémentation_du_chiffre_de_césar">2. Implémentation du chiffre de César</h2>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
@@ -530,7 +650,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_chiffrement">Chiffrement</h3>
+<h3 id="_chiffrement">2.1. Chiffrement</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -553,7 +673,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_déchiffrement">Déchiffrement</h3>
+<h3 id="_déchiffrement">2.2. Déchiffrement</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -575,7 +695,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exemple_du_chiffre_de_césar">Exemple du chiffre de César</h2>
+<h2 id="_exemple_du_chiffre_de_césar">3. Exemple du chiffre de César</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -604,15 +724,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tp_1">TP 1</h2>
+<h2 id="_tp_1_le_chiffre_de_césar">4. TP 1 : Le chiffre de César</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_tp_1_1_jouer_avec_lentrée_standard">TP 1.1 : Jouer avec l&#8217;entrée standard</h3>
+<h3 id="_tp_1_1_jouer_avec_lentrée_standard">4.1. TP 1.1 : Jouer avec l&#8217;entrée standard</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 15 min
@@ -643,21 +763,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tp_1_2_chiffre_de_césar">TP 1.2 : Chiffre de César !</h3>
+<h3 id="_tp_1_2_chiffre_de_césar">4.2. TP 1.2 : Chiffre de César !</h3>
 <div class="sect3">
-<h4 id="_objectif">Objectif</h4>
+<h4 id="_objectif">4.2.1. Objectif</h4>
 <div class="paragraph">
 <p>Implémenter le chiffre de César en utilisant Python. Le programme doit prendre en entrée un message et un nombre, puis décaler chaque lettre du message selon le nombre spécifié.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_instruction">Instruction</h3>
+<h3 id="_instruction">4.3. Instruction</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 1 heure
@@ -726,86 +846,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">DEBUT_MAJUSCULE = 65
-DEBUT_MINUSCULE = 97
+<pre class="rouge highlight"><code data-lang="python"><span class="n">DEBUT_MAJUSCULE</span> <span class="o">=</span> <span class="mi">65</span>
+<span class="n">DEBUT_MINUSCULE</span> <span class="o">=</span> <span class="mi">97</span>
 
-FIN_MAJUSCULE = DEBUT_MAJUSCULE + 25
-FIN_MINUSCULE = DEBUT_MINUSCULE + 25</code></pre>
+<span class="n">FIN_MAJUSCULE</span> <span class="o">=</span> <span class="n">DEBUT_MAJUSCULE</span> <span class="o">+</span> <span class="mi">25</span>
+<span class="n">FIN_MINUSCULE</span> <span class="o">=</span> <span class="n">DEBUT_MINUSCULE</span> <span class="o">+</span> <span class="mi">25</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_programmation_fonctionnelle">Programmation fonctionnelle !</h3>
+<h3 id="_tp_1_3_programmation_fonctionnelle">4.4. TP 1.3 Programmation fonctionnelle !</h3>
 <div class="sect3">
-<h4 id="_a_savoir">A savoir</h4>
-<div class="sect4">
-<h5 id="_fonction">Fonction</h5>
-<div class="paragraph">
-<p>Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Elle peut prendre des paramètre</p>
-</li>
-<li>
-<p>Elle peut retourner une valeur</p>
-</li>
-</ul>
-</div>
-<div class="sect5">
-<h6 id="_synatxe">Synatxe</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def ma_fonction():
-  print("Ceci est une fonction")
-
-def ma_fonction_avec_arguments(arg1: int, arg2: int):
-  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
-
-def ma_fonction_avec_arguments(arg1: int, arg2: int = None):
-  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
-
-def ma_fonction_qui_retourne_une_valeur() -&gt; str:
-  return "Je suis le retour d'une fonction"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Appeller une fonction :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; ma_fonction()
-Ceci est une fonction
-&gt;&gt;&gt; ma_fonction_avec_arguments(2, 3) # Arguments positionnels
-Ceci est une fonction avec des arguments : 2 3
-&gt;&gt;&gt; ma_fonction_avec_arguments(arg2=1, arg1=8) # Argument par mot-clé
-Ceci est une fonction avec des arguments : 8 1
-&gt;&gt;&gt; ma_fonction_qui_retourne_une_valeur()
-"Je suis le retour d'une fonction"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tp_1_3">TP 1.3</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_obectif">Obectif</h3>
+<h4 id="_obectif">4.4.1. Obectif</h4>
 <div class="paragraph">
 <p>Analyser un code existant, identifier les fonctions existantes, organiser le code en utilisant des fonctions</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_instruction_2">Instruction</h3>
+<h3 id="_instruction_2">4.5. Instruction</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 30 min
@@ -861,64 +925,31 @@ Ceci est une fonction avec des arguments : 8 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">python3 -i tp1_3.py
-&gt;&gt;&gt; chiffre = chiffrer_cesar(message_saisi, clef)
-&gt;&gt;&gt; chiffre
+<pre class="rouge highlight"><code data-lang="bash">python3 <span class="nt">-i</span> tp1_3.py
+<span class="o">&gt;&gt;&gt;</span> chiffre <span class="o">=</span> chiffrer_cesar<span class="o">(</span>message_saisi, clef<span class="o">)</span>
+<span class="o">&gt;&gt;&gt;</span> chiffre
 ...
-&gt;&gt;&gt; dechiffrer_cesar(chiffre, clef)</code></pre>
+<span class="o">&gt;&gt;&gt;</span> dechiffrer_cesar<span class="o">(</span>chiffre, clef<span class="o">)</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tp_1_4_légionnaire">TP 1.4 : Légionnaire !</h3>
-<div class="sect3">
-<h4 id="_a_savoir_2">A savoir</h4>
-<div class="sect4">
-<h5 id="_les_fichiers">Les fichiers</h5>
-<div class="paragraph">
-<p>Ouvrir un fichier et le lire ligne par ligne :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">mon_fichier = open("fichier", "r")
-
-for ligne in mon_fichier:
-  print(ligne)
-
-mon_fichier.close()</code></pre>
+<h3 id="_bonus">4.6. Bonus</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Avec le module <code>time</code>, calculer et afficher le temps que prend l&#8217;éxecution du code</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="paragraph">
-<p>Avec un <strong>context manager</strong> :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">with open("fichier", "w") as mon_fichier: # Le fichier est ouvert
-  mon_fichier.write("Contenu de mon fichier")
-# Le fichier est fermé</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Lire le contenu entier du fichier :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">with open("fichier", "r") as mon_fichier:
-  print(mon_fichier.read()) # Retourne tout le fichier</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.python.org/fr/3.6/library/functions.html#open" class="bare">https://docs.python.org/fr/3.6/library/functions.html#open</a></p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_tp_1_4_légionnaire_2">TP 1.4 : Légionnaire !</h4>
+<div class="sect2">
+<h3 id="_tp_1_4_légionnaire">4.7. TP 1.4 : Légionnaire !</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 20 min
@@ -948,21 +979,20 @@ mon_fichier.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">python3 -i tp1_4.py
-&gt;&gt;&gt; message_saisi = lire_message("message.txt")
-&gt;&gt;&gt; chiffre = chiffrer_cesar(message_saisi, clef)
-&gt;&gt;&gt; ecrire_message(chiffre)</code></pre>
-</div>
+<pre class="rouge highlight"><code data-lang="bash">python3 <span class="nt">-i</span> tp1_4.py
+<span class="o">&gt;&gt;&gt;</span> message_saisi <span class="o">=</span> lire_message<span class="o">(</span><span class="s2">"message.txt"</span><span class="o">)</span>
+<span class="o">&gt;&gt;&gt;</span> chiffre <span class="o">=</span> chiffrer_cesar<span class="o">(</span>message_saisi, clef<span class="o">)</span>
+<span class="o">&gt;&gt;&gt;</span> ecrire_message<span class="o">(</span>chiffre<span class="o">)</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tp_2_vercingétorix">TP 2 : Vercingétorix</h2>
+<h2 id="_tp_2_vercingétorix">5. TP 2 : Vercingétorix</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Vercingétorix,  célèbre chef gaulois, a trouvé un étrange message sur un soldat romain capturé. Le message semble être chiffré, et Vercingétorix pense que vous êtes le créateur de cette méthode de chiffrement. Vous êtes capturé et chargé de décrypter le message pour révéler les informations qu&#8217;il contient.</p>
+<p>Vercingétorix, célèbre chef gaulois, a trouvé un étrange message sur un soldat romain capturé. Le message semble être chiffré, et Vercingétorix pense que vous êtes le créateur de cette méthode de chiffrement. Vous êtes capturé et chargé de décrypter le message pour révéler les informations qu&#8217;il contient.</p>
 </div>
 <div class="paragraph">
 <p>Message trouvé :</p>
@@ -973,7 +1003,7 @@ mon_fichier.close()</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_implémentation">Implémentation</h3>
+<h3 id="_implémentation">5.1. Implémentation</h3>
 <div class="paragraph">
 <p>La méthode de décryptage que nous allons mettre en place se base sur la comparaison des fréquences des lettres dans le message chiffré avec celles d&#8217;une langue donnée</p>
 </div>
@@ -991,8 +1021,8 @@ mon_fichier.close()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">frequence_lettre_message = ['w', 'k', 'f', 'm', 'a', 'j']
-frequence_lettre_langue  = ['e', 's', 'a', 'n', 'i', 't']</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">frequence_lettre_message</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">k</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">f</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">m</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">j</span><span class="sh">'</span><span class="p">]</span>
+<span class="n">frequence_lettre_langue</span>  <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">e</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">s</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">n</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">i</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">t</span><span class="sh">'</span><span class="p">]</span></code></pre>
 </div>
 </div>
 <div class="literalblock">
@@ -1015,9 +1045,9 @@ n = 13 m = 12
 </div>
 </div>
 <div class="sect2">
-<h3 id="_analyse_de_langue">Analyse de langue</h3>
+<h3 id="_analyse_de_langue">5.2. Analyse de langue</h3>
 <div class="sect3">
-<h4 id="_a_savoir_3">A savoir</h4>
+<h4 id="_a_savoir">5.2.1. A savoir</h4>
 <div class="sect4">
 <h5 id="_collections">Collections</h5>
 <div class="paragraph">
@@ -1036,38 +1066,8 @@ n = 13 m = 12
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_bibliothéque">Bibliothéque</h5>
-<div class="paragraph">
-<p>Un ensemble de fonctions s&#8217;appelle une librairie.</p>
-</div>
-<div class="paragraph">
-<p>Les librairies peuvent être importer dans des scripts.</p>
-</div>
-<div class="paragraph">
-<p>Python posséde une bibliothéque standard qui étends ces possibilités.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.python.org/fr/3/library/index.html" class="bare">https://docs.python.org/fr/3/library/index.html</a></p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>Pour les importer :</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">import time # Importer toute la librairie
-
-print(time.time())
-
-from time import time # Import de la fonction time()
-
-print(time())</code></pre>
-</div>
 </div>
 <div class="paragraph">
 <p>Les imports se trouvent en haut du fichier</p>
@@ -1075,12 +1075,12 @@ print(time())</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tp_2_1_analyse_de_langue">TP 2.1 : Analyse de langue</h4>
+<h4 id="_tp_2_1_analyse_de_langue">5.2.2. TP 2.1 : Analyse de langue</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 20 + 20 minutes
@@ -1103,7 +1103,7 @@ print(time())</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">print(occurence_lettre_livre("livres/vmlslm.txt"))</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="nf">occurence_lettre_livre</span><span class="p">(</span><span class="sh">"</span><span class="s">livres/vmlslm.txt</span><span class="sh">"</span><span class="p">))</span></code></pre>
 </div>
 </div>
 <hr>
@@ -1125,9 +1125,9 @@ print(time())</code></pre>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">&gt;&gt;&gt; from collections import Counter
-&gt;&gt;&gt; Counter("Je suis un super message")
-Counter({'s': 5, 'e': 4, ' ': 4, 'u': 3, 'J': 1, 'i': 1, 'n': 1, 'p': 1, 'r': 1, 'm': 1, 'a': 1, 'g': 1})</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="n">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nc">Counter</span><span class="p">(</span><span class="sh">"</span><span class="s">Je suis un super message</span><span class="sh">"</span><span class="p">)</span>
+<span class="nc">Counter</span><span class="p">({</span><span class="sh">'</span><span class="s">s</span><span class="sh">'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="sh">'</span><span class="s">e</span><span class="sh">'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="sh">'</span><span class="s"> </span><span class="sh">'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="sh">'</span><span class="s">u</span><span class="sh">'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="sh">'</span><span class="s">J</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">i</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">n</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">p</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">m</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sh">'</span><span class="s">g</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span></code></pre>
 </div>
 </div>
 </div>
@@ -1135,22 +1135,22 @@ Counter({'s': 5, 'e': 4, ' ': 4, 'u': 3, 'J': 1, 'i': 1, 'n': 1, 'p': 1, 'r': 1,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tp_2_2_decrypter_le_chiffre_de_césar">TP 2.2 Decrypter le chiffre de César</h3>
+<h3 id="_tp_2_2_decrypter_le_chiffre_de_césar">5.3. TP 2.2 Decrypter le chiffre de César</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_objectif_2">Objectif</h3>
+<h3 id="_objectif_2">5.4. Objectif</h3>
 <div class="paragraph">
 <p>Écrire une fonction pour identifier les clés de déchiffrement les plus probables et afficher les messages déchiffrés correspondants.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_instruction_3">Instruction</h3>
+<h3 id="_instruction_3">5.5. Instruction</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 1 heure
@@ -1173,19 +1173,19 @@ Counter({'s': 5, 'e': 4, ' ': 4, 'u': 3, 'J': 1, 'i': 1, 'n': 1, 'p': 1, 'r': 1,
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">message = lire_message("message_chiffre.txt")
+<pre class="rouge highlight"><code data-lang="python"><span class="n">message</span> <span class="o">=</span> <span class="nf">lire_message</span><span class="p">(</span><span class="sh">"</span><span class="s">message_chiffre.txt</span><span class="sh">"</span><span class="p">)</span>
 
-cles = decrypter_cesar(message, occurence_lettre_livre("livres/vmlslm.txt"))
+<span class="n">cles</span> <span class="o">=</span> <span class="nf">decrypter_cesar</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="nf">occurence_lettre_livre</span><span class="p">(</span><span class="sh">"</span><span class="s">livres/vmlslm.txt</span><span class="sh">"</span><span class="p">))</span>
 
-for c in cles:
-  print(dechiffrer_cesar(message, c))</code></pre>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cles</span><span class="p">:</span>
+  <span class="nf">print</span><span class="p">(</span><span class="nf">dechiffrer_cesar</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tp_3_hasta_siempre">TP 3 : Hasta siempre !</h2>
+<h2 id="_tp_3_hasta_siempre">6. TP 3 : Hasta siempre !</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>2000 ans après vos exploits auprès de Jules César, votre renommée atteint Cuba, où une révolution est en cours. Che Guevara vous contacte pour mettre en place un algorithme de chiffrement plus sécurisé, inspiré des concepts du Chiffre de Vernam ou du Masque Jetable.</p>
@@ -1228,13 +1228,13 @@ for c in cles:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tp_3_1_drole_de_types">TP 3.1 : Drole de types</h2>
+<h2 id="_tp_3_1_drole_de_types">7. TP 3.1 : Drole de types</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 1 heure
@@ -1242,21 +1242,158 @@ for c in cles:
 </tr>
 </table>
 </div>
-<div class="imageblock"><div class="content"><object type="image/svg+xml" data="https://uml.aigyre.fr/svg/U9nza34Amp0CHNUVmcCpv0Abb42xvWp6s78ii1sGt2dDtUjGfqbQw2Jux-c3r77Mb1yn21Cqi-o1MGyW9p4vX61dUVFe7464bAKEmqYOVGHbjlYZSYOPtmL2A8K9irAdcfmNt8WfGlPZaMi1dHhPNXUs8Gi_h9OeHsDK3ijoeSP3nDGV-i4G4YYh4__rPY7sburjkzv-19Td8RlW3aQ7RsiDgmsiINIGxFBNEbys9e6j" id="classMessage" ><div class="imageblock"><div class="content"><img id="fallback_classMessage" class="plantuml" src="https://uml.aigyre.fr/svg/U9nza34Amp0CHNUVmcCpv0Abb42xvWp6s78ii1sGt2dDtUjGfqbQw2Jux-c3r77Mb1yn21Cqi-o1MGyW9p4vX61dUVFe7464bAKEmqYOVGHbjlYZSYOPtmL2A8K9irAdcfmNt8WfGlPZaMi1dHhPNXUs8Gi_h9OeHsDK3ijoeSP3nDGV-i4G4YYh4__rPY7sburjkzv-19Td8RlW3aQ7RsiDgmsiINIGxFBNEbys9e6j" /></div></div></object></div></div>
+<div class="imageblock"><div class="content"><object type="image/svg+xml" data="https://uml.aigyre.fr/svg/U9oDKZjhmp0GtlKhDDgG5agt32MGjO4CtGz5FiLNz33IUIWc_xroBCSEXjBj-5xwxj0XiOhSEok_plBzzKregrAI9qn9NL4EOZ24jhd9Oql6H7JeMIfx3P6uTGXwWH_In56wAK080FB405L1zYDTYy4Xjo6BIq2iQldoCN8BrU26Ao5WOd1WA9ipgrjqv4zF-QWZHOH6-VIdxYRAnaTCAkPzfQIyeRPeH9uVxKTWFr9rHZVbeVHwNd8klJ8q-5yBO69mwhjFkhTOMMIEAr5kCeicQgEuX62pHDckLHTau00gQQAg2ucOWeVPaRDsadyw_5o0LPExwsulKPkdgZpifkEC1nK7z4t-Khza7zC_" id="classMessage" ><div class="imageblock"><div class="content"><img id="fallback_classMessage" class="plantuml" src="https://uml.aigyre.fr/svg/U9oDKZjhmp0GtlKhDDgG5agt32MGjO4CtGz5FiLNz33IUIWc_xroBCSEXjBj-5xwxj0XiOhSEok_plBzzKregrAI9qn9NL4EOZ24jhd9Oql6H7JeMIfx3P6uTGXwWH_In56wAK080FB405L1zYDTYy4Xjo6BIq2iQldoCN8BrU26Ao5WOd1WA9ipgrjqv4zF-QWZHOH6-VIdxYRAnaTCAkPzfQIyeRPeH9uVxKTWFr9rHZVbeVHwNd8klJ8q-5yBO69mwhjFkhTOMMIEAr5kCeicQgEuX62pHDckLHTau00gQQAg2ucOWeVPaRDsadyw_5o0LPExwsulKPkdgZpifkEC1nK7z4t-Khza7zC_" /></div></div></object></div></div>
+<div class="paragraph">
+<p>Instructions :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Implémenter une classe Python nommée <code>Cesar</code>. Cette classe doit avoir les attributs suivants :</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Dans le fichier <code>chiffrement.py</code>, écrire la classe <code>Chiffrement</code>
-**</p>
-</li>
-<li>
-<p>Dans le fichier <code>message.py</code>, ecrire la classe <code>Message</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>chiffrer()</p>
+<p><code>clef</code> : un attribut pour stocker la clé de chiffrement.</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p>Ajouter un constructeur <em>init</em>(clef: int) à la classe <code>Cesar</code>.</p>
+</li>
+<li>
+<p>Ajouter les méthodes des précents TP pour suivantes à la classe Cesar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Nommer la methode pour chiffrer <code>chiffrer(message: str)</code></p>
+</li>
+<li>
+<p>Nommer la methode pour dechiffrer <code>dechiffrer(message: str)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Créer une nouvelle classe Python nommée <code>Message</code>. Cette classe doit avoir les attributs suivants :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>algorithme_chiffrement de type <code>Cesar</code></p>
+</li>
+<li>
+<p>message : de type <code>str</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ajouter un constructeur <code><em>init</em>(message: str, algorithme_chiffrement: str)</code> à la classe <code>Message</code>.</p>
+</li>
+<li>
+<p>Ajouter deux méthodes à la classe Message :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>appliquer_chiffrement() &#8594; str : une méthode qui chiffre le message à l&#8217;aide de l&#8217;algorithme de chiffrement spécifié.</p>
+</li>
+<li>
+<p>appliquer_dechiffrement() &#8594; str : une méthode qui déchiffre le message à l&#8217;aide de l&#8217;algorithme de chiffrement spécifié.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tester vos classes en créant une instance de la classe Message, en utilisant la classe Cesar comme algorithme de chiffrement, puis en chiffrant et déchiffrant un message.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tp_3_2_lhéritage">8. TP 3.2 : L&#8217;héritage</h2>
+<div class="sectionbody">
+<div class="imageblock"><div class="content"><object type="image/svg+xml" data="https://uml.aigyre.fr/svg/U9nzai5kmZ0CXkzvYXoB12-0fWbfEuvdiDBKfKP9WnBtW3hUVIuj9QYifrRsP__ERnyIcyYTT_gheRgEwB5bPPr9AO_eNYa0Qea12kkmtkjGdj7oHlKUkGdLJTiHZuN7bCm9zpfntEZTv_1zOXMkSZUrLFz6QvoGCeNMW8d1ctENREUmSCWSinuauq_Gc5eGPGXE4ECkZIcHWGEOP8cAIqZ455fuL4YlhURh1N-UWNbGwJ1KtSkdLWkfGdwszwhiNPXC7FoS8yVH1udrDQ4JZtBdZJk5IDnu19kjw86AWfwCp5QKMxlzfyK-btctnxNTpRb92UeOFDGanPAr3NfgZ_b-5Tf84Q4oRLhbn9Ry-M6tUnZqclZubSoR8tcXviiPwS5wTS2saeF_0zzX3R00" id="classMessageChiffrement" ><div class="imageblock"><div class="content"><img id="fallback_classMessageChiffrement" class="plantuml" src="https://uml.aigyre.fr/svg/U9nzai5kmZ0CXkzvYXoB12-0fWbfEuvdiDBKfKP9WnBtW3hUVIuj9QYifrRsP__ERnyIcyYTT_gheRgEwB5bPPr9AO_eNYa0Qea12kkmtkjGdj7oHlKUkGdLJTiHZuN7bCm9zpfntEZTv_1zOXMkSZUrLFz6QvoGCeNMW8d1ctENREUmSCWSinuauq_Gc5eGPGXE4ECkZIcHWGEOP8cAIqZ455fuL4YlhURh1N-UWNbGwJ1KtSkdLWkfGdwszwhiNPXC7FoS8yVH1udrDQ4JZtBdZJk5IDnu19kjw86AWfwCp5QKMxlzfyK-btctnxNTpRb92UeOFDGanPAr3NfgZ_b-5Tf84Q4oRLhbn9Ry-M6tUnZqclZubSoR8tcXviiPwS5wTS2saeF_0zzX3R00" /></div></div></object></div></div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implémentation de la classe <code>Chiffrement</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer une classe Python nommée <code>Chiffrement</code>.</p>
+</li>
+<li>
+<p>Ajouter un constructeur <code><em>init</em>(self, clef: object)</code> qui initialise la clé de <code>chiffrement</code>.</p>
+</li>
+<li>
+<p>Ajouter les méthodes <code>chiffrer(self, message: str) &#8594; str</code> et <code>dechiffrer(self, message: str) &#8594; str</code> à la classe <code>Chiffrement</code>. Ces méthodes doivent fournir une implémentation de base pour le chiffrement et le déchiffrement.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Implémentation de la classe <code>ChiffrementDecalage</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer une classe <code>ChiffrementDecalage</code> qui hérite de la classe <code>Chiffrement</code>.</p>
+</li>
+<li>
+<p>Ajouter les méthodes  <code>_est_majuscule</code>, <code>_est_lettre</code>, <code>alphabet_to_ascii</code>, et <code>ascii_to_alphabet</code> à la classe <code>ChiffrementDecalage</code>.</p>
+</li>
+<li>
+<p>Assurer-vous que la classe <code>ChiffrementDecalage</code> utilise la clé de chiffrement de la classe parente Chiffrement.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Implémentation de la classe <code>Cesar</code></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer une classe <code>Cesar</code> qui hérite de la classe <code>ChiffrementDecalage</code>.</p>
+</li>
+<li>
+<p>Implémenter les méthodes <code>chiffrer(self, message: str) &#8594; str</code> et <code>dechiffrer(self, message: str) &#8594; str</code> avec le chiffre de César</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Implémentation de la classe Message</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer une classe Message avec les attributs algorithme_chiffrement de type Chiffrement et message de type str.</p>
+</li>
+<li>
+<p>Ajouter un constructeur <code><em>init</em>(self, message: str, algorithme_chiffrement: Chiffrement)</code></p>
+</li>
+<li>
+<p>Ajouter les méthodes <code>chiffrer(self) &#8594; str</code> et <code>dechiffrer(self) &#8594; str</code> qui utilisent algorithme_chiffrement pour chiffrer et déchiffrer le message.</p>
+</li>
+<li>
+<p>Ajouter les méthodes <code>message_from_fichier(self, cheminMessage: str)</code> et <code>ecrire_dans_fichier(self, cheminMessage: str)</code> pour lire et écrire des messages à partir de fichiers.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Tester vos classes</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer une instance de la classe <code>Cesar</code> avec une clé de votre choix.</p>
+</li>
+<li>
+<p>Créer une instance de la classe <code>Message</code> avec un message de votre choix.</p>
+</li>
+<li>
+<p>Tester également la lecture et l&#8217;écriture de messages à partir de fichiers.</p>
+</li>
+</ol>
 </div>
 </li>
 </ul>
@@ -1264,15 +1401,23 @@ for c in cles:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tp_3_2_lhéritage">TP 3.2 : L&#8217;héritage</h2>
+<h2 id="_tp_3_3_le_chiffre_de_vernam">9. TP 3.3 Le chiffre de Vernam</h2>
 <div class="sectionbody">
-<div class="imageblock"><div class="content"><object type="image/svg+xml" data="https://uml.aigyre.fr/svg/U9nzai5kmZ0CXkzvYXoB12-0fWbfEuvdiDBKfKP9WnBtW3hUVIuj9QYifrRsP__ERnyIcyYTT_gheRgEwB5bPPr9AO_eNYa0Qea12kkmtkjGdj7oHlKUkGdLJTiHZuN7bCm9zpfntEZTv_1zOXMkSZUrLFz6QvoGCeNMW8d1ctENREUmSCWSinuauq_Gc5eGPGXE4ECkZIcHWGEOP8cAIqZ455fuL4YlhURh1N-UWNbGwJ1KtSkdLWkfGdwszwhiNPXC7FoS8yVH1udrDQ4JZtBdZJk5IDnu19kjw86AWfwCp5QKMxlzfyK-btctnxNTpRb92UeOFDGanPAr3NfgZ_b-5Tf84Q4oRLhbn9Ry-M6tUnZqclZubSoR8tcXviiPwS5wTS2saeF_0zzX3R00" id="classMessageChiffrement" ><div class="imageblock"><div class="content"><img id="fallback_classMessageChiffrement" class="plantuml" src="https://uml.aigyre.fr/svg/U9nzai5kmZ0CXkzvYXoB12-0fWbfEuvdiDBKfKP9WnBtW3hUVIuj9QYifrRsP__ERnyIcyYTT_gheRgEwB5bPPr9AO_eNYa0Qea12kkmtkjGdj7oHlKUkGdLJTiHZuN7bCm9zpfntEZTv_1zOXMkSZUrLFz6QvoGCeNMW8d1ctENREUmSCWSinuauq_Gc5eGPGXE4ECkZIcHWGEOP8cAIqZ455fuL4YlhURh1N-UWNbGwJ1KtSkdLWkfGdwszwhiNPXC7FoS8yVH1udrDQ4JZtBdZJk5IDnu19kjw86AWfwCp5QKMxlzfyK-btctnxNTpRb92UeOFDGanPAr3NfgZ_b-5Tf84Q4oRLhbn9Ry-M6tUnZqclZubSoR8tcXviiPwS5wTS2saeF_0zzX3R00" /></div></div></object></div></div>
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tp_00000011_00000100">10. TP 00000011.00000100</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Passer les types str en bytes</p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-12-05 08:26:27 +0100
+Last updated 2023-12-06 16:56:01 +0100
 </div>
 </div>
 </body>

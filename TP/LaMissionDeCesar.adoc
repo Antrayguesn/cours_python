@@ -1,12 +1,17 @@
 = La mission de César
+:author: Nicolas ANTRAYGUES - AIGYRE Consult
+:lang: fr
+:toc: left
+:sectnums: 
+:icons: font
+:toc-title: Sommaire
 :imagesdir: images
 :source-highlighter: rouge
 
-Jules César vous donne une mission pour son siège d'Alesia
 
-Mettre au point un algorithme de chiffrement pour communiquer avec ses troupes.
+Vous êtes missionné par Jules César pour mettre au point un algorithme de chiffrement afin de sécuriser les communications pendant le siège d'Alesia.
 
-Le premier message qu'il vous donne à envoyé est le suivant : 
+Vous inventé `Le Chiffre de César`, un système de chiffrement par décalage simple
 
 ....
 Légionnaire, vous êtes chargé de la mission cruciale de d'explorer les environs d'Alésia pour recueillir des renseignements sur les mouvements et les effectifs des forces gauloises. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.
@@ -29,14 +34,14 @@ Chiffrement symétrique:
 image::cesar2.png[Cesar] 
 
 
-Chiffrement :
+=== Chiffrement
 
 * Choisir un décalage
 * Additioner ce décalage à la position de la lettre dans l'alphabet
 ** Si la nouvelle position est supérieur à 26, alors on revient au début (24 + 10 = 8)
 * Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
 
-Déchiffrement :
+=== Déchiffrement
 
 * Soustraire la clé à la position de la lettre dans l'alphabet
 ** Si la nouvelle position est supérieur à 26, alors on retourne à la fin (6 - 10 = 22)
@@ -56,12 +61,13 @@ Veznut (vxututik /vo.zɔ̃/) kyz at rgtmgmk jk vxumxgssgzout otzkxvxkzk, sarzovg
 ....
 
 //TP 1.1
+== TP 1 : Le chiffre de César
 
-== TP 1.1 : Jouer avec l'entrée standard
+=== TP 1.1 : Jouer avec l'entrée standard
 
 NOTE: 15 min
 
-. Enregistrer une chaine de caractère provenant de l'entrée standard
+. Enregistrer une chaîne de caractère provenant de l'entrée standard
 . Afficher chaque lettre du message
 
 ---
@@ -72,17 +78,27 @@ NOTE: 15 min
 
 // TP 1.2
 
-== TP 1.2 : Chiffre de César !
+=== TP 1.2 : Chiffre de César !
+
+==== Objectif
+
+Implémenter le chiffre de César en utilisant Python. Le programme doit prendre en entrée un message et un nombre, puis décaler chaque lettre du message selon le nombre spécifié. 
+
+
+=== Instruction
+
 
 NOTE: 1 heure
 
-. Ecrire un script qui prend en entrée un message et un nombre.
-. Convertir chaque en lettre en `ASCII`
-** Determiner si la lettre en minuscule ou majascule
-. Décaler chaque lettre du message du nombre saisi
-** Si la valeur n'est pas une lettre ([A-Za-z]) ne pas la modifier
-. Convertir le nouveau code `ASCII` en lettre
-. Afficher la nouvelle chaine
+. Demandez à l'utilisateur de saisir un message et un nombre entier qui servira de clé de décalage.
+. Pour chaque caractère du message :
+.. Convertissez le caractère en sa valeur ASCII.
+.. Déterminez la position du caractère dans l'alphabet (A=0, B=1, ..., Z=25 pour les majuscules / a=0, b=1, ..., z=25 pour les minuscules).
+.. Déterminez si le caractère est une lettre majuscule ou minuscule.
+.. Décalez la position du caractère en ajoutant le nombre saisi.
+.. Si le caractère n'est pas une lettre ([A-Za-z]), ne le modifiez pas.
+.. Convertissez la nouvelle position en caractère ASCII.
+. Affichez le message chiffré
 
 ---
 
@@ -95,38 +111,32 @@ A savoir :
 
 ---
 
-Pensez à utiliser des constantes:
+Utiliser des constantes:
 
 [source, python]
 ----
 DEBUT_MAJUSCULE = 65
 DEBUT_MINUSCULE = 97
 
-FIN_MAJUSCULE = DEBUT_MAJUSCULE + 26
-FIN_MINUSCULE = DEBUT_MINUSCULE + 26
+FIN_MAJUSCULE = DEBUT_MAJUSCULE + 25
+FIN_MINUSCULE = DEBUT_MINUSCULE + 25
 ----
 
-Construire une chaine de caractère:
 
-[source, python]
-----
-ma_chaine = ""
+=== TP 1.3 Programmation fonctionnelle !
 
-for i in range(10):
-  ma_chaine += str(i)
+==== Obectif
 
-print(ma_chaine)
-0123456789
-----
+Analyser un code existant, identifier les fonctions existantes, organiser le code en utilisant des fonctions
 
-== TP 1.3 : Programmation fonctionnelle !
+=== Instruction
 
 NOTE: 30 min
 
-. Télécharger le code suivant : 
-. Identifier les différentes fonction du code
-. Ranger le code ecrit dans des fonctions
-. Ecrire la fonction `dechiffrer_cesar(message: str, cle: str) -> str`
+. Téléchargez le fichier https://cours.aigyre.fr/codes/tp1_2.py[tp1_2.py] qui contient le code à analyser.
+. Analysez le code et identifiez les différentes fonctions existantes.
+. Réorganisez le code en mettant chaque ensemble de fonctionnalités dans une fonction dédiée
+. Ajoutez une nouvelle fonction appelée `dechiffrer_cesar` qui prend en paramètre un message chiffré et une clé, et renvoie le message déchiffré.
 
 
 .Fonctions à trouver
@@ -134,7 +144,7 @@ NOTE: 30 min
 ====
 * ```est_majuscule(lettre: str) -> str```
 * ```alphabet_to_ascii(lettre: str, typeLettre: int) -> str```
-* ```ascii_to_alphabet(lettre: str) -> (str, int) # Retourne le type de lettre majuscule ou minuscule```
+* ```ascii_to_alphabet(lettre: str) -> (str, int) # Retourne le type de lettre : majuscule ou minuscule```
 * ```decaler_lettre(lettre: str, decalage: int) -> str```
 * ```chiffrer_cesar(message: str, cle: int) -> str```
 * ```dechiffrer_cesar(message: str, cle: str) -> str:```
@@ -151,131 +161,53 @@ python3 -i tp1_3.py
 >>> dechiffrer_cesar(chiffre, clef)
 ----
 
-=== A savoir
+=== Bonus 
 
-==== Fonction
+* Avec le module `time`, calculer et afficher le temps que prend l'éxecution du code
 
-Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique
-
-* Elle peut prendre des paramètre
-* Elle peut retourner une valeur
-
-===== Synatxe
-
-[source, python]
-----
-def ma_fonction():
-  print("Ceci est une fonction")
-
-def ma_fonction_avec_arguments(arg1: int, arg2: int):
-  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
-
-def ma_fonction_avec_arguments(arg1: int, arg2: int = None):
-  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
-
-def ma_fonction_qui_retourne_une_valeur() -> str:
-  return "Je suis le retour d'une fonction"
-----
-
-Appeller une fonction :
-
-[source, python]
-----
->>> ma_fonction()
-Ceci est une fonction
->>> ma_fonction_avec_arguments(2, 3) # Arguments positionnels
-Ceci est une fonction avec des arguments : 2 3
->>> ma_fonction_avec_arguments(arg2=1, arg1=8) # Argument par mot-clé
-Ceci est une fonction avec des arguments : 8 1
->>> ma_fonction_qui_retourne_une_valeur()
-"Je suis le retour d'une fonction"
-----
-
-== TP 1.4 : Légionnaire !
+=== TP 1.4 : Légionnaire !
 
 NOTE: 20 min
 
-* Entrée du message par fichier et non entrée standard
-* Sortie du message par fichier et non entrée standard
 
----
-
-. Ecrire le message que vous à confier Jules César dans un fichier
-. Ecrire la fonction `lire_message(cheminMessage: str) -> str` qui retourne le contenu du fichier ciblé par le chemin en paramètre
-. Ecrire la fonction `ecrire_message(message: str) -> None` qui ecrit le message dans un fichier nommé `message_chiffre.txt`
+* Écrivez le message confié par Jules César dans un fichier texte nommé `message.txt`
+. Écrivez une fonction appelée `lire_message` qui prend en paramètre le chemin d'un fichier et retourne le contenu du fichier sous forme de chaîne de caractères
+. Écrivez une fonction appelée `ecrire_message` qui prend en paramètre un message et l'écrit dans un fichier texte nommé message_chiffre.txt.
 
 Test : 
 
 [source, bash]
 ----
-python3 -i tp1_3.py
+python3 -i tp1_4.py
 >>> message_saisi = lire_message("message.txt")
 >>> chiffre = chiffrer_cesar(message_saisi, clef)
 >>> ecrire_message(chiffre)
 ----
 
-=== A savoir
-
-==== Les fichiers
-
-Ouvrir un fichier et le lire ligne par ligne :
-
-[source, python]
-----
-mon_fichier = open("fichier", "r")
-
-for ligne in mon_fichier:
-  print(ligne)
-
-mon_fichier.close()
-----
-
-Avec un contexte manager : 
-
-[source, python]
-----
-with open("fichier", "r") as mon_fichier: # Le fichier est ouvert
-  for ligne in mon_fichier:
-    print(ligne)
-# Le fichier est fermé
-----
-
-
-Lire le contenu entier du fichier :
-
-[source, python]
-----
-with open("fichier", "r") as mon_fichier:
-  print(mon_fichier.read()) # Retourne tout le fichier
-----
-
-https://docs.python.org/fr/3.6/library/functions.html#open
 
 == TP 2 : Vercingétorix
 
-Vercingétorix trouve sur un soldat romain l'étrange message suivant : 
+Vercingétorix, célèbre chef gaulois, a trouvé un étrange message sur un soldat romain capturé. Le message semble être chiffré, et Vercingétorix pense que vous êtes le créateur de cette méthode de chiffrement. Vous êtes capturé et chargé de décrypter le message pour révéler les informations qu'il contient.
+
+Message trouvé :
 
 ....
 Téoqwvviqzm, dwca êbma kpizoé lm ti uqaaqwv kzckqitm xzwbéomz tm kwvdwq lm zidqbiqttmumvb mv xzwdmvivkm lm Omzowdqi, tm kwvdwq xiaamzi à ti bwujmz lm ti vcqb. Awgmh dqoqtivb, ioqaamh idmk lébmzuqvibqwv mb zixxmtmh-dwca ycm tm lmabqv lm Zwum zmxwam acz dwa éxictma. Ycm ti nwzbcvm dwca ocqlm.
 ....
 
-Il apprend que vous êtes le créateur de la méthode de chiffrement, il vous capture pour decrypter le message !
 
----
 
 === Implémentation
 
-La methode de decryptage que nous allons implémenter va comparer la fréquence des lettres dans une langue donnée avec la fréquence des lettres du message chiffré.
+La méthode de décryptage que nous allons mettre en place se base sur la comparaison des fréquences des lettres dans le message chiffré avec celles d'une langue donnée
 
-Pour trouver la fréquence des lettres d'un langue, nous allons parcourir un livre.
+Pour déterminer la fréquence des lettres de la langue, nous allons parcourir un livre classique. Pour ce faire, nous avons choisi le livre "Vingt Mille Lieues sous les Mers" de Jules Verne.
 
-Nous prendrons Vingt Milles Lieux sous les Mers : https://www.gutenberg.org/cache/epub/5097/pg5097.txt
+Comparez les fréquences des lettres du message chiffré avec celles de la langue.
 
-On compare les lettres les plus fréquentes du message chiffrée avec ce de la langue. La comparaison des deux letrtes nous donne une clé probable. 
+Calculez la clé probable pour chaque lettre du message chiffré en utilisant une base de 26 (l'alphabet).
 
-On attribue un classment aux clés trouvée sur le nombre d'occurence de la lettre chiffrée
-
-Le calcul se fait sur une base 26
+On attribue un classment aux csur le nombrlés trouvée e d'occurence de la lettre chiffrée
 
 [source, python]
 ----
@@ -302,16 +234,36 @@ n = 13 m = 12
 
 ....
 
-== TP 2.1 : Analyse de langue
+=== Analyse de langue
+
+==== A savoir
+
+===== Collections
+
+Les collections indexent des éléments pouvant être parcouru de manière itératives
+
+En python, les éléments des collections ne sont pas typés
+
+* https://docs.python.org/3/tutorial/datastructures.html
+* https://docs.python.org/3/library/collections.html
+
+
+
+
+
+
+Pour les importer :
+
+
+
+Les imports se trouvent en haut du fichier
+
+==== TP 2.1 : Analyse de langue
 
 NOTE: 20 + 20 minutes
 
-. Récuperer le fichier : https://www.gutenberg.org/cache/epub/5097/pg5097.txt
-. Ecrire une fonction `occurence_lettre_livre(cheminLivre: str)`
-** Elle prend en paramètre le chemin vers un livre
-** Elle retourne le nombre d'occurence de lettre dans ce chiffier
-. Compter le nombre de d'occurence de chaque lettre du livre
-** Mettre chaque lettre en minuscule
+. Téléchargez le livre : https://www.gutenberg.org/cache/epub/5097/pg5097.txt
+. Écrivez une fonction appelée `occurence_lettre_livre` qui prend en paramètre le chemin vers un livre et retourne un dictionnaire indiquant le nombre d'occurrences de chaque lettre, en convertissant toutes les lettres en minuscules.
 
 Test :
 
@@ -337,52 +289,20 @@ Counter({'s': 5, 'e': 4, ' ': 4, 'u': 3, 'J': 1, 'i': 1, 'n': 1, 'p': 1, 'r': 1,
 ----
 ====
 
-=== A savoir
-
-==== Collections
-
-Les collections indexent des éléments pouvant être parcouru de manière itératives
-
-En python, les éléments des collections ne sont pas typé
-
-* https://docs.python.org/3/tutorial/datastructures.html
-* https://docs.python.org/3/library/collections.html
-
-==== Bibliothéque
-
-Un ensemble de fonctions s'appelle une librairie.
-
-Les librairies peuvent être importer dans des scripts.
-
-Python posséde une bibliothéque standard qui étends ces possibilités.
-
-* https://docs.python.org/fr/3/library/index.html
-
-Pour les importer :
-
-[source, python]
-----
-import time # Importer toute la librairie
-
-print(time.time())
-
-from time import time # Import de la fonction time()
-
-print(time())
-----
-
-Les imports se trouvent en haut du fichier
 
 
-== TP 2.2 Decrypter le chiffre le Cesar
+=== TP 2.2 Decrypter le chiffre de César
+
+=== Objectif 
+
+Écrire une fonction pour identifier les clés de déchiffrement les plus probables et afficher les messages déchiffrés correspondants.
+
+=== Instruction
 
 NOTE: 1 heure
 
-* Ecrire une fonction `decrypter_cesar(message: str) -> list`
-** Cette fonction prend en paramètre un message
-** Elle retourne une liste des 3 clés les plus probable classé par probabilité
-* 
-* Afficher les messages dechiffrer à l'aide des 3 clés
+* Écrivez une fonction appelée `decrypter_cesar` qui prend en paramètre un message chiffré et retourne une liste des 3 clés de déchiffrement les plus probables
+* Afficher les messages dechiffrés à l'aide des 3 clés
 
 Test :
 
@@ -396,69 +316,34 @@ for c in cles:
   print(dechiffrer_cesar(message, c))
 ----
 
-=== A savoir
 
-==== Gestion des erreurs
-
-try 
-
-except
-
-liste des exception
-
-==== Dictionnaire
-
-[source, python]
-----
-score_cle_probable = {}
-
-
-score_cle_probable[cle_probable] = 12
-
-score_cle_probable[cle_probable] += 1
-
-mon_dictionnaire = {}
-
-if cle_probable in mon_dictionnaire: # True si la clé existe sinon False
-  mon_dictionnaire[cle_probable] += 1
-else:
-  mon_dictionnaire[cle_probable] = 0
-
-try:
-  mon_dictionnaire[cle_probable] += 1
-except KeyError:
-  mon_dictionnaire[cle_probable] = 0
-----
-
-==== Counter
-
-[source, python]
-----
-frequence_lettre_langue = occurence_lettre_livre("livres/vmlslm.txt")
-frequence_lettre_langue.most_common() # Retourne une liste des occurences triées par occurences
-
-+frequence_lettre_langue # Retourne un Counter sans les éléments vide ou à zero
--frequence_lettre_langue # Retourne un Counter avec uniquement les éléments vide ou à zero
-----
 
 == TP 3 : Hasta siempre !
 
-2000 ans après vos exploits auprès de Jules César, votre nom se fait connaître à Cuba où une révolution est en cours.
+2000 ans après vos exploits auprès de Jules César, votre renommée atteint Cuba, où une révolution est en cours. Che Guevara vous contacte pour mettre en place un algorithme de chiffrement plus sécurisé, inspiré du Chiffre de Vernam aussi appellé du Masque Jetable.
 
-Comme nous l'avons demontrée, le chiffre de César n'est pas fiable, il est facilement decryptable.
+** Inspiré de fait réel **
 
-Vous êtes contacté par Che Guevara pour mettre en place un algorithme plus sécurisé et de pouvoir transmettre la clé simplement.
+=== Le chiffre de Vernam
 
-Vous vous inspirer des conceptes du `Chiffre de Vernam` ou du `Masque jetable`:
+Le chiffre de Vernam est utilise un chiffrement par décalage tout comme le chiffre de César.
+
+Bien que le Chiffre de Vernam soit extrêmement sécurisé, la transmission de la clé reste complexe et potentiellement vulnérable. Che Guevara souligne la nécessité d'avoir un système de transmission de clé simple et efficace, compte tenu des défis logistiques dans le contexte révolutionnaire.
+
+Principe du Chiffre de Vernam :
 * La clé doit être une suite de caractères au moins aussi longue que le message à chiffrer.
 * Les caractères composant la clé doivent être choisis de façon totalement aléatoire.
-* Chaque clé, ou masque, ne doit être utilisée qu'une seule fois (d'où le nom de masque jetable).
+* Chaque clé, ou masque, ne doit être utilisée qu'une seule fois.
+
+=== Transmission de clefs simple
 
 Pour répondre à ces principes et au besoin, vous decidez :
-* La clé sera récuperé depuis un livre
-* La clé sera récuperé après un nombre de caractère aléatoire
-* Le nombre de caractère aléatoire est compris entre 0 et la fin du fichier - taille du message
+
+* La clé sera récuperée depuis un livre
+* La clé sera récuperée après un nombre de caractère aléatoire
+* Le nombre de caractère aléatoire est compris entre 0 et la (fin du fichier - taille du message)
 * La clé sera uniquement composé de lettre
+
 
 
 == TP 3.1 : Drole de types
@@ -467,34 +352,61 @@ NOTE: 1 heure
 
 [plantuml, format="svg", id="classMessage"]
 ----
+@startuml TP 3.1
 class Message {
 {field} Chiffrement algorithme_chiffrement
 {field} str message
 
-__init__(algorithme_chiffrement: Chiffrement)
+__init__(message: str)
 {method} chiffrer() -> str
 {method} dehiffrer() -> str
 message_from_fichier(cheminMessage: str)
 ecrire_dans_fichier(cheminMessage: str)
 }
 
-Chiffrement o-- Message
+class Cesar {
+  int clef
 
-Chiffrement <|-- ChiffrementDecalage
+  __init__(clef: int)
+  {method} chiffrer_message(message: str) -> str
+  {method} dechiffrer_message(message: str) -> str
+  _est_majuscule(lettre: str) -> int
+  _est_lettre(lettre: str) -> bool
+  alphabet_to_ascii(position_lettre: int, typeLettre: int) -> str
+  ascii_to_alphabet(lettre: str) -> (str, int)
 
-ChiffrementDecalage <|-- Cesar
+}
+
 @enduml
 ----
 
-* Dans le fichier `chiffrement.py`, écrire la classe `Chiffrement`
-** 
+* Implémenter l'UML suivant en créant un fichier par classe
+
+.Instruction détaillée
+[.collapsible]
+--
+. Implémenter une classe Python nommée `Cesar`. Cette classe doit avoir les attributs suivants :
+** `clef` : un attribut pour stocker la clé de chiffrement.
+
+. Ajouter un constructeur __init__(clef: int) à la classe `Cesar`.
+
+. Ajouter les méthodes des précents TP pour suivantes à la classe Cesar
+** Nommer la methode pour chiffrer `chiffrer(message: str)`
+** Nommer la methode pour dechiffrer `dechiffrer(message: str)`
+
+. Créer une nouvelle classe Python nommée `Message`. Cette classe doit avoir les attributs suivants :
+** algorithme_chiffrement de type `Cesar`
+** message : de type `str`
+
+. Ajouter un constructeur `__init__(message: str, algorithme_chiffrement: str)` à la classe `Message`.
+. Ajouter deux méthodes à la classe Message :
+** appliquer_chiffrement() -> str : une méthode qui chiffre le message à l'aide de l'algorithme de chiffrement spécifié.
+** appliquer_dechiffrement() -> str : une méthode qui déchiffre le message à l'aide de l'algorithme de chiffrement spécifié.
+--
+
+. Tester vos classes en créant une instance de la classe Message, en utilisant la classe Cesar comme algorithme de chiffrement, puis en chiffrant et déchiffrant un message.
 
 
-
-* Dans le fichier `message.py`, ecrire la classe `Message`
-
-
-** chiffrer()
 
 == TP 3.2 : L'héritage
 
@@ -524,7 +436,7 @@ class Message {
 {field} Chiffrement algorithme_chiffrement
 {field} str message
 
-__init__(algorithme_chiffrement: Chiffrement)
+__init__(message: str, algorithme_chiffrement: Chiffrement)
 {method} chiffrer() -> str
 {method} dehiffrer() -> str
 message_from_fichier(cheminMessage: str)
@@ -538,3 +450,116 @@ Chiffrement <|-- ChiffrementDecalage
 ChiffrementDecalage <|-- Cesar
 @enduml
 ----
+
+* Implémenter l'UML suivant en créant un fichier par classe
+* Utiliser les propriétes
+
+.Instruction détaillée
+[.collapsible]
+--
+* Implémentation de la classe `Chiffrement`
+
+. Créer une classe Python nommée `Chiffrement`.
+. Ajouter un constructeur `__init__(self, clef: object)` qui initialise la clé de `chiffrement`.
+. Ajouter les méthodes `chiffrer(self, message: str) -> str` et `dechiffrer(self, message: str) -> str` à la classe `Chiffrement`.
+
+* Implémentation de la classe `ChiffrementDecalage`
+
+. Créer une classe `ChiffrementDecalage` qui hérite de la classe `Chiffrement`.
+. Ajouter les méthodes  `_est_majuscule`, `_est_lettre`, `alphabet_to_ascii`, et `ascii_to_alphabet` à la classe `ChiffrementDecalage`.
+
+* Implémentation de la classe `Cesar`
+
+. Créer une classe `Cesar` qui hérite de la classe `ChiffrementDecalage`.
+. Implémenter les méthodes `chiffrer(self, message: str) -> str` et `dechiffrer(self, message: str) -> str` avec le chiffre de César
+
+* Implémentation de la classe `Message`
+
+. Créer une classe Message avec les attributs algorithme_chiffrement de type Chiffrement et message de type str.
+. Ajouter un constructeur `__init__(self, message: str, algorithme_chiffrement: Chiffrement)`
+. Ajouter les méthodes `chiffrer(self) -> str` et `dechiffrer(self) -> str` qui utilisent algorithme_chiffrement pour chiffrer et déchiffrer le message.
+. Ajouter les méthodes `message_from_fichier(self, cheminMessage: str)` et `ecrire_dans_fichier(self, cheminMessage: str)` pour lire et écrire des messages à partir de fichiers.
+--
+
+* Tester vos classes
+
+. Créer un objet à partir de la classe `Cesar` avec une clé de votre choix.
+. Créer un objet à partir de la classe `Message` avec un message de votre choix.
+. Tester également la lecture et l'écriture de messages à partir de fichiers.
+
+
+== TP 3.3 Le chiffre de Vernam
+
+[plantuml, format="svg", id="classMessageChiffrement"]
+----
+@startuml Chiffrement2
+class Chiffrement {
+
+__init__(clef: object)
+{method} chiffrer(message: str) -> str
+{method} dehiffrer(message: str) -> str
+}
+
+class ChiffrementDecalage {
+  _est_majuscule(lettre: str) -> int
+  _est_lettre(lettre: str) -> bool
+  alphabet_to_ascii(position_lettre: int, typeLettre: int) -> str
+  ascii_to_alphabet(lettre: str) -> (str, int)
+}
+
+class Cesar {
+
+}
+
+class Vernam {
+  {field} str chemin_bibliotheque
+
+}
+
+class Message {
+{field} Chiffrement algorithme_chiffrement
+{field} str message
+
+__init__(message: str, algorithme_chiffrement: Chiffrement)
+{method} chiffrer() -> str
+{method} dehiffrer() -> str
+message_from_fichier(cheminMessage: str)
+ecrire_dans_fichier(cheminMessage: str)
+}
+
+Chiffrement o-- Message
+
+Chiffrement <|-- ChiffrementDecalage
+
+ChiffrementDecalage <|-- Cesar
+ChiffrementDecalage <|-- Vernam
+@enduml
+----
+
+* Pour implémenter votre chiffre de Vernam vous lui donner le chemin vers un répertoire qui contient plusieurs livres
+* L'algorithme choisira un livre et un décalage ou commencera la clé
+* Le setter de la clef prendra en paramètre le chemin vers la bibliotheque
+* La propriéte `clef` retournera un tuples `(décalage, livre)`
+
+--- 
+
+* `os.walk(chemin_dossier)` : Parcourir une arborescence
+* Génération aléatoire
+[source, python]
+----
+import random
+
+nombre_aleatoire = random.randint(1, 10)
+print(nombre_aleatoire)
+----
+
+== TP 00000011.00000100
+
+* La methode 
+
+--- 
+'`^`' : Opérateur XOR
+
+`os.walk(chemin_dossier)` : Parcourir une arborescence
+'`^`' : Opérateur XOR
+

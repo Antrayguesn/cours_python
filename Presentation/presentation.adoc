@@ -2,11 +2,11 @@
 
 :revealjs_theme: white
 :imagesdir: images
-:revealjs_center: false
+:revealjs_center: true
 :customcss: custom.css
 :revealjs_width: 1500
 :source-highlighter: rouge
-
+:author: Nicolas ANTRAYGUES - AIGYRE Consult
 
 == Un peu d'histoire ?
 
@@ -38,7 +38,7 @@ image::ada.jpg[Ada,role=center,width=400px]
 === Machine analytique
 
 * Créer par Charles Babbage en 1834
-* Assilimé au premier ordinateur
+* Donne les bases conceptuelles des ordinateurs modernes
 
 image::moulin.jpg[]
 
@@ -50,7 +50,7 @@ image::moulin.jpg[]
 
 * En 1950 conçoit le Test de Turing
 
-* Ecrit Computing Machinery and Intelligence et donne la base de la programmation et des programmes informatique 
+* Participe au développement de la première génération d'ordinateur
 
 [%notitle]
 === Alan Turing
@@ -131,7 +131,7 @@ image::python.png[Python, width=100px, float=right]
 
 === Version
 
-* Version de Python : 3.12
+* Version de Python : 3.12 (2 Octobre 2023)
 
 * Gros changement entre Python 2 et Python 3
 
@@ -267,6 +267,7 @@ ma_variable = 42
 * Nombre décimaux : `float`
 * Booléan (True/False) `bool`
 * Chaine de caractère : `str`
+* Binaire : `bytes`
 
 
 === Typage dynamique
@@ -293,6 +294,12 @@ L'interpréteur Python reconnait lui même les types
 * Une constante est une variable dont sa valeur ne sera pas changer au cours de l'éxécution
 
 * Par convention, écrit en majuscule
+
+[source, python]
+----
+DEBUT_MAJUSCULE = 65
+DEBUT_MINUSCULE = 97
+----
 
 * https://docs.python.org/fr/3/library/constants.html
 
@@ -370,6 +377,8 @@ True
 
 === Comparaison d'instance
 
+* Opérateur `is`
+
 [source, python]
 ----
 >>> True is True
@@ -423,32 +432,112 @@ False
 
 === Liste
 
-* Séquences muables
-* généralement utilisées pour stocker des collections d'éléments homogènes (le degré de similitude varie selon l'usage).
+* Déclarer en mettant les éléments entre `[]`
+* Généralement utilisées pour stocker des collections d'éléments homogènes.
+* Mutables
+* Contacténable
 
 [source, python]
 ----
->>> ma_liste  = [1,2,3,4]
+>>> ma_liste  = [1,2,3]
 >>> ma_liste[1]
 2
+>>> ma_liste[0] = 10
+>>> ma_liste
+[10,2,3]
 >>> ma_liste.append(4)
 >>> ma_liste
-
+[10,2,3,4]
+>>> ma_liste + [5,6,7]
+[10,2,3,4, 5, 6, 7]
 ----
 
-*  
+=== Liste
+
+* L'opérateur `in` permet de vérifier l'existance d'un élément
+* Une liste peut être vide
+
+[source, python]
+----
+>>> ma_liste  = [1,2,3]
+>>> 3 in ma_liste
+True
+>>> "Toto" in ma_liste
+False
+>>> ma_liste = []
+----
+
+=== Compréhension de liste
+
+* Syntaxe concise pour créer des listes
+
+[source, python]
+----
+>>> [i for i in range(10)]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> [i for i in range(10) if i % 2]
+[1, 3, 5, 7, 9]
+>>> [i for i in range(10) if i % 2]
+----
+
 * https://docs.python.org/fr/3/library/stdtypes.html#list
 
 === Chaine de caractère
 
+* Type de données
 * Séquence de caractères 
 * Délimitée par des guillemets (quote) simples  `'` ou doubles `"`
 * Itérable
-
+* Immutable
 
 [source, python]
 ----
 >>> ma_chaine = "Je suis une chaine de caractère"
+>>> ma_chaine[0:2]
+"Je"
+>>> ma_chaine[-9:]
+"caractère"
+----
+
+=== Chaine de caractère
+
+* Utiliser '\' pour échaper des caractères spéciaux
+* Peuvent être concaténées avec l'opérateur `+`
+* Peuvent être comparé
+
+[source, python]
+----
+>>> ma_chaine = "Je suis une \"chaine\" de caractère"
+>>> ma_chaine_2 = "Je suis une \"chaine\"" + "de caractère"
+>>> ma_chaine == ma_chaine_2
+True
+----
+
+=== Formatage
+
+* f-strings
+
+[source, python]
+----
+ma_chaine = "La valeur est %s" % (valeur)
+ma_chaine = f"La valeur est {valeur}"
+ma_chaine = "La valeur est {valeur}".format(valeur=valeur)
+ma_chaine = "La valeur est {valeur}".format(valeur="")
+----
+
+=== Methode utile
+
+[source, python]
+----
+>>> ma_chaine = "    Je suis une / chaine de caractère      "
+>>> ma_chaine.upper()
+'    JE SUIS UNE / CHAINE DE CARACTÈRE      '
+>>> ma_chaine.lower()
+'    je suis une / chaine de caractère      '
+>>> ma_chaine.strip()
+'Je suis une / chaine de caractère'
+>>> ma_chaine.split("/")
+['    Je suis une ', ' chaine de caractère      ']
 ----
 
 * https://docs.python.org/fr/3/library/stdtypes.html#str
@@ -511,7 +600,7 @@ Les boucles permettent de répeter des blocs de code selon une condition
 
 * La boucle `for` permet d'itérer sur une séquence
 
-=== Utilisation avec la `range()`
+* Utilisation avec la `range()`
 
 [source,python]
 ----
@@ -519,7 +608,7 @@ for i in range(5):
     print(i)
 ----
 
-=== Itération sur une séquence
+* Itération sur une séquence
 
 [source,python]
 ----
@@ -528,7 +617,7 @@ for lettre in "MaChaineDeCaratère":
 ----
 
 
-=== Boucle `while`
+=== Boucle while
 
 La boucle `while` permet d'exécuter un bloc de code tant qu'une condition est vraie.
 
@@ -561,13 +650,15 @@ while compteur < 10:
 ----
 
 
-
 == Fonction
 
-Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique
+* Une fonction est une séquence d'instructions
+* Accompli une tâche spécifique et réutilisable.
+* Elle peut recevoir des paramètres en entrée
+* Effectuer des opérations en utilisant ces paramètres
+* Éventuellement retourner un résultat.
 
-* Elle peut prendre des paramètre
-* Elle peut retourner une valeur
+* Facilitent la modularité et la réutilisation du code en le divisant en morceaux logiques et autonomes.
 
 === Synatxe
 
@@ -586,9 +677,7 @@ def ma_fonction_qui_retourne_une_valeur() -> str:
   return "Je suis le retour d'une fonction"
 ----
 
-=== Synatxe
-
-* Appeller une fonction
+=== Appeller une fonction
 
 [source, python]
 ----
@@ -602,37 +691,393 @@ Ceci est une fonction avec des arguments : 8 1
 "Je suis le retour d'une fonction"
 ----
 
-// TP 1.3
+=== Portée des variables
 
-== Types de données complexes
+* Les variables déclarées à l'intérieur d'une fonction ont une portée locale à cette fonction
+
+[source, python]
+----
+>>> variable = 56
+>>> def ma_fonction():
+...   variable = 10
+...   print(variable)
+...
+>>> ma_fonction()
+10
+----
+
+=== Avantages des fonctions
+
+* Modularité
+* Réutilisation du Code
+* Facilité de Maintenance
+
+=== Module
+
+* Fichier qui contient du code pouvant être utilisé dans d'autre programme
+* Structure et organise le code de manière modulaire
+* Python posséde une bibliothéque standard de modules qui étend ces possibilités.
+
+[source, python]
+----
+import time # Importer toute la librairie
+
+print(time.time())
+
+from time import time # Import de la fonction time()
+
+print(time())
+----
+
+https://docs.python.org/fr/3/library/index.html
+
+== Les fichiers
+
+=== Ouvrir un fichier
+
+`open(filename: str, mode: str)` : Prend le chemin du fichier et le mode d'ouverture en paramètres.
+
+Mode d'ouverture::
+* "r" : Lecture (par défaut).
+* "w" : Écriture 
+* "a" : Ajout 
+* "b" : Binaire
+
+[source, python]
+----
+# Ouvrir un fichier en mode lecture
+fichier_message_lecture = open("message.txt", "r")
+
+# Ouvrir un fichier en mode écriture
+fichier_message_ecriture = open("message.txt", "w")
+
+# Ouvrir un fichier en mode ajout
+fichier_message_ajout = open("message.txt", "a")
+----
+
+=== Lire un fichier
+
+[source, python]
+----
+# Lecture de tout le contenu
+contenu = fichier_message_lecture.read()
+
+# Lecture d'une ligne
+ligne = fichier_message_lecture.readline()
+
+# Lecture de toutes les lignes dans une liste
+lignes = fichier_message_lecture.readlines()
+
+for ligne in fichier_message_lecture:
+  print(ligne)
+----
+
+=== Ecrire dans un fichier
+
+[source, python]
+----
+# Ecriture dans le fichier
+fichier_message_ecriture.write("Hello world!")
+----
+
+=== Fermer le fichier
+
+[source, python]
+----
+fichier_message_lecture.close()
+fichier_message_ecriture.close()
+----
+
+=== Avec un **context manager** :
+
+* Ferme le fichier à la fin du bloc
+* Bonne pratique
+
+[source, python]
+----
+with open("fichier", "w") as mon_fichier: # Le fichier est ouvert
+  mon_fichier.write("Contenu de mon fichier")
+# Le fichier est fermé
+----
 
 
-=== Collection
-
-Les collections indexent des éléments pouvant être parcouru de manière itératives
-
-En python, les éléments des collections ne sont pas typé 
-
-* https://docs.python.org/3/tutorial/datastructures.html
-
-== Fichier
-
+=== Doc
 
 https://docs.python.org/fr/3.6/library/functions.html#open
 
+== Types de données complexes
+
 === Collection
 
-Les collections indexent des éléments pouvant être parcouru de manière itératives
 
-En python, les éléments des collections ne sont pas typé 
-
-* https://docs.python.org/3/tutorial/datastructures.html
+* Sructure de données 
+* Stocke et organise plusieurs éléments sous une seule variable
 
 
+=== Dictionnaire (dict)
 
-// TP 2
+* Collection d'éléments stocké sous forme de clé/valeur
+* Chaque élément d'un dictionnaire a une clé et une valeur correspondante.
+
+* Mutable
+* Chaque clé dans un dictionnaire doit être unique
+
+[source, python]
+----
+>>> clefs_probable = {18: 10, 10: 14, 2: 2}
+>>> clefs_probable[18]
+10
+
+----
+
+
+=== tuples
+
+* Séquences immuables d'éléments.
+* Contient différents types de données.
+* Indexés
+
+[source,python]
+----
+>>> a = (1, 2)
+>>> a
+(1, 2)
+>>> a[0]
+>>> a[0] = 5
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+----
+
+=== Ensembles (set)
+
+* Collections non ordonnées d'éléments uniques.
+* Accepte des opérations comme l'union, l'intersection et la différence.
+
+[source, python]
+----
+>>> mon_ensemble_1 = {1, 2, 3, 4, 5, 6}
+>>> mon_ensemble_2 = {6, 7, 8, 9, 10}
+>>> mon_ensemble_2.add(11)
+
+>>> mon_ensemble_1 | mon_ensemble_2
+{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+>>> mon_ensemble_1 & mon_ensemble_2
+{6}
+----
+
+=== TP Bonus
+
+. Télécharger le code : https://cours.aigyre.fr/codes/TP_Bonus.py
+. Optimiser la fonction pour ne pas lancer l'assertion
+** La fonction doit retourné une liste d'entiers unique
+
+=== TP Bonus corrigé
+
+[source, python]
+----
+def generer_list_random(n):
+  result = {}
+  for i in range(n):
+    x = random.randint(1,n)
+    if x not in result:
+      result[x] = None
+  return list(result.keys())
+----
+
+== Programmation orientée objet
+
+* Programmation orientée objet (POO)
+
+* Paradigme de programmation
+
+* Composition d'un programme composé d'objet qui peuvent intéragir entre eux.
 
 
 
+* https://fr.wikipedia.org/wiki/SOLID_(informatique)
+
+=== C'est quoi un objet ? 
+
+Il faut voir un objet comme représentation d'un concept, d'une idée ou d'un bien physique.
+
+Cet objet est construit avec une structure de données et des opérations
+
+[.text-left]
+Un objet posséde::
+* Attribut / Propriété : Caractéristique de l'objet (variable)
+* Methode  : Action des objects (fonction)
 
 
+=== Tout est objet 
+
+En python, tout est objet !
+
+[source, python]
+----
+>>> a = "Test"
+>>> isinstance(a, str)
+>>> True
+>>> isinstance(a, objet)
+>>> True
+>>> isinstance(a, int)
+>>> False
+----
+
+=== Comment implémenté mon objet ?
+
+[.text-left]
+Avec des classe::
+* Implémentation d'un objet
+* Une classe est la définition d’un type
+* CamelCase avec la 1er lettre en majuscule
+
+[.text-left]
+Un object est l'instantiation d'une classe
+
+
+[source,python]
+----
+class Horloge:
+  pass
+----
+
+=== Constructeur
+
+* Definit comment initaliser l'objet
+* Apeller automatiquement à l'instantiation
+* En python, doit être nommé `__init__`
+* `self` est une réference sur l'objet lui même 
+
+[source,python]
+----
+class Horloge:
+  """ Représentation des heures de la journée en secondes """
+  def __init__(self):
+    self._heure = 360
+----
+[source,python]
+----
+class Horloge:
+  def __init__(self, heure: int = None):
+    self._heure = heure
+----
+
+=== Encapsulation
+
+* Masquer la strucuture de données interne de l'objet pour garantir la stabilité de son état
+* Garanti la stabilité de l'état
+* Un objet doit fonctionner comme une boîte noire.
+* Les atributs peuvent être accéder ou modifier via des methodes que l'on expose.
+
+
+[NOTE.speaker]
+--
+Cela permet de cacher certains détails d'implémentation à l'extérieur de la classe et de fournir une interface cohérente pour interagir avec les objets.
+
+Les atributs peuvent être accéder ou modifier via des methodes que l'on expose.
+--
+
+=== Niveau de visibilité
+
+Privé:: Seulement accèssible par la classe elle même
+Publique:: Accessible par tout le monde
+Protégé:: Accessible par les classes fille 
+
+* En python, pas de sytanxe pour la visibilité des attributs mais des conventions :
+
+Un attribut privé sera préfixé d'un '_'.
+
+* https://www.pythoniste.fr/python/la-signification-des-traits-de-soulignement-_-en-python/
+
+
+=== Getter
+
+Un getter est une methode qui definit l'accès a une variable
+
+Par convention, son nom commence par `get` 
+
+[source, python]
+----
+def get_heure(self):
+  return self._heure
+----
+
+=== Setter
+
+un setter est une methode qui définit le changement d'état d'un attrbiut
+
+Par convention son nom commence par `set`
+
+[source, python]
+----
+def set_heure(self, heure: str):
+  self._heure = heure
+
+def avancer_heure(self):
+  self._heure += 1
+
+def reculer_heure(self):
+  self._heure += 1
+----
+
+=== Propriété
+
+* Attribut de la classe
+* Setter et Getter d'attribut
+* Décorateurs : @property et @propriete_nom.setter
+
+[source, python]
+----
+SECONDES_HEURE = 360
+HEURE_JOUR = 24
+class Horloge:
+  def __init__(self):
+    self._heure = 0
+  @property
+  def heure(self):
+    return self._heure
+  @heure.setter
+  def heure(self, secondes: int):
+    if secondes > SECONDES_HEURE * HEURE_JOUR:
+      print(f"Le nombre de secondes est suppérieur à 1 jour : {secondes}")
+    else:
+      self._heure = heure
+----
+
+=== Héritage
+
+L'héritage est un concept clé de la programmation orientée objet (POO) qui permet à une classe (appelée classe dérivée ou sous-classe) de hériter des attributs et des méthodes d'une autre classe (appelée classe de base ou classe mère). L'idée est de créer une relation "est un" entre les deux classes, où la classe dérivée est une version spécialisée de la classe de base.
+
+=== Duck typing
+
+> Si je vois un oiseau qui vole comme un canard, cancane comme un canard, et nage comme un canard, alors j'appelle cet oiseau un canard
+
+[.NOTE.speaker]
+--
+La sémentique de l'objet est determiné par l'ensemble de ses methodes et attribut et non par un type définit et statique.
+--
+
+=== Polymorphisme
+
+=== Classe abstraite
+
+== Gestion d'erreur et exeception
+
+* https://docs.python.org/fr/3/tutorial/errors.html
+
+=== try .. except
+=== finaly
+=== else
+
+=== raise
+
+On peut lever une execption
+
+== Un peu plus
+
+* Déorateur
+* Pylint
+* 
+
+== Packaging

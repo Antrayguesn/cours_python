@@ -413,17 +413,125 @@ ul.byline {
 ul.byline li + li {
   margin-top: 0.25em;
 }
-</style><link rel="stylesheet" href="custom.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>La mission de César</h1></section><section><section id="_la_mission_de_césar" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>La mission de César</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p>Mettre au point un algorithme de chiffrement pour communiquer avec ses alliès.</p></li><li class="fragment"><p>Vous décider de créer <code>Le chiffre de César</code></p></li></ul></div></div></section><section id="_le_chiffre_de_césar" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>Le chiffre de César</h2><div class="slide-content">
-<div class="paragraph"><p>Objectif du chiffre de César</p></div>
-<div class="ulist"><ul><li><p>Rendre confidentiel un texte par décalage des lettres de l&#8217;alphabet.</p></li><li><p>La clé est le décalage choisi</p></li></ul></div>
+</style><style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style><link rel="stylesheet" href="custom.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>La mission de César</h1></section><section><section id="_la_mission_de_césar"><h2>La mission de César</h2></section><section id="_le_chiffre_de_césar"><h2>Le chiffre de César</h2><div class="slide-content"><div class="paragraph"><p>Objectif du chiffre de César</p></div>
+<div class="ulist"><ul><li><p>Rendre confidentiel un texte par décalage des lettres de l&#8217;alphabet.</p></li><li><p>Le nombre de lettre décalé est la clé du chiffre</p></li></ul></div>
 <div class="paragraph"><p>Chiffrement symétrique:</p></div>
-<div class="ulist"><ul><li><p>La clé est une variable de l&#8217;algorithme qui le rend secret</p></li><li><p>Le chiffrement et le déchiffrement s&#8217;effectue avec la même clé</p></li></ul></div></div></section><section id="_implémentation_du_chiffre_de_césar" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>Implémentation du chiffre de César</h2><div class="slide-content">
-<div class="imageblock"><img src="images/cesar2.png" alt="Cesar"></div></div></section><section id="_implémentation_du_chiffre_de_césar_2" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>Implémentation du chiffre de César</h2><div class="slide-content">
-<div class="paragraph"><p>Chiffrement :</p></div>
-<div class="ulist"><ul><li><p>Choisir un décalage</p></li><li><p>Additioner ce décalage à la position de la lettre dans l&#8217;alphabet</p><div class="ulist"><ul><li><p>Si la nouvelle position est supérieur à 26, alors on revient au début (24 + 10 = 8)</p></li></ul></div></li><li><p>Convertir la nouvelle position avec la lettre corespondante dans l&#8217;alphabet</p></li></ul></div></div></section><section id="_implémentation_du_chiffre_de_césar_3" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>Implémentation du chiffre de César</h2><div class="slide-content">
-<div class="paragraph"><p>Déchiffrement :</p></div>
-<div class="ulist"><ul><li><p>Soustraire la clé à la position de la lettre dans l&#8217;alphabet</p><div class="ulist"><ul><li><p>Si la nouvelle position est supérieur à 26, alors on retourne à la fin (6 - 10 = 22)</p></li></ul></div></li><li><p>Convertir la nouvelle position avec la lettre corespondante dans l&#8217;alphabet</p></li></ul></div></div></section><section id="_exemple_du_chiffre_de_césar" class="columns" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>Exemple du chiffre de César</h2><div class="slide-content">
-<div class="openblock column"><div class="content"><div class="ulist"><ul><li><p>Clair :</p></li></ul></div>
+<div class="ulist"><ul><li><p>La clé est une variable de l&#8217;algorithme qui le rend secret</p></li><li><p>Le chiffrement et le déchiffrement s&#8217;effectue avec la même clé</p></li></ul></div></div></section><section id="_implémentation_du_chiffre_de_césar"><h2>Implémentation du chiffre de César</h2><div class="slide-content"><div class="imageblock"><img src="images/cesar2.png" alt="Cesar"></div></div></section><section id="_implémentation_du_chiffre_de_césar_2"><h2>Implémentation du chiffre de César</h2><div class="slide-content"><div class="paragraph"><p>Chiffrement :</p></div>
+<div class="ulist"><ul><li><p>Choisir un décalage</p></li><li><p>Additioner ce décalage à la position de la lettre dans l&#8217;alphabet</p><div class="ulist"><ul><li><p>Si la nouvelle position est supérieur à 26, alors on revient au début (24 + 10 = 8)</p></li></ul></div></li><li><p>Convertir la nouvelle position avec la lettre corespondante dans l&#8217;alphabet</p></li></ul></div></div></section><section id="_implémentation_du_chiffre_de_césar_3"><h2>Implémentation du chiffre de César</h2><div class="slide-content"><div class="paragraph"><p>Déchiffrement :</p></div>
+<div class="ulist"><ul><li><p>Soustraire la clé à la position de la lettre dans l&#8217;alphabet</p><div class="ulist"><ul><li><p>Si la nouvelle position est supérieur à 26, alors on retourne à la fin (6 - 10 = 22)</p></li></ul></div></li><li><p>Convertir la nouvelle position avec la lettre corespondante dans l&#8217;alphabet</p></li></ul></div></div></section><section id="_exemple_du_chiffre_de_césar" class="columns"><h2>Exemple du chiffre de César</h2><div class="slide-content"><div class="openblock column"><div class="content"><div class="ulist"><ul><li><p>Clair :</p></li></ul></div>
 <div class="literalblock"><div class="content"><pre>Python (prononcé /pi.tɔ̃/) est un langage de
 programmation interprété, multiparadigme
 et multiplateformes. Il favorise la programmation
@@ -440,19 +548,51 @@ osvkxgzobk yzxaizaxkk, lutizouttkrrk kz uxoktzkk uhpkz.
 Or kyz juzk j'at zevgmk jetgsowak luxz, j'atk mkyzout
 gazusgzowak jk rg sksuoxk vgx xgsgyyk-sokzzky
 kz j'at yeyzksk jk mkyzout j'kdikvzouty ; or kyz gotyo yosorgoxk
-g Vkxr, Xahe, Yinksk, Ysgrrzgrq kz Zir.</pre></div></div></div></div></div></section><section id="_a_vos_claviers" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>A vos claviers !</h2><div class="slide-content">
-<div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">15 min</td></tr></table></div>
-<div class="olist arabic"><ol class="arabic"><li><p>Enregistrer une chaine de caractère provenant de l&#8217;entrée standard</p></li><li><p>Afficher chaque lettre du message</p></li></ol></div>
-<hr>
-<div class="ulist"><ul><li><p><code>input()</code> : Pour récuperer la saisie</p></li><li><p><code>print(str)</code> : Pour afficher</p></li></ul></div></div></section><section id="_a_vos_claviers_2" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>A vos claviers !</h2><div class="slide-content">
-<div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">45 min</td></tr></table></div>
-<div class="olist arabic"><ol class="arabic"><li><p>Ecrire un script qui prend en entrée un message et un nombre.</p></li><li><p>Convertir chaque en lettre en <code>ASCII</code></p></li><li><p>Décaler chaque lettre du message du nombre saisi</p><div class="olist loweralpha"><ol class="loweralpha" type="a"><li><p>Si la valeur n&#8217;est pas une lettre ([A-Za-z]) ne pas la modifier</p></li></ol></div></li><li><p>Convertir le nouveau code <code>ASCII</code> en lettre</p></li><li><p>Afficher la nouvelle chaine</p></li></ol></div></div></section><section id="_a_savoir" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>A savoir</h2><div class="slide-content">
-<div class="ulist"><ul><li><p><code>int(variable)</code> : Converti la variable passé en int</p></li><li><p><code>ord(caractere)</code> : Retourne le code <code>ASCII</code> du caractère passé en paramètre</p></li><li><p><code>chr(codeAscii)</code> : Retourne la lettre corespondant au code <code>ASCII</code></p></li><li><p>Pensez à utiliser des constantes</p></li><li><p>65 = A en <code>ASCII</code> / 97 = a en <code>ASCII</code></p></li></ul></div></div></section><section data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><div class="slide-content">
-<div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">45 min</td></tr></table></div>
-<div class="paragraph"><p>.
-. La fonction opére le décalage sur la position de l&#8217;alphabet
-.</p></div></div></section><section id="_a_savoir_2" data-background-color="black" data-background-image="images/romain.jpg" data-background-size="cover"><h2>A savoir</h2><div class="slide-content">
-<div class="ulist"><ul><li><p><code>int(variable)</code> : Converti la variable passé en int</p></li><li><p><code>ord(caractere)</code> : Retourne le code <code>ASCII</code> du caractère passé en paramètre</p></li><li><p><code>chr(codeAscii)</code> : Retourne la lettre corespondant au code <code>ASCII</code></p></li><li><p>Pensez à utiliser des constantes</p></li><li><p>65 = A en <code>ASCII</code> / 97 = a en <code>ASCII</code></p></li></ul></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+g Vkxr, Xahe, Yinksk, Ysgrrzgrq kz Zir.</pre></div></div></div></div></div></section></section>
+<section><section id="_tp_1_1_jouer_avec_lentrée_standard"><h2>TP 1.1 : Jouer avec l&#8217;entrée standard</h2><div class="slide-content"><div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">15 min</td></tr></table></div><div class="olist arabic"><ol class="arabic"><li><p>Enregistrer une chaîne de caractère provenant de l&#8217;entrée standard</p></li><li><p>Afficher chaque lettre du message</p></li></ol></div><hr><div class="ulist"><ul><li><p><code>input()</code> : Pour récuperer la saisie en chaine de caractère</p></li><li><p><code>print(str)</code> : Pour afficher une valeur</p></li></ul></div></div></section><section id="_tp_1_2_chiffrement_de_césar"><h2>TP 1.2 : Chiffrement de César</h2><div class="slide-content"><div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">1 heure</td></tr></table></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Demandez à l&#8217;utilisateur de saisir un message et un nombre entier qui servira de clé de décalage.</p></li><li><p>Pour chaque caractère du message :</p><div class="olist loweralpha"><ol class="loweralpha" type="a"><li><p>Convertissez le caractère en sa valeur ASCII.</p></li><li><p>Déterminez la position du caractère dans l&#8217;alphabet (A=0, B=1, &#8230;&#8203;, Z=25 pour les majuscules / a=0, b=1, &#8230;&#8203;, z=25 pour les minuscules).</p></li><li><p>Déterminez si le caractère est une lettre majuscule ou minuscule.</p></li><li><p>Décalez la position du caractère en ajoutant le nombre saisi.</p></li><li><p>Si le caractère n&#8217;est pas une lettre ([A-Za-z]), ne le modifiez pas.</p></li><li><p>Convertissez la nouvelle position en caractère ASCII.</p></li></ol></div></li><li><p>Affichez le message chiffré</p></li></ol></div></div></section><section id="_a_savoir"><h2>A savoir</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>int(variable)</code> : Convertie la variable passé en <code>int</code></p></li><li><p><code>ord(caractere)</code> : Retourne le code <code>ASCII</code> du caractère passé en paramètre</p></li><li><p><code>chr(codeAscii)</code> : Retourne la lettre corespondant au code <code>ASCII</code></p></li><li><p>65 = A en <code>ASCII</code> / 97 = a en <code>ASCII</code></p></li></ul></div></div></section><section id="_utiliser_des_constantes"><h2>Utiliser des constantes</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">DEBUT_MAJUSCULE</span> <span class="o">=</span> <span class="mi">65</span>
+<span class="n">DEBUT_MINUSCULE</span> <span class="o">=</span> <span class="mi">97</span>
+
+<span class="n">FIN_MAJUSCULE</span> <span class="o">=</span> <span class="n">DEBUT_MAJUSCULE</span> <span class="o">+</span> <span class="mi">25</span>
+<span class="n">FIN_MINUSCULE</span> <span class="o">=</span> <span class="n">DEBUT_MINUSCULE</span> <span class="o">+</span> <span class="mi">25</span></code></pre></div></div></div></section></section>
+<section><section id="_programmation_fonctionnelle"><h2>Programmation fonctionnelle !</h2></section><section id="_cest_quoi_une_fonction"><h2>C&#8217;est quoi une fonction</h2><div class="slide-content"><div class="paragraph"><p>Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique</p></div>
+<div class="ulist"><ul><li><p>Elle peut prendre des paramètre</p></li><li><p>Elle peut retourner une valeur</p></li></ul></div></div></section><section id="_synatxe"><h2>Synatxe</h2><div class="slide-content"><div class="paragraph"><p>Definir une fonction :</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">ma_fonction</span><span class="p">():</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Ceci est une fonction</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="n">arg1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">arg2</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Ceci est une fonction avec des arguments : </span><span class="sh">"</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="n">arg1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">arg2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Ceci est une fonction avec des arguments : </span><span class="sh">"</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ma_fonction_qui_retourne_une_valeur</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+  <span class="k">return</span> <span class="sh">"</span><span class="s">Je suis le retour d</span><span class="sh">'</span><span class="s">une fonction</span><span class="sh">"</span></code></pre></div></div></div></section><section id="_syntaxe"><h2>Syntaxe</h2><div class="slide-content"><div class="paragraph"><p>Appeller une fonction :</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction</span><span class="p">()</span>
+<span class="n">Ceci</span> <span class="n">est</span> <span class="n">une</span> <span class="n">fonction</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># Arguments positionnels
+</span><span class="n">Ceci</span> <span class="n">est</span> <span class="n">une</span> <span class="n">fonction</span> <span class="n">avec</span> <span class="n">des</span> <span class="n">arguments</span> <span class="p">:</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction_avec_arguments</span><span class="p">(</span><span class="n">arg2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">arg1</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># Argument par mot-clé
+</span><span class="n">Ceci</span> <span class="n">est</span> <span class="n">une</span> <span class="n">fonction</span> <span class="n">avec</span> <span class="n">des</span> <span class="n">arguments</span> <span class="p">:</span> <span class="mi">8</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nf">ma_fonction_qui_retourne_une_valeur</span><span class="p">()</span>
+<span class="sh">"</span><span class="s">Je suis le retour d</span><span class="sh">'</span><span class="s">une fonction</span><span class="sh">"</span></code></pre></div></div></div></section><section id="_tp"><h2>TP</h2><div class="slide-content"><div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">30 min</td></tr></table></div>
+<div class="olist arabic"><ol class="arabic"><li><p>Téléchargez le fichier <a href="https://cours.aigyre.fr/codes/tp1_2.py">tp1_2.py</a> qui contient le code à analyser.</p></li><li><p>Analysez le code et identifiez les différentes fonctions existantes.</p></li><li><p>Réorganisez le code en mettant chaque ensemble de fonctionnalités dans une fonction dédiée</p></li><li><p>Ajoutez une nouvelle fonction appelée <code>dechiffrer_cesar</code> qui prend en paramètre un message chiffré et une clé, et renvoie le message déchiffré.</p></li></ol></div></div></section><section id="_fonction"><h2>Fonction</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p><code><code>est_majuscule(lettre: str) &#8594; str</code></code></p></li><li class="fragment"><p><code><code>alphabet_to_ascii(lettre: str, typeLettre: int) &#8594; str</code></code></p></li><li class="fragment"><p><code><code>ascii_to_alphabet(lettre: str) &#8594; (str, int) # Retourne le type de lettre : majuscule ou minuscule</code></code></p></li><li class="fragment"><p><code><code>decaler_lettre(lettre: str, decalage: int) &#8594; str</code></code></p></li><li class="fragment"><p><code><code>chiffrer_cesar(message: str, cle: int) &#8594; str</code></code></p></li><li class="fragment"><p><code><code>dechiffrer_cesar(message: str, cle: str) &#8594; str:</code></code></p></li></ul></div></div></section></section>
+<section><section id="_tp_2"><h2>TP</h2></section><section id="_fichier"><h2>Fichier</h2><div class="slide-content"><div class="paragraph"><p>Ouvrir un fichier et le lire ligne par ligne :</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="n">mon_fichier</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">fichier</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">mon_fichier</span><span class="p">:</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+
+<span class="n">mon_fichier</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre></div></div></div></section><section id="_fichier_2"><h2>Fichier</h2><div class="slide-content"><div class="paragraph"><p>Avec un <strong>Gestionnaire de contexte</strong> :</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">fichier</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">mon_fichier</span><span class="p">:</span> <span class="c1"># Le fichier est ouvert
+</span>  <span class="n">mon_fichier</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">Contenu de mon fichier</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># Le fichier est fermé</span></code></pre></div></div></div></section><section id="_fichier_3"><h2>Fichier</h2><div class="slide-content"><div class="paragraph"><p>Lire le contenu entier du fichier :</p></div>
+<div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">fichier</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">mon_fichier</span><span class="p">:</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">mon_fichier</span><span class="p">.</span><span class="nf">read</span><span class="p">())</span> <span class="c1"># Retourne tout le fichier</span></code></pre></div></div></div></section><section id="_tp_3"><h2>TP</h2><div class="slide-content"><div class="admonitionblock note"><table><tr><td class="icon"><div class="title">Note</div></td><td class="content">30 min</td></tr></table></div>
+<div class="ulist"><ul><li><p>Écrivez le message confié par Jules César dans un fichier texte nommé <code>message.txt</code></p><div class="olist arabic"><ol class="arabic"><li><p>Écrivez une fonction appelée <code>lire_message</code> qui prend en paramètre le chemin d&#8217;un fichier et retourne le contenu du fichier sous forme de chaîne de caractères</p></li><li><p>Écrivez une fonction appelée <code>ecrire_message</code> qui prend en paramètre un message et l&#8217;écrit dans un fichier texte nommé message_chiffre.txt.</p></li></ol></div></li></ul></div></div></section><section id="_test"><h2>Test</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="rouge highlight"><code data-lang="bash">python3 <span class="nt">-i</span> tp1_4.py
+<span class="o">&gt;&gt;&gt;</span> message_saisi <span class="o">=</span> lire_message<span class="o">(</span><span class="s2">"message.txt"</span><span class="o">)</span>
+<span class="o">&gt;&gt;&gt;</span> chiffre <span class="o">=</span> chiffrer_cesar<span class="o">(</span>message_saisi, clef<span class="o">)</span>
+<span class="o">&gt;&gt;&gt;</span> ecrire_message<span class="o">(</span>chiffre<span class="o">)</span></code></pre></div></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
@@ -592,7 +732,7 @@ Reveal.initialize({
   // The "normal" size of the presentation, aspect ratio will be preserved
   // when the presentation is scaled to fit different resolutions. Can be
   // specified using percentage units.
-  width: 2000,
+  width: 1500,
   height: 700,
 
   // Factor of the display size that should remain empty around the content
@@ -669,11 +809,11 @@ function toArray(o) {
 }
 
 Reveal.addEventListener('slidechanged', function () {
-  layoutSlideContents(2000, 700)
+  layoutSlideContents(1500, 700)
 });
 Reveal.addEventListener('ready', function () {
-  layoutSlideContents(2000, 700)
+  layoutSlideContents(1500, 700)
 });
 Reveal.addEventListener('resize', function () {
-  layoutSlideContents(2000, 700)
+  layoutSlideContents(1500, 700)
 });</script></body></html>

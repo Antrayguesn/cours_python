@@ -5,25 +5,19 @@
 :imagesdir: images
 :revealjs_center: false
 :customcss: custom.css
-:revealjs_width: 2000
+:revealjs_width: 1500
+:source-highlighter: rouge
 
-[background-color="black"]
+
 == La mission de César
-image::romain.jpg[canvas, size=cover]
 
-[%step]
-* Mettre au point un algorithme de chiffrement pour communiquer avec ses alliès.
 
-* Vous décider de créer `Le chiffre de César`
-
-[background-color="black"]
 === Le chiffre de César
-image::romain.jpg[canvas, size=cover]
 
 Objectif du chiffre de César
 
 * Rendre confidentiel un texte par décalage des lettres de l'alphabet.
-* La clé est le décalage choisi
+* Le nombre de lettre décalé est la clé du chiffre
 
 Chiffrement symétrique:
 
@@ -31,15 +25,11 @@ Chiffrement symétrique:
 * Le chiffrement et le déchiffrement s'effectue avec la même clé
 
 
-[background-color="black"]
 === Implémentation du chiffre de César
-image::romain.jpg[canvas, size=cover]
 
 image::cesar2.png[Cesar] 
 
-[background-color="black"]
 === Implémentation du chiffre de César
-image::romain.jpg[canvas, size=cover]
 
 Chiffrement :
 
@@ -48,9 +38,7 @@ Chiffrement :
 ** Si la nouvelle position est supérieur à 26, alors on revient au début (24 + 10 = 8)
 * Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
 
-[background-color="black"]
 === Implémentation du chiffre de César
-image::romain.jpg[canvas, size=cover]
 
 Déchiffrement :
 
@@ -58,10 +46,8 @@ Déchiffrement :
 ** Si la nouvelle position est supérieur à 26, alors on retourne à la fin (6 - 10 = 22)
 * Convertir la nouvelle position avec la lettre corespondante dans l'alphabet
 
-[background-color="black"]
 [.columns]
 === Exemple du chiffre de César
-image::romain.jpg[canvas, size=cover]
 
 [.column]
 --
@@ -94,15 +80,12 @@ kz j'at yeyzksk jk mkyzout j'kdikvzouty ; or kyz gotyo yosorgoxk
 g Vkxr, Xahe, Yinksk, Ysgrrzgrq kz Zir. 
 ....
 --
-//TP 1.1
 
-[background-color="black"]
-=== A vos claviers !
-image::romain.jpg[canvas, size=cover]
+== TP 1.1 : Jouer avec l'entrée standard
 
 NOTE: 15 min
 
-. Enregistrer une chaine de caractère provenant de l'entrée standard
+. Enregistrer une chaîne de caractère provenant de l'entrée standard
 . Afficher chaque lettre du message
 
 ---
@@ -112,71 +95,155 @@ NOTE: 15 min
 
 // TP 1.2
 
-[background-color="black"]
-=== A vos claviers !
-image::romain.jpg[canvas, size=cover]
+=== TP 1.2 : Chiffrement de César
 
-NOTE: 45 min
+NOTE: 1 heure
 
-. Ecrire un script qui prend en entrée un message et un nombre.
-. Convertir chaque en lettre en `ASCII`
-. Décaler chaque lettre du message du nombre saisi
-.. Si la valeur n'est pas une lettre ([A-Za-z]) ne pas la modifier
-. Convertir le nouveau code `ASCII` en lettre
-. Afficher la nouvelle chaine
+. Demandez à l'utilisateur de saisir un message et un nombre entier qui servira de clé de décalage.
+. Pour chaque caractère du message :
+.. Convertissez le caractère en sa valeur ASCII.
+.. Déterminez la position du caractère dans l'alphabet (A=0, B=1, ..., Z=25 pour les majuscules / a=0, b=1, ..., z=25 pour les minuscules).
+.. Déterminez si le caractère est une lettre majuscule ou minuscule.
+.. Décalez la position du caractère en ajoutant le nombre saisi.
+.. Si le caractère n'est pas une lettre ([A-Za-z]), ne le modifiez pas.
+.. Convertissez la nouvelle position en caractère ASCII.
+. Affichez le message chiffré
 
-[background-color="black"]
+
 === A savoir
-image::romain.jpg[canvas, size=cover]
 
-* `int(variable)` : Converti la variable passé en int
+* `int(variable)` : Convertie la variable passé en `int`
 * `ord(caractere)` : Retourne le code `ASCII` du caractère passé en paramètre
 * `chr(codeAscii)` : Retourne la lettre corespondant au code `ASCII`
-
-* Pensez à utiliser des constantes
 * 65 = A en `ASCII` / 97 = a en `ASCII`
 
-[background-color="black"]
-=== Programmation fonctionnelle !
-image::romain.jpg[canvas, size=cover]
+=== Utiliser des constantes
 
-NOTE: 45 min
+[source, python]
+----
+DEBUT_MAJUSCULE = 65
+DEBUT_MINUSCULE = 97
 
-* Identifier les différentes fonction du code
+FIN_MAJUSCULE = DEBUT_MAJUSCULE + 25
+FIN_MINUSCULE = DEBUT_MINUSCULE + 25
+----
 
+== Programmation fonctionnelle !
 
-[background-color="black"]
-=== Programmation fonctionnelle !
-image::romain.jpg[canvas, size=cover]
+=== C'est quoi une fonction
 
+Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique
+
+* Elle peut prendre des paramètre
+* Elle peut retourner une valeur
+
+=== Synatxe
+
+Definir une fonction :
+
+[source, python]
+----
+def ma_fonction():
+  print("Ceci est une fonction")
+
+def ma_fonction_avec_arguments(arg1: int, arg2: int):
+  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
+
+def ma_fonction_avec_arguments(arg1: int, arg2: int = None):
+  print("Ceci est une fonction avec des arguments : ", arg1, arg2)
+
+def ma_fonction_qui_retourne_une_valeur() -> str:
+  return "Je suis le retour d'une fonction"
+----
+
+=== Syntaxe
+
+Appeller une fonction :
+
+[source, python]
+----
+>>> ma_fonction()
+Ceci est une fonction
+>>> ma_fonction_avec_arguments(2, 3) # Arguments positionnels
+Ceci est une fonction avec des arguments : 2 3
+>>> ma_fonction_avec_arguments(arg2=1, arg1=8) # Argument par mot-clé
+Ceci est une fonction avec des arguments : 8 1
+>>> ma_fonction_qui_retourne_une_valeur()
+"Je suis le retour d'une fonction"
+----
+
+=== TP
+
+NOTE: 30 min
+
+. Téléchargez le fichier https://cours.aigyre.fr/codes/tp1_2.py[tp1_2.py] qui contient le code à analyser.
+. Analysez le code et identifiez les différentes fonctions existantes.
+. Réorganisez le code en mettant chaque ensemble de fonctionnalités dans une fonction dédiée
+. Ajoutez une nouvelle fonction appelée `dechiffrer_cesar` qui prend en paramètre un message chiffré et une clé, et renvoie le message déchiffré.
+
+=== Fonction
 
 [%step]
 
-* est_majuscule(lettre: str) -> str
-* alphabet_to_ascii(lettre: str)
-* ascii_to_alphabet(lettre: str, typeLettre: int) -> str 
-* decaler_lettre(lettre: str, decalage: int)
-* chiffrer_cesar 
+* ```est_majuscule(lettre: str) -> str```
+* ```alphabet_to_ascii(lettre: str, typeLettre: int) -> str```
+* ```ascii_to_alphabet(lettre: str) -> (str, int) # Retourne le type de lettre : majuscule ou minuscule```
+* ```decaler_lettre(lettre: str, decalage: int) -> str```
+* ```chiffrer_cesar(message: str, cle: int) -> str```
+* ```dechiffrer_cesar(message: str, cle: str) -> str:```
 
-[background-color="black"]
-=== Tout casser !
-image::romain.jpg[canvas, size=cover]
+== TP
 
-NOTE: 45 min
+=== Fichier 
 
-* Decrypter le chiffre de Cesar
+Ouvrir un fichier et le lire ligne par ligne :
+
+[source, python]
+----
+mon_fichier = open("fichier", "r")
+
+for ligne in mon_fichier:
+  print(ligne)
+
+mon_fichier.close()
+----
 
 
-[background-color="black"]
-=== Tout casser !
-image::romain.jpg[canvas, size=cover]
+=== Fichier 
 
+Avec un **Gestionnaire de contexte** :
 
-[%step]
+[source, python]
+----
+with open("fichier", "w") as mon_fichier: # Le fichier est ouvert
+  mon_fichier.write("Contenu de mon fichier")
+# Le fichier est fermé
+----
 
-* est_majuscule(lettre: str) -> str
-* alphabet_to_ascii(lettre: str)
-* ascii_to_alphabet(lettre: str, typeLettre: int) -> str 
-* decaler_lettre(lettre: str, decalage: int)
-* chiffrer_cesar 
+=== Fichier 
 
+Lire le contenu entier du fichier :
+
+[source, python]
+----
+with open("fichier", "r") as mon_fichier:
+  print(mon_fichier.read()) # Retourne tout le fichier
+----
+
+=== TP
+
+NOTE: 30 min
+
+* Écrivez le message confié par Jules César dans un fichier texte nommé `message.txt`
+. Écrivez une fonction appelée `lire_message` qui prend en paramètre le chemin d'un fichier et retourne le contenu du fichier sous forme de chaîne de caractères
+. Écrivez une fonction appelée `ecrire_message` qui prend en paramètre un message et l'écrit dans un fichier texte nommé message_chiffre.txt.
+
+=== Test
+
+[source, bash]
+----
+python3 -i tp1_4.py
+>>> message_saisi = lire_message("message.txt")
+>>> chiffre = chiffrer_cesar(message_saisi, clef)
+>>> ecrire_message(chiffre)
+----
