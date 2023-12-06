@@ -8,10 +8,13 @@
 :imagesdir: images
 :source-highlighter: rouge
 
+== TP 1 : Le chiffre de César
 
 Vous êtes missionné par Jules César pour mettre au point un algorithme de chiffrement afin de sécuriser les communications pendant le siège d'Alesia.
 
 Vous inventé `Le Chiffre de César`, un système de chiffrement par décalage simple
+
+Voici le premier message qui vous donne à chiffrer :
 
 ....
 Légionnaire, vous êtes chargé de la mission cruciale de d'explorer les environs d'Alésia pour recueillir des renseignements sur les mouvements et les effectifs des forces gauloises. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.
@@ -61,7 +64,7 @@ Veznut (vxututik /vo.zɔ̃/) kyz at rgtmgmk jk vxumxgssgzout otzkxvxkzk, sarzovg
 ....
 
 //TP 1.1
-== TP 1 : Le chiffre de César
+
 
 === TP 1.1 : Jouer avec l'entrée standard
 
@@ -82,10 +85,10 @@ NOTE: 15 min
 
 ==== Objectif
 
-Implémenter le chiffre de César en utilisant Python. Le programme doit prendre en entrée un message et un nombre, puis décaler chaque lettre du message selon le nombre spécifié. 
+Implémenter le chiffre de César. Le programme doit prendre en entrée un message et un nombre, puis décaler chaque lettre du message selon le nombre spécifié. 
 
 
-=== Instruction
+==== Instruction
 
 
 NOTE: 1 heure
@@ -129,7 +132,7 @@ FIN_MINUSCULE = DEBUT_MINUSCULE + 25
 
 Analyser un code existant, identifier les fonctions existantes, organiser le code en utilisant des fonctions
 
-=== Instruction
+==== Instruction
 
 NOTE: 30 min
 
@@ -161,13 +164,13 @@ python3 -i tp1_3.py
 >>> dechiffrer_cesar(chiffre, clef)
 ----
 
-=== Bonus 
+==== Bonus 
 
 * Avec le module `time`, calculer et afficher le temps que prend l'éxecution du code
 
 === TP 1.4 : Légionnaire !
 
-NOTE: 20 min
+NOTE: 30 min
 
 
 * Écrivez le message confié par Jules César dans un fichier texte nommé `message.txt`
@@ -234,31 +237,7 @@ n = 13 m = 12
 
 ....
 
-=== Analyse de langue
-
-==== A savoir
-
-===== Collections
-
-Les collections indexent des éléments pouvant être parcouru de manière itératives
-
-En python, les éléments des collections ne sont pas typés
-
-* https://docs.python.org/3/tutorial/datastructures.html
-* https://docs.python.org/3/library/collections.html
-
-
-
-
-
-
-Pour les importer :
-
-
-
-Les imports se trouvent en haut du fichier
-
-==== TP 2.1 : Analyse de langue
+=== TP 2.1 : Analyse de langue
 
 NOTE: 20 + 20 minutes
 
@@ -293,7 +272,7 @@ Counter({'s': 5, 'e': 4, ' ': 4, 'u': 3, 'J': 1, 'i': 1, 'n': 1, 'p': 1, 'r': 1,
 
 === TP 2.2 Decrypter le chiffre de César
 
-=== Objectif 
+==== Objectif 
 
 Écrire une fonction pour identifier les clés de déchiffrement les plus probables et afficher les messages déchiffrés correspondants.
 
@@ -322,20 +301,24 @@ for c in cles:
 
 2000 ans après vos exploits auprès de Jules César, votre renommée atteint Cuba, où une révolution est en cours. Che Guevara vous contacte pour mettre en place un algorithme de chiffrement plus sécurisé, inspiré du Chiffre de Vernam aussi appellé du Masque Jetable.
 
-** Inspiré de fait réel **
+__Inspiré de fait réel__
 
 === Le chiffre de Vernam
 
-Le chiffre de Vernam est utilise un chiffrement par décalage tout comme le chiffre de César.
+Le chiffre de Vernam utilise un chiffrement par décalage tout comme le chiffre de César.
 
-Bien que le Chiffre de Vernam soit extrêmement sécurisé, la transmission de la clé reste complexe et potentiellement vulnérable. Che Guevara souligne la nécessité d'avoir un système de transmission de clé simple et efficace, compte tenu des défis logistiques dans le contexte révolutionnaire.
+Bien que le Chiffre de Vernam soit extrêmement sécurisé, la transmission de la clé reste complexe et potentiellement vulnérable. 
+
+Che Guevara souligne la nécessité d'avoir un système de transmission de clé simple et efficace, compte tenu des défis logistiques dans le contexte révolutionnaire.
+
 
 Principe du Chiffre de Vernam :
+
 * La clé doit être une suite de caractères au moins aussi longue que le message à chiffrer.
 * Les caractères composant la clé doivent être choisis de façon totalement aléatoire.
 * Chaque clé, ou masque, ne doit être utilisée qu'une seule fois.
 
-=== Transmission de clefs simple
+==== Transmission de clefs simple
 
 Pour répondre à ces principes et au besoin, vous decidez :
 
@@ -346,9 +329,8 @@ Pour répondre à ces principes et au besoin, vous decidez :
 
 
 
-== TP 3.1 : Drole de types
+=== TP 3.1 : Drole de types
 
-NOTE: 1 heure
 
 [plantuml, format="svg", id="classMessage"]
 ----
@@ -380,11 +362,13 @@ class Cesar {
 @enduml
 ----
 
+NOTE: 1 heure
+
 * Implémenter l'UML suivant en créant un fichier par classe
 
 .Instruction détaillée
-[.collapsible]
---
+[%collapsible]
+====
 . Implémenter une classe Python nommée `Cesar`. Cette classe doit avoir les attributs suivants :
 ** `clef` : un attribut pour stocker la clé de chiffrement.
 
@@ -402,13 +386,13 @@ class Cesar {
 . Ajouter deux méthodes à la classe Message :
 ** appliquer_chiffrement() -> str : une méthode qui chiffre le message à l'aide de l'algorithme de chiffrement spécifié.
 ** appliquer_dechiffrement() -> str : une méthode qui déchiffre le message à l'aide de l'algorithme de chiffrement spécifié.
---
+====
 
 . Tester vos classes en créant une instance de la classe Message, en utilisant la classe Cesar comme algorithme de chiffrement, puis en chiffrant et déchiffrant un message.
 
 
 
-== TP 3.2 : L'héritage
+=== TP 3.2 : L'héritage
 
 
 [plantuml, format="svg", id="classMessageChiffrement"]
@@ -452,11 +436,10 @@ ChiffrementDecalage <|-- Cesar
 ----
 
 * Implémenter l'UML suivant en créant un fichier par classe
-* Utiliser les propriétes
 
 .Instruction détaillée
-[.collapsible]
---
+[%collapsible]
+====
 * Implémentation de la classe `Chiffrement`
 
 . Créer une classe Python nommée `Chiffrement`.
@@ -479,7 +462,7 @@ ChiffrementDecalage <|-- Cesar
 . Ajouter un constructeur `__init__(self, message: str, algorithme_chiffrement: Chiffrement)`
 . Ajouter les méthodes `chiffrer(self) -> str` et `dechiffrer(self) -> str` qui utilisent algorithme_chiffrement pour chiffrer et déchiffrer le message.
 . Ajouter les méthodes `message_from_fichier(self, cheminMessage: str)` et `ecrire_dans_fichier(self, cheminMessage: str)` pour lire et écrire des messages à partir de fichiers.
---
+====
 
 * Tester vos classes
 
@@ -487,8 +470,7 @@ ChiffrementDecalage <|-- Cesar
 . Créer un objet à partir de la classe `Message` avec un message de votre choix.
 . Tester également la lecture et l'écriture de messages à partir de fichiers.
 
-
-== TP 3.3 Le chiffre de Vernam
+=== TP 3.3 Le chiffre de Vernam
 
 [plantuml, format="svg", id="classMessageChiffrement"]
 ----
@@ -536,15 +518,24 @@ ChiffrementDecalage <|-- Vernam
 @enduml
 ----
 
+==== Objectif
+
 * Pour implémenter votre chiffre de Vernam vous lui donner le chemin vers un répertoire qui contient plusieurs livres
 * L'algorithme choisira un livre et un décalage ou commencera la clé
 * Le setter de la clef prendra en paramètre le chemin vers la bibliotheque
 * La propriéte `clef` retournera un tuples `(décalage, livre)`
 
+==== Instruction
+
+* Implémentez l'UML ci-dessous en créant 1 fichier par classe
+
+==== A savoir
+
 --- 
 
 * `os.walk(chemin_dossier)` : Parcourir une arborescence
 * Génération aléatoire
+
 [source, python]
 ----
 import random
@@ -553,13 +544,90 @@ nombre_aleatoire = random.randint(1, 10)
 print(nombre_aleatoire)
 ----
 
-== TP 00000011.00000100
+=== TP 00000011.00000100
 
-* La methode 
+[plantuml, format="svg", id="classMessageChiffrement"]
+----
+@startuml Chiffrement3
+class Chiffrement {
+
+__init__(clef: object)
+{method} chiffrer(message: str) -> str
+{method} dehiffrer(message: str) -> str
+}
+
+class ChiffrementDecalage {
+  _est_majuscule(lettre: str) -> int
+  _est_lettre(lettre: str) -> bool
+  alphabet_to_ascii(position_lettre: int, typeLettre: int) -> str
+  ascii_to_alphabet(lettre: str) -> (str, int)
+  decaler_lettre(lettre: str, decalage: int) -> str
+}
+
+class ChiffrementDecalageBinaire {
+  decaler_lettre(lettre: str, decalage: int) -> str
+}
+
+class Cesar {
+
+}
+
+class Vernam {
+  {field} str chemin_bibliotheque
+
+}
+
+class CesarBinaire {
+
+}
+
+class VernamBinaire {
+  {field} str chemin_bibliotheque
+
+}
+
+class Message {
+{field} Chiffrement algorithme_chiffrement
+{field} str message
+
+__init__(message: str, algorithme_chiffrement: Chiffrement)
+{method} chiffrer() -> str
+{method} dehiffrer() -> str
+message_from_fichier(cheminMessage: str)
+ecrire_dans_fichier(cheminMessage: str)
+}
+
+Chiffrement o-- Message
+
+Chiffrement <|-- ChiffrementDecalage
+
+ChiffrementDecalage <|-- Cesar
+ChiffrementDecalage <|-- Vernam
+
+Chiffrement <|-- ChiffrementDecalageBinaire
+
+ChiffrementDecalageBinaire <|-- CesarBinaire
+ChiffrementDecalageBinaire <|-- VernamBinaire
+@enduml
+----
+
+==== Objectif 
+
+Face à l'augmentation du volume des messages chiffrés par Che Guevara, votre algorithme manque de performance.
+
+Vous laissez tomber les opérations sur les chaines de caractères qui ne sont pas adaptés au ordinateur au profit d'opération binaire bien moins couteuse pour la machine
+
+L'utilisation de l'opérateur binaire `XOR` (OU exculsif) permet de chiffrer et dechiffrer
+
+
+
+==== Instructions
+
+* Implémenter l'UML si dessous
+* Implémentez le chiffrement par décalage avec l'opérateur `XOR` dans la methode ChiffrementDecalageBinaire.decaler_lettre
 
 --- 
-'`^`' : Opérateur XOR
 
-`os.walk(chemin_dossier)` : Parcourir une arborescence
-'`^`' : Opérateur XOR
+* '`^`' : Opérateur XOR
+
 

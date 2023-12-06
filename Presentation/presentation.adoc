@@ -894,7 +894,6 @@ def generer_list_random(n):
 * Composition d'un programme composé d'objet qui peuvent intéragir entre eux.
 
 
-
 * https://fr.wikipedia.org/wiki/SOLID_(informatique)
 
 === C'est quoi un objet ? 
