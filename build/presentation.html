@@ -656,13 +656,41 @@ TypeError: 'tuple' object does not support item assignment</code></pre></div></d
 &gt;&gt;&gt; mon_ensemble_1 | mon_ensemble_2
 {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 &gt;&gt;&gt; mon_ensemble_1 &amp; mon_ensemble_2
-{6}</code></pre></div></div></div></section><section id="_tp_bonus"><h2>TP Bonus</h2><div class="slide-content"><div class="olist arabic"><ol class="arabic"><li><p>Télécharger le code : <a href="https://cours.aigyre.fr/codes/TP_Bonus.py" class="bare">https://cours.aigyre.fr/codes/TP_Bonus.py</a></p></li><li><p>Optimiser la fonction pour ne pas lancer l&#8217;assertion</p><div class="ulist"><ul><li><p>La fonction doit retourné une liste d&#8217;entiers unique</p></li></ul></div></li></ol></div></div></section><section id="_tp_bonus_corrigé"><h2>TP Bonus corrigé</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">def generer_list_random(n):
-  result = {}
-  for i in range(n):
-    x = random.randint(1,n)
-    if x not in result:
-      result[x] = None
-  return list(result.keys())</code></pre></div></div></div></section></section>
+{6}</code></pre></div></div></div></section><section id="_tp_bonus"><h2>TP Bonus</h2><div class="slide-content"><div class="olist arabic"><ol class="arabic"><li><p>Télécharger le code : <a href="https://cours.aigyre.fr/codes/TP_Bonus.py" class="bare">https://cours.aigyre.fr/codes/TP_Bonus.py</a></p></li><li><p>Optimiser la fonction pour ne pas lancer l&#8217;assertion</p><div class="ulist"><ul><li><p>La fonction doit retourné une liste d&#8217;entiers uniques</p></li></ul></div></li></ol></div></div></section><section id="_tp_bonus_corrigé"><h2>TP Bonus corrigé</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">def generer_list_random(n):
+  return list({ random.randint(1,n): None for i in range(n) }.keys())</code></pre></div></div></div></section></section>
+<section><section id="_gestion_derreur_et_exeception"><h2>Gestion d&#8217;erreur et exeception</h2><div class="slide-content"><div class="ulist"><ul><li><p><a href="https://docs.python.org/fr/3/tutorial/errors.html" class="bare">https://docs.python.org/fr/3/tutorial/errors.html</a></p></li></ul></div></div></section><section id="_try_except"><h2>try .. except</h2><div class="slide-content"><div class="ulist"><ul><li><p>Le bloc try contient le code susceptible de provoquer une exception.</p></li><li><p>Le bloc except spécifie comment le programme doit réagir lorsqu&#8217;une exception particulière est levée.</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python"># Exemple de bloc try-except
+try:
+  resultat = 10 / 0
+except ZeroDivisionError:
+  print("Division par zéro !")</code></pre></div></div></div></section><section id="_try_except_2"><h2>try .. except</h2><div class="slide-content"><div class="ulist"><ul><li><p>Plusieurs bloc except pour traiter plusieurs exception</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">try:
+  # Code potentiellement générant une exception
+  resultat = 10 / 0
+except ZeroDivisionError:
+  print("Division par zéro !")
+except ValueError:
+  print("Erreur de valeur !")
+except Exception as e:
+  print(f"Une erreur s'est produite : {e}")</code></pre></div></div></div></section><section id="_finaly"><h2>finaly</h2><div class="slide-content"><div class="ulist"><ul><li><p>Le code du bloc <code>else</code> sera executé si quoi qu&#8217;il arrive</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">try:
+  # Code potentiellement générant une exception
+  resultat = 10 / 2
+except ZeroDivisionError:
+  print("Division par zéro !")
+finally:
+  print("Exécution toujours garantie.")</code></pre></div></div></div></section><section id="_else_2"><h2>else</h2><div class="slide-content"><div class="ulist"><ul><li><p>Le code du bloc <code>else</code> sera executé si aucune erreur a été levée dans le <code>try</code></p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">try:
+    # Code potentiellement générant une exception
+    resultat = 10 / 2
+except ZeroDivisionError:
+    print("Division par zéro !")
+else:
+    print("Pas d'erreur !")</code></pre></div></div></div></section><section id="_raise"><h2>raise</h2><div class="slide-content"><div class="ulist"><ul><li><p>On peut lever une execption</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">def diviser(a, b):
+  if b == 0:
+    raise ValueError("Division par zéro n'est pas autorisée.")
+  return a / b</code></pre></div></div></div></section></section>
 <section><section id="_programmation_orientée_objet"><h2>Programmation orientée objet</h2><div class="slide-content"><div class="ulist"><ul><li><p>Programmation orientée objet (POO)</p></li><li><p>Paradigme de programmation</p></li><li><p>Composition d&#8217;un programme composé d&#8217;objet qui peuvent intéragir entre eux.</p></li><li><p><a href="https://fr.wikipedia.org/wiki/SOLID_(informatique" class="bare">https://fr.wikipedia.org/wiki/SOLID_(informatique</a>)</p></li></ul></div></div></section><section id="_cest_quoi_un_objet"><h2>C&#8217;est quoi un objet ?</h2><div class="slide-content"><div class="paragraph"><p>Il faut voir un objet comme représentation d&#8217;un concept, d&#8217;une idée ou d&#8217;un bien physique.</p></div>
 <div class="paragraph"><p>Cet objet est construit avec une structure de données et des opérations</p></div>
 <div class="dlist text-left"><dl><dt class="hdlist1">Un objet posséde</dt><dd><div class="ulist"><ul><li><p>Attribut / Propriété : Caractéristique de l&#8217;objet (variable)</p></li><li><p>Methode  : Action des objects (fonction)</p></li></ul></div></dd></dl></div></div></section><section id="_tout_est_objet"><h2>Tout est objet</h2><div class="slide-content"><div class="paragraph"><p>En python, tout est objet !</p></div>
@@ -712,12 +740,69 @@ class Horloge:
     if secondes &gt; SECONDES_HEURE * HEURE_JOUR:
       print(f"Le nombre de secondes est suppérieur à 1 jour : {secondes}")
     else:
-      self._heure = heure</code></pre></div></div></div></section><section id="_héritage"><h2>Héritage</h2><div class="slide-content"><div class="paragraph"><p>L&#8217;héritage est un concept clé de la programmation orientée objet (POO) qui permet à une classe (appelée classe dérivée ou sous-classe) de hériter des attributs et des méthodes d&#8217;une autre classe (appelée classe de base ou classe mère). L&#8217;idée est de créer une relation "est un" entre les deux classes, où la classe dérivée est une version spécialisée de la classe de base.</p></div></div></section><section id="_duck_typing"><h2>Duck typing</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>Si je vois un oiseau qui vole comme un canard, cancane comme un canard, et nage comme un canard, alors j&#8217;appelle cet oiseau un canard</p></div></blockquote></div>
-<aside class="notes"><div class="paragraph"><p>La sémentique de l&#8217;objet est determiné par l&#8217;ensemble de ses methodes et attribut et non par un type définit et statique.</p></div></aside></div></section><section id="_polymorphisme"><h2>Polymorphisme</h2></section><section id="_classe_abstraite"><h2>Classe abstraite</h2></section></section>
-<section><section id="_gestion_derreur_et_exeception"><h2>Gestion d&#8217;erreur et exeception</h2><div class="slide-content"><div class="ulist"><ul><li><p><a href="https://docs.python.org/fr/3/tutorial/errors.html" class="bare">https://docs.python.org/fr/3/tutorial/errors.html</a></p></li></ul></div></div></section><section id="_try_except"><h2>try .. except</h2></section><section id="_finaly"><h2>finaly</h2></section><section id="_else_2"><h2>else</h2></section><section id="_raise"><h2>raise</h2><div class="slide-content"><div class="paragraph"><p>On peut lever une execption</p></div></div></section></section>
-<section id="_un_peu_plus"><h2>Un peu plus</h2><div class="slide-content"><div class="ulist"><ul><li><p>Déorateur</p></li><li><p>Pylint
-*</p></li></ul></div></div></section>
-<section id="_packaging"><h2>Packaging</h2></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+      self._heure = heure</code></pre></div></div></div></section><section id="_héritage"><h2>Héritage</h2><div class="slide-content"><div class="ulist"><ul><li><p>Classe dérivée ou sous-classe</p></li><li><p>Relation "est un"</p></li><li><p>La classe dérivée est une classe spécialisé de la classe de base</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">class Horloge:
+  def __init__(self, heure, minute, seconde):
+    self.heure = heure
+    self.minute = minute
+    self.seconde = seconde
+
+  def afficher_heure(self):
+    print(f"{self.heure:02d}:{self.minute:02d}:{self.seconde:02d}")
+
+
+class Horloge24(Horloge):
+  def __init__(self, heure, minute, seconde):
+    super().__init__(heure, minute, seconde)
+
+  def afficher_heure(self):
+    print(f"{self.heure:02d}:{self.minute:02d}:{self.seconde:02d}")
+
+
+class Horloge12(Horloge):
+  def __init__(self, heure, minute, seconde, periode):
+    super().__init__(heure, minute, seconde)
+    self.periode = periode
+
+  def afficher_heure(self):
+    heure = self.heure % 12 if self.periode == "AM" else (self.heure % 12) + 12
+    print(f"{heure:02d}:{self.minute:02d}:{self.seconde:02d} {self.periode}")</code></pre></div></div></div></section><section id="_duck_typing"><h2>Duck typing</h2><div class="slide-content"><div class="quoteblock"><blockquote><div class="paragraph"><p>Si je vois un oiseau qui vole comme un canard, cancane comme un canard, et nage comme un canard, alors j&#8217;appelle cet oiseau un canard</p></div></blockquote></div>
+<aside class="notes"><div class="paragraph"><p>La sémentique de l&#8217;objet est determiné par l&#8217;ensemble de ses methodes et attribut et non par un type définit et statique.</p></div></aside></div></section><section id="_polymorphisme"><h2>Polymorphisme</h2><div class="slide-content"><div class="ulist"><ul><li><p>Capacité à un objet de se faire passer pour l&#8217;objet parent</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python"># Utilisation du polymorphisme
+horloges = [Horloge24(15, 30, 45), Horloge12(10, 45, 20, "AM"), Horloge12(20, 15, 30, "PM")]
+
+for horloge in horloges:
+    horloge.afficher_heure()</code></pre></div></div></div></section><section id="_classe_abstraite"><h2>Classe abstraite</h2><div class="slide-content"><div class="ulist"><ul><li><p>Ne peut pas être instancier</p></li><li><p>Sert de modèle</p></li><li><p>Contient méthodes abstraites</p></li><li><p>Chaque classe enfant doivent implémenter les methodes abstraites</p></li><li><p>Fournit une structure commune</p></li></ul></div></div></section><section id="_exemple"><h2>Exemple</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-python" data-lang="python">from abc import ABC, abstractmethod
+
+class Horloge(ABC):
+  def __init__(self, heure, minute, seconde):
+    self.heure = heure
+    self.minute = minute
+    self.seconde = seconde
+
+  @abstractmethod
+  def afficher_heure(self):
+    pass
+
+
+class Horloge24(Horloge):
+  def __init__(self, heure, minute, seconde):
+    super().__init__(heure, minute, seconde)
+
+  def afficher_heure(self):
+    print(f"{self.heure:02d}:{self.minute:02d}:{self.seconde:02d}")
+
+
+class Horloge12(Horloge):
+  def __init__(self, heure, minute, seconde, periode):
+    super().__init__(heure, minute, seconde)
+    self.periode = periode
+
+  def afficher_heure(self):
+    heure = self.heure % 12 if self.periode == "AM" else (self.heure % 12) + 12
+    print(f"{heure:02d}:{self.minute:02d}:{self.seconde:02d} {self.periode}")</code></pre></div></div></div></section></section>
+<section id="_un_peu_plus"><h2>Un peu plus</h2><div class="slide-content"><div class="ulist"><ul><li><p>Pypi</p></li><li><p>Pylint
+*</p></li></ul></div></div></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;

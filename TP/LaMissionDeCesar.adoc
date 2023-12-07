@@ -437,6 +437,15 @@ ChiffrementDecalage <|-- Cesar
 
 * Implémenter l'UML suivant en créant un fichier par classe
 
+---
+
+[source, python]
+----
+import mon_fichier
+----
+
+---
+
 .Instruction détaillée
 [%collapsible]
 ====
@@ -471,6 +480,8 @@ ChiffrementDecalage <|-- Cesar
 . Tester également la lecture et l'écriture de messages à partir de fichiers.
 
 === TP 3.3 Le chiffre de Vernam
+
+NOTE: 1 heure
 
 [plantuml, format="svg", id="classMessageChiffrement"]
 ----
@@ -520,20 +531,29 @@ ChiffrementDecalage <|-- Vernam
 
 ==== Objectif
 
-* Pour implémenter votre chiffre de Vernam vous lui donner le chemin vers un répertoire qui contient plusieurs livres
+* Implémenter le chiffre de Vernam en lui donnant le chemin vers un répertoire qui contient plusieurs livres
 * L'algorithme choisira un livre et un décalage ou commencera la clé
 * Le setter de la clef prendra en paramètre le chemin vers la bibliotheque
 * La propriéte `clef` retournera un tuples `(décalage, livre)`
 
 ==== Instruction
 
-* Implémentez l'UML ci-dessous en créant 1 fichier par classe
+* Implémentez l'UML ci-dessous en créant un fichier par classe
+* Vous devez gérer les erreurs sur les ouvertures de fichier
 
 ==== A savoir
 
 --- 
+* https://docs.python.org/fr/3/library/functions.html#open
 
 * `os.walk(chemin_dossier)` : Parcourir une arborescence
+
+[source, python]
+----
+for root, dirs, files in os.walk("."):
+  print(f"{root} {dirs} {files}")
+----
+
 * Génération aléatoire
 
 [source, python]
@@ -545,6 +565,8 @@ print(nombre_aleatoire)
 ----
 
 === TP 00000011.00000100
+
+NOTE: 1 heure
 
 [plantuml, format="svg", id="classMessageChiffrement"]
 ----
@@ -619,15 +641,36 @@ Vous laissez tomber les opérations sur les chaines de caractères qui ne sont p
 
 L'utilisation de l'opérateur binaire `XOR` (OU exculsif) permet de chiffrer et dechiffrer
 
-
-
 ==== Instructions
 
 * Implémenter l'UML si dessous
 * Implémentez le chiffrement par décalage avec l'opérateur `XOR` dans la methode ChiffrementDecalageBinaire.decaler_lettre
+* Mesurer le temps de chiffrement d'un message ~`1Mio` avec la methode par chaine de caractère
+* Mesurer le temps de chiffrement d'un message ~`1Mio` avec la methode binaire
+
 
 --- 
 
+* Utiliser le type bytes
+* `str.encode()` : Transforme une chaîne de caractère en bytes
 * '`^`' : Opérateur XOR
+* Table de vérité XOR
 
+[cols="^,^,^", options="header"]
+|===
+| A | B | A XOR B
+| 0 | 0 | 0
+| 0 | 1 | 1
+| 1 | 0 | 1
+| 1 | 1 | 0
+|===
 
+[source, python]
+----
+>>> "a".encode()[0] ^ "b".encode()[0]
+3
+>>> "a".encode()[0] ^ 3
+98
+>>> chr("a".encode()[0] ^ 3)
+'b'
+----

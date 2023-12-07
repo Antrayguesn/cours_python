@@ -870,20 +870,101 @@ TypeError: 'tuple' object does not support item assignment
 
 . Télécharger le code : https://cours.aigyre.fr/codes/TP_Bonus.py
 . Optimiser la fonction pour ne pas lancer l'assertion
-** La fonction doit retourné une liste d'entiers unique
+** La fonction doit retourné une liste d'entiers uniques
 
 === TP Bonus corrigé
 
 [source, python]
 ----
 def generer_list_random(n):
-  result = {}
-  for i in range(n):
-    x = random.randint(1,n)
-    if x not in result:
-      result[x] = None
-  return list(result.keys())
+  return list({ random.randint(1,n): None for i in range(n) }.keys())
 ----
+
+== Gestion d'erreur et exeception
+
+* https://docs.python.org/fr/3/tutorial/errors.html
+
+=== try .. except
+
+* Le bloc try contient le code susceptible de provoquer une exception.
+* Le bloc except spécifie comment le programme doit réagir lorsqu'une exception particulière est levée.
+
+[source, python]
+----
+# Exemple de bloc try-except
+try:
+  resultat = 10 / 0
+except ZeroDivisionError:
+  print("Division par zéro !")
+----
+
+=== try .. except
+
+* Plusieurs bloc except pour traiter plusieurs exception
+
+[source, python]
+----
+try:
+  # Code potentiellement générant une exception
+  resultat = 10 / 0
+except ZeroDivisionError:
+  print("Division par zéro !")
+except ValueError:
+  print("Erreur de valeur !")
+except Exception as e:
+  print(f"Une erreur s'est produite : {e}")
+----
+
+=== finaly
+
+* Le code du bloc `else` sera executé si quoi qu'il arrive
+
+[source, python]
+----
+try:
+  # Code potentiellement générant une exception
+  resultat = 10 / 2
+except ZeroDivisionError:
+  print("Division par zéro !")
+finally:
+  print("Exécution toujours garantie.")
+----
+
+=== else
+
+* Le code du bloc `else` sera executé si aucune erreur a été levée dans le `try`
+
+[source, python]
+----
+try:
+    # Code potentiellement générant une exception
+    resultat = 10 / 2
+except ZeroDivisionError:
+    print("Division par zéro !")
+else:
+    print("Pas d'erreur !")
+----
+
+=== raise
+
+* On peut lever une execption
+
+[source, python]
+----
+def diviser(a, b):
+  if b == 0:
+    raise ValueError("Division par zéro n'est pas autorisée.")
+  return a / b
+----
+
+=== Exception
+
+[source, python]
+----
+class MonException(Exception):
+  pass
+----
+
 
 == Programmation orientée objet
 
@@ -930,6 +1011,7 @@ Avec des classe::
 * Implémentation d'un objet
 * Une classe est la définition d’un type
 * CamelCase avec la 1er lettre en majuscule
+* Par convention, une classe = un fichier
 
 [.text-left]
 Un object est l'instantiation d'une classe
@@ -1046,7 +1128,40 @@ class Horloge:
 
 === Héritage
 
-L'héritage est un concept clé de la programmation orientée objet (POO) qui permet à une classe (appelée classe dérivée ou sous-classe) de hériter des attributs et des méthodes d'une autre classe (appelée classe de base ou classe mère). L'idée est de créer une relation "est un" entre les deux classes, où la classe dérivée est une version spécialisée de la classe de base.
+* Classe dérivée ou sous-classe
+* Relation "est un"
+
+* La classe dérivée est une classe spécialisé de la classe de base
+
+[source, python]
+----
+class Horloge:
+  def __init__(self, heure, minute, seconde):
+    self.heure = heure
+    self.minute = minute
+    self.seconde = seconde
+
+  def afficher_heure(self):
+    print(f"{self.heure:02d}:{self.minute:02d}:{self.seconde:02d}")
+
+
+class Horloge24(Horloge):
+  def __init__(self, heure, minute, seconde):
+    super().__init__(heure, minute, seconde)
+
+  def afficher_heure(self):
+    print(f"{self.heure:02d}:{self.minute:02d}:{self.seconde:02d}")
+
+
+class Horloge12(Horloge):
+  def __init__(self, heure, minute, seconde, periode):
+    super().__init__(heure, minute, seconde)
+    self.periode = periode
+
+  def afficher_heure(self):
+    heure = self.heure % 12 if self.periode == "AM" else (self.heure % 12) + 12
+    print(f"{heure:02d}:{self.minute:02d}:{self.seconde:02d} {self.periode}")
+----
 
 === Duck typing
 
@@ -1059,24 +1174,63 @@ La sémentique de l'objet est determiné par l'ensemble de ses methodes et attri
 
 === Polymorphisme
 
+* Capacité à un objet de se faire passer pour l'objet parent
+
+[source, python]
+----
+# Utilisation du polymorphisme
+horloges = [Horloge24(15, 30, 45), Horloge12(10, 45, 20, "AM"), Horloge12(20, 15, 30, "PM")]
+
+for horloge in horloges:
+    horloge.afficher_heure()
+----
+
 === Classe abstraite
 
-== Gestion d'erreur et exeception
+* Ne peut pas être instancier
+* Sert de modèle
+* Contient méthodes abstraites
+* Chaque classe enfant doivent implémenter les methodes abstraites
+* Fournit une structure commune
 
-* https://docs.python.org/fr/3/tutorial/errors.html
+=== Exemple
 
-=== try .. except
-=== finaly
-=== else
+[source, python]
+----
+from abc import ABC, abstractmethod
 
-=== raise
+class Horloge(ABC):
+  def __init__(self, heure, minute, seconde):
+    self.heure = heure
+    self.minute = minute
+    self.seconde = seconde
+  
+  @abstractmethod
+  def afficher_heure(self):
+    pass
 
-On peut lever une execption
+
+class Horloge24(Horloge):
+  def __init__(self, heure, minute, seconde):
+    super().__init__(heure, minute, seconde)
+
+  def afficher_heure(self):
+    print(f"{self.heure:02d}:{self.minute:02d}:{self.seconde:02d}")
+
+
+class Horloge12(Horloge):
+  def __init__(self, heure, minute, seconde, periode):
+    super().__init__(heure, minute, seconde)
+    self.periode = periode
+
+  def afficher_heure(self):
+    heure = self.heure % 12 if self.periode == "AM" else (self.heure % 12) + 12
+    print(f"{heure:02d}:{self.minute:02d}:{self.seconde:02d} {self.periode}")
+----
+
 
 == Un peu plus
 
-* Déorateur
+* Pypi
 * Pylint
 * 
-
-== Packaging
