@@ -67,7 +67,13 @@ image::turing.jpg[Turing, width=400px]
 
 [%step]
 
-Un programme informatique est une série d'opérations logiques et d'algorithmes qui indiquent à l'ordinateur comment traiter les données d'entrée pour produire les résultats souhaités en sortie.
+* Un programme informatique est une série d'opérations logiques et d'algorithmes qui indiquent à l'ordinateur comment traiter les données d'entrée pour produire les résultats souhaités en sortie.
+
+* Premier programme stocké dans des cartes perforées de 80 colonnes
+
+image::carte.jpg[Carte, height=100px]
+
+* https://fr.wikipedia.org/wiki/Carte_perfor%C3%A9e
 
 === C'est quoi qu'un algorithme ? 
 
@@ -98,12 +104,12 @@ import this
 
 Traduit en amont les instruction d'un programe en langage machine pour qu'il soit éxécuté.
 
-Assuré par un compilateur 
+* Assurée par un compilateur
 
 Langage compilé :
 
 * C (gcc)
-* C++ ( g+\+ )
+* C++ (g++)
 * Golang (go)
 
 === Interprété
@@ -128,6 +134,8 @@ image::python.png[Python, width=100px, float=right]
 * Langage interprété
 * Haut niveau
 * Syntaxe simple et comprénsible
+
+=== A quoi resemble un programme Python
 
 === Version
 
@@ -324,15 +332,13 @@ print(PREFIX_LOG_ERROR + " une erreur est survenue")
 
 === Comment nommer ma variable ? 
 
-[verse,Phil Karlton,]
-----
-Il y a seulement 2 problèmes compliqués en informatique : nommer les choses, et l'invalidation de cache" .
-----
+> Il y a seulement 2 problèmes compliqués en informatique : nommer les choses, et l'invalidation de cache. ,Phil Karlton,
 
 * Camel case : maVariable
 * Snake case : ma_variable
 
 * https://realpython.com/python-pep8/
+* https://peps.python.org/pep-0008/
 
 === Rammasse miette
 
@@ -649,6 +655,13 @@ while compteur < 10:
     compteur += 1
 ----
 
+== A vos claviers
+
+=== TP 0
+
+NOTE: 30 min
+
+* Réécrire le code https://cours.aigyre.fr/codes/Filtrage.py
 
 == Fonction
 
@@ -1065,11 +1078,11 @@ Privé:: Seulement accèssible par la classe elle même
 Publique:: Accessible par tout le monde
 Protégé:: Accessible par les classes fille 
 
-* En python, pas de sytanxe pour la visibilité des attributs mais des conventions :
+En python, pas de sytanxe pour la visibilité des attributs mais des conventions
 
 Un attribut privé sera préfixé d'un '_'.
 
-* https://www.pythoniste.fr/python/la-signification-des-traits-de-soulignement-_-en-python/
+https://www.pythoniste.fr/python/la-signification-des-traits-de-soulignement-_-en-python/
 
 
 === Getter

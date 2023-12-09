@@ -548,8 +548,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_cest_quoi_un_programme_informatique">C&#8217;est quoi un programme informatique ?</h2>
 <div class="sectionbody">
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p>Un programme informatique est une série d&#8217;opérations logiques et d&#8217;algorithmes qui indiquent à l&#8217;ordinateur comment traiter les données d&#8217;entrée pour produire les résultats souhaités en sortie.</p>
+</li>
+<li>
+<p>Premier programme stocké dans des cartes perforées de 80 colonnes</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/carte.jpg" alt="Carte" height="100px">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://fr.wikipedia.org/wiki/Carte_perfor%C3%A9e" class="bare">https://fr.wikipedia.org/wiki/Carte_perfor%C3%A9e</a></p>
+</li>
+</ul>
 </div>
 <div class="sect2">
 <h3 id="_cest_quoi_quun_algorithme">C&#8217;est quoi qu&#8217;un algorithme ?</h3>
@@ -603,8 +622,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Traduit en amont les instruction d&#8217;un programe en langage machine pour qu&#8217;il soit éxécuté.</p>
 </div>
-<div class="paragraph">
-<p>Assuré par un compilateur</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Assurée par un compilateur</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Langage compilé :</p>
@@ -615,7 +638,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>C (gcc)</p>
 </li>
 <li>
-<p>C++ ( g+\+ )</p>
+<p>C (g)</p>
 </li>
 <li>
 <p>Golang (go)</p>
@@ -677,6 +700,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Syntaxe simple et comprénsible</p>
 </li>
 </ul>
+</div>
+<div class="sect2">
+<h3 id="_a_quoi_resemble_un_programme_python">A quoi resemble un programme Python</h3>
+
 </div>
 <div class="sect2">
 <h3 id="_version">Version</h3>
@@ -984,10 +1011,12 @@ print(PREFIX_LOG_ERROR + " une erreur est survenue")</code></pre>
 </div>
 <div class="sect2">
 <h3 id="_comment_nommer_ma_variable">Comment nommer ma variable ?</h3>
-<div class="listingblock">
-<div class="content">
-<pre>Il y a seulement 2 problèmes compliqués en informatique : nommer les choses, et l'invalidation de cache" .</pre>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Il y a seulement 2 problèmes compliqués en informatique : nommer les choses, et l&#8217;invalidation de cache. ,Phil Karlton,</p>
 </div>
+</blockquote>
 </div>
 <div class="ulist">
 <ul>
@@ -999,6 +1028,9 @@ print(PREFIX_LOG_ERROR + " une erreur est survenue")</code></pre>
 </li>
 <li>
 <p><a href="https://realpython.com/python-pep8/" class="bare">https://realpython.com/python-pep8/</a></p>
+</li>
+<li>
+<p><a href="https://peps.python.org/pep-0008/" class="bare">https://peps.python.org/pep-0008/</a></p>
 </li>
 </ul>
 </div>
@@ -1517,6 +1549,33 @@ while compteur &lt; 10:
 </div>
 </div>
 <div class="sect1">
+<h2 id="_a_vos_claviers">A vos claviers</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tp_0">TP 0</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+30 min
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Réécrire le code <a href="https://cours.aigyre.fr/codes/Filtrage.py" class="bare">https://cours.aigyre.fr/codes/Filtrage.py</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_fonction">Fonction</h2>
 <div class="sectionbody">
 <div class="ulist">
@@ -1992,6 +2051,15 @@ else:
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_exception">Exception</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">class MonException(Exception):
+  pass</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2072,6 +2140,9 @@ else:
 </li>
 <li>
 <p>CamelCase avec la 1er lettre en majuscule</p>
+</li>
+<li>
+<p>Par convention, une classe = un fichier</p>
 </li>
 </ul>
 </div>
@@ -2173,25 +2244,17 @@ else:
 <dt class="hdlist1">Protégé</dt>
 <dd>
 <p>Accessible par les classes fille</p>
-<div class="ulist">
-<ul>
-<li>
-<p>En python, pas de sytanxe pour la visibilité des attributs mais des conventions :</p>
-</li>
-</ul>
-</div>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
+<p>En python, pas de sytanxe pour la visibilité des attributs mais des conventions</p>
+</div>
+<div class="paragraph">
 <p>Un attribut privé sera préfixé d&#8217;un '_'.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p><a href="https://www.pythoniste.fr/python/la-signification-des-traits-de-soulignement-_-en-python/" class="bare">https://www.pythoniste.fr/python/la-signification-des-traits-de-soulignement-_-en-python/</a></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -2425,7 +2488,7 @@ class Horloge12(Horloge):
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-12-07 08:51:59 +0100
+Last updated 2023-12-09 08:16:45 +0100
 </div>
 </div>
 </body>
