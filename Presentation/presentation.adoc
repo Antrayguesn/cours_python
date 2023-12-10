@@ -6,6 +6,7 @@
 :customcss: custom.css
 :revealjs_width: 1500
 :source-highlighter: rouge
+:rouge-style: monokai
 :author: Nicolas ANTRAYGUES - AIGYRE Consult
 
 == Un peu d'histoire ?
@@ -88,15 +89,8 @@ Un langage de programmation est composé de règles syntaxiques spécifiques com
 === Principe de programmation
 
 * SOLID
-* Kiss
-* Dry
-
-* Zen of Python
-
-[source, python]
-----
-import this
-----
+* Kiss : (Keep it simple, stupid !)
+* Dry : (Don't repeat yourself)
 
 === Interprété ou compilé ?
 
@@ -323,12 +317,6 @@ DEBUT_MINUSCULE = 97
 "10"
 ----
 
-[source, python]
-----
-PREFIX_LOG_ERROR = "[ERROR]"
-
-print(PREFIX_LOG_ERROR + " une erreur est survenue")
-----
 
 === Comment nommer ma variable ? 
 
@@ -337,7 +325,6 @@ print(PREFIX_LOG_ERROR + " une erreur est survenue")
 * Camel case : maVariable
 * Snake case : ma_variable
 
-* https://realpython.com/python-pep8/
 * https://peps.python.org/pep-0008/
 
 === Rammasse miette
@@ -1241,9 +1228,83 @@ class Horloge12(Horloge):
     print(f"{heure:02d}:{self.minute:02d}:{self.seconde:02d} {self.periode}")
 ----
 
+== Gérer les dates
 
-== Un peu plus
+* Stocker les dates en format `Epoch` (nombre de secondes depuis le 1 janvier 1970)
+* Utiliser la classe datetime pour manipuler les dates
+* Se fait avec le module `datetime`
 
-* Pypi
+[%notitle]
+=== Gérer les dates
+[source, python]
+----
+from datetime import timedelta
+from datetime import datetime
+
+# Création d'un objet datetime à l'heure actuel
+current_datetime = datetime.now()
+# Ajout d'une durée
+future_date = current_datetime + timedelta(days=7)
+
+mauvaise_date = datetime(1970, 2, 29)
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: day is out of range for month
+----
+
+== Comment gèrer mon programme
+
+=== Gestion des paquets
+
+* https://docs.python.org/fr/dev/installing/index.html
+
+[source, bash]
+----
+pip install venv
+----
+
+=== Environement virtualisé
+
+* Envrionement d'éxécution isolé
+* Assure la reproductibilité de l'environement
+* Gèrer les versions des dépendances
+
+
+* https://virtualenv.pypa.io/en/latest/
+
+[source, bash]
+----
+# Créer l'environement virtualisé
+python -m venv path/venv
+# 
+python -m pip
+# Activer l'environement
+path\venv\Scripts\activate # Windows
+source path/venv/bin/activate # Linux / MacOS
+python -m pip freeze # Génère la liste des dépendances
+
+# Désactiver
+desactivate
+----
+
+
+=== Zen of python
+
+* Ensemble de 19 principes qui définit les objectifs du langage Python
+
+[source, python]
+----
+import this
+----
+
+=== Qualimétrie
+
 * Pylint
-* 
+
+https://pypi.org/project/pylint/
+
+[source, bash]
+----
+python -m pip install 
+----

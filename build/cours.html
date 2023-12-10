@@ -597,20 +597,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>SOLID</p>
 </li>
 <li>
-<p>Kiss</p>
+<p>Kiss : (Keep it simple, stupid !)</p>
 </li>
 <li>
-<p>Dry</p>
-</li>
-<li>
-<p>Zen of Python</p>
+<p>Dry : (Don&#8217;t repeat yourself)</p>
 </li>
 </ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">import this</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1001,13 +993,6 @@ DEBUT_MINUSCULE = 97</code></pre>
 "10"</code></pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">PREFIX_LOG_ERROR = "[ERROR]"
-
-print(PREFIX_LOG_ERROR + " une erreur est survenue")</code></pre>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_comment_nommer_ma_variable">Comment nommer ma variable ?</h3>
@@ -1025,9 +1010,6 @@ print(PREFIX_LOG_ERROR + " une erreur est survenue")</code></pre>
 </li>
 <li>
 <p>Snake case : ma_variable</p>
-</li>
-<li>
-<p><a href="https://realpython.com/python-pep8/" class="bare">https://realpython.com/python-pep8/</a></p>
 </li>
 <li>
 <p><a href="https://peps.python.org/pep-0008/" class="bare">https://peps.python.org/pep-0008/</a></p>
@@ -2470,25 +2452,134 @@ class Horloge12(Horloge):
 </div>
 </div>
 <div class="sect1">
-<h2 id="_un_peu_plus">Un peu plus</h2>
+<h2 id="_gérer_les_dates">Gérer les dates</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Pypi</p>
+<p>Stocker les dates en format <code>Epoch</code> (nombre de secondes depuis le 1 janvier 1970)</p>
 </li>
 <li>
-<p>Pylint
-*</p>
+<p>Utiliser la classe datetime pour manipuler les dates</p>
+</li>
+<li>
+<p>Se fait avec le module <code>datetime</code></p>
 </li>
 </ul>
+</div>
+<div class="sect2">
+<h3 id="_gérer_les_dates_2">Gérer les dates</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">from datetime import timedelta
+from datetime import datetime
+
+# Création d'un objet datetime à l'heure actuel
+current_datetime = datetime.now()
+# Ajout d'une durée
+future_date = current_datetime + timedelta(days=7)
+
+mauvaise_date = datetime(1970, 2, 29)
+
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ValueError: day is out of range for month</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comment_gèrer_mon_programme">Comment gèrer mon programme</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_gestion_des_paquets">Gestion des paquets</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.python.org/fr/dev/installing/index.html" class="bare">https://docs.python.org/fr/dev/installing/index.html</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">pip install venv</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_environement_virtualisé">Environement virtualisé</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Envrionement d&#8217;éxécution isolé</p>
+</li>
+<li>
+<p>Assure la reproductibilité de l&#8217;environement</p>
+</li>
+<li>
+<p>Gèrer les versions des dépendances</p>
+</li>
+<li>
+<p><a href="https://virtualenv.pypa.io/en/latest/" class="bare">https://virtualenv.pypa.io/en/latest/</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Créer l'environement virtualisé
+python -m venv path/venv
+#
+python -m pip
+# Activer l'environement
+path\venv\Scripts\activate # Windows
+source path/venv/bin/activate # Linux / MacOS
+python -m pip freeze # Génère la liste des dépendances
+
+# Désactiver
+desactivate</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zen_of_python">Zen of python</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensemble de 19 principes qui définit les objectifs du langage Python</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import this</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_qualimétrie">Qualimétrie</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Pylint</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://pypi.org/project/pylint/" class="bare">https://pypi.org/project/pylint/</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">python -m pip install</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-12-09 08:16:45 +0100
+Last updated 2023-12-09 17:12:28 +0100
 </div>
 </div>
 </body>

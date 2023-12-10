@@ -7,12 +7,13 @@
 :toc-title: Sommaire
 :imagesdir: images
 :source-highlighter: rouge
+:rouge-style: monokai
 
 == TP 1 : Le chiffre de César
 
 Vous êtes missionné par Jules César pour mettre au point un algorithme de chiffrement afin de sécuriser les communications pendant le siège d'Alesia.
 
-Vous inventé `Le Chiffre de César`, un système de chiffrement par décalage simple
+Vous inventez `Le Chiffre de César`, un système de chiffrement par décalage simple
 
 Voici le premier message qui vous donne à chiffrer :
 
@@ -107,7 +108,7 @@ NOTE: 1 heure
 
 A savoir :
 
-* `int(variable)` : Convertie la variable passé en `int`
+* `int(variable)` : Converti la variable passé en `int`
 * `ord(caractere)` : Retourne le code `ASCII` du caractère passé en paramètre
 * `chr(codeAscii)` : Retourne la lettre corespondant au code `ASCII`
 * 65 = A en `ASCII` / 97 = a en `ASCII`
@@ -173,9 +174,9 @@ python3 -i tp1_3.py
 NOTE: 30 min
 
 
-* Écrivez le message confié par Jules César dans un fichier texte nommé `message.txt`
-. Écrivez une fonction appelée `lire_message` qui prend en paramètre le chemin d'un fichier et retourne le contenu du fichier sous forme de chaîne de caractères
-. Écrivez une fonction appelée `ecrire_message` qui prend en paramètre un message et l'écrit dans un fichier texte nommé message_chiffre.txt.
+* Écriver le message confié par Jules César dans un fichier texte nommé `message.txt`
+. Écriver une fonction appelée `lire_message` qui prend en paramètre le chemin d'un fichier et retourne le contenu du fichier sous forme de chaîne de caractères
+. Écriver une fonction appelée `ecrire_message` qui prend en paramètre un message et l'écrit dans un fichier texte nommé message_chiffre.txt.
 
 Test : 
 
@@ -206,11 +207,11 @@ La méthode de décryptage que nous allons mettre en place se base sur la compar
 
 Pour déterminer la fréquence des lettres de la langue, nous allons parcourir un livre classique. Pour ce faire, nous avons choisi le livre "Vingt Mille Lieues sous les Mers" de Jules Verne.
 
-Comparez les fréquences des lettres du message chiffré avec celles de la langue.
+Comparer les fréquences des lettres du message chiffré avec celles de la langue.
 
-Calculez la clé probable pour chaque lettre du message chiffré en utilisant une base de 26 (l'alphabet).
+Calculer la clé probable pour chaque lettre du message chiffré en utilisant une base de 26 (l'alphabet).
 
-On attribue un classment aux csur le nombrlés trouvée e d'occurence de la lettre chiffrée
+On attribue un classment aux clé probables grâce aux nombres d'occurence de la lettre chiffrée
 
 [source, python]
 ----
@@ -241,14 +242,17 @@ n = 13 m = 12
 
 NOTE: 20 + 20 minutes
 
-. Téléchargez le livre : https://www.gutenberg.org/cache/epub/5097/pg5097.txt
-. Écrivez une fonction appelée `occurence_lettre_livre` qui prend en paramètre le chemin vers un livre et retourne un dictionnaire indiquant le nombre d'occurrences de chaque lettre, en convertissant toutes les lettres en minuscules.
+. Télécharger le livre : https://www.gutenberg.org/cache/epub/5097/pg5097.txt
+. Écriver une fonction appelée `occurence_lettre_livre` qui prend en paramètre le chemin vers un livre et retourne une collection indiquant le nombre d'occurrences de chaque lettre, en convertissant toutes les lettres en minuscules.
 
 Test :
 
 [source,python]
 ----
-print(occurence_lettre_livre("livres/vmlslm.txt"))
+>>> occurence_lettre_livre("livres/vmlslm.txt")
+{'a': 3, 'b': 10}
+
+
 ----
 
 ---
@@ -280,7 +284,7 @@ Counter({'s': 5, 'e': 4, ' ': 4, 'u': 3, 'J': 1, 'i': 1, 'n': 1, 'p': 1, 'r': 1,
 
 NOTE: 1 heure
 
-* Écrivez une fonction appelée `decrypter_cesar` qui prend en paramètre un message chiffré et retourne une liste des 3 clés de déchiffrement les plus probables
+* Écriver une fonction appelée `decrypter_cesar` qui prend en paramètre un message chiffré et retourne une liste des 3 clés de déchiffrement les plus probables
 * Afficher les messages dechiffrés à l'aide des 3 clés
 
 Test :
@@ -441,7 +445,7 @@ ChiffrementDecalage <|-- Cesar
 
 [source, python]
 ----
-import mon_fichier
+from mon_fichier import ma_classe
 ----
 
 ---
@@ -531,28 +535,27 @@ ChiffrementDecalage <|-- Vernam
 
 ==== Objectif
 
+NOTE: 2 heures
+
 * Implémenter le chiffre de Vernam en lui donnant le chemin vers un répertoire qui contient plusieurs livres
-* L'algorithme choisira un livre et un décalage ou commencera la clé
+** https://www.gutenberg.org/cache/epub/4791/pg4791.txt
+** https://www.gutenberg.org/cache/epub/14287/pg14287.txt>
+* L'algorithme choisira un livre et un décalage où commencera la clé
 * Le setter de la clef prendra en paramètre le chemin vers la bibliotheque
-* La propriéte `clef` retournera un tuples `(décalage, livre)`
+* La propriéte `human_clef` retournera un tuples `(décalage, livre)`
 
 ==== Instruction
 
 * Implémentez l'UML ci-dessous en créant un fichier par classe
 * Vous devez gérer les erreurs sur les ouvertures de fichier
+* Levée des exceptions pour gérer vos erreurs
 
 ==== A savoir
 
 --- 
 * https://docs.python.org/fr/3/library/functions.html#open
 
-* `os.walk(chemin_dossier)` : Parcourir une arborescence
-
-[source, python]
-----
-for root, dirs, files in os.walk("."):
-  print(f"{root} {dirs} {files}")
-----
+* `os.listdir(path)` : Parcourir un dossier
 
 * Génération aléatoire
 
