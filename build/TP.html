@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="author" content="Nicolas ANTRAYGUES - AIGYRE Consult">
 <title>La mission de César</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -141,7 +141,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -163,6 +163,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -328,7 +329,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -437,115 +438,220 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <style>
 pre.rouge table td { padding: 5px; }
 pre.rouge table pre { margin: 0; }
-pre.rouge, pre.rouge .w {
-  color: #24292f;
-  background-color: #f6f8fa;
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #75715e;
+  font-style: italic;
 }
-pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
-  color: #cf222e;
+pre.rouge .cm {
+  color: #75715e;
+  font-style: italic;
 }
-pre.rouge .gr {
-  color: #f6f8fa;
+pre.rouge .c1 {
+  color: #75715e;
+  font-style: italic;
 }
-pre.rouge .gd {
-  color: #82071e;
-  background-color: #ffebe9;
+pre.rouge .cp {
+  color: #75715e;
+  font-weight: bold;
 }
-pre.rouge .nb {
-  color: #953800;
+pre.rouge .cs {
+  color: #75715e;
+  font-weight: bold;
+  font-style: italic;
 }
-pre.rouge .nc {
-  color: #953800;
-}
-pre.rouge .no {
-  color: #953800;
-}
-pre.rouge .nn {
-  color: #953800;
-}
-pre.rouge .sr {
-  color: #116329;
-}
-pre.rouge .na {
-  color: #116329;
-}
-pre.rouge .nt {
-  color: #116329;
+pre.rouge .err {
+  color: #960050;
+  background-color: #1e0010;
 }
 pre.rouge .gi {
-  color: #116329;
-  background-color: #dafbe1;
+  color: #ffffff;
+  background-color: #324932;
 }
-pre.rouge .kc {
-  color: #0550ae;
+pre.rouge .gd {
+  color: #ffffff;
+  background-color: #493131;
 }
-pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
-  color: #0550ae;
+pre.rouge .ge {
+  font-style: italic;
 }
-pre.rouge .sb {
-  color: #0550ae;
+pre.rouge .ges {
+  font-weight: bold;
+  font-style: italic;
 }
-pre.rouge .bp {
-  color: #0550ae;
+pre.rouge .gr {
+  color: #aa0000;
 }
-pre.rouge .ne {
-  color: #0550ae;
-}
-pre.rouge .nl {
-  color: #0550ae;
-}
-pre.rouge .py {
-  color: #0550ae;
-}
-pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
-  color: #0550ae;
-}
-pre.rouge .o, pre.rouge .ow {
-  color: #0550ae;
+pre.rouge .gt {
+  color: #aa0000;
 }
 pre.rouge .gh {
-  color: #0550ae;
+  color: #999999;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
   font-weight: bold;
 }
 pre.rouge .gu {
-  color: #0550ae;
+  color: #aaaaaa;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #66d9ef;
   font-weight: bold;
 }
-pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
-  color: #0a3069;
+pre.rouge .kc {
+  color: #66d9ef;
+  font-weight: bold;
 }
-pre.rouge .nd {
-  color: #8250df;
+pre.rouge .kd {
+  color: #66d9ef;
+  font-weight: bold;
 }
-pre.rouge .nf, pre.rouge .fm {
-  color: #8250df;
+pre.rouge .kp {
+  color: #66d9ef;
+  font-weight: bold;
 }
-pre.rouge .err {
-  color: #f6f8fa;
-  background-color: #82071e;
+pre.rouge .kr {
+  color: #66d9ef;
+  font-weight: bold;
 }
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
-  color: #6e7781;
+pre.rouge .kt {
+  color: #66d9ef;
+  font-weight: bold;
 }
-pre.rouge .gl {
-  color: #6e7781;
+pre.rouge .kn {
+  color: #f92672;
+  font-weight: bold;
 }
-pre.rouge .gt {
-  color: #6e7781;
+pre.rouge .ow {
+  color: #f92672;
+  font-weight: bold;
 }
-pre.rouge .ni {
-  color: #24292f;
+pre.rouge .o {
+  color: #f92672;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #ae81ff;
+}
+pre.rouge .mh {
+  color: #ae81ff;
+}
+pre.rouge .il {
+  color: #ae81ff;
+}
+pre.rouge .mi {
+  color: #ae81ff;
+}
+pre.rouge .mo {
+  color: #ae81ff;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #ae81ff;
+}
+pre.rouge .se {
+  color: #ae81ff;
+}
+pre.rouge .sa {
+  color: #66d9ef;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #e6db74;
+}
+pre.rouge .sc {
+  color: #e6db74;
+}
+pre.rouge .sd {
+  color: #e6db74;
+}
+pre.rouge .s2 {
+  color: #e6db74;
+}
+pre.rouge .sh {
+  color: #e6db74;
 }
 pre.rouge .si {
-  color: #24292f;
+  color: #e6db74;
 }
-pre.rouge .ge {
-  color: #24292f;
-  font-style: italic;
+pre.rouge .sx {
+  color: #e6db74;
 }
-pre.rouge .gs {
-  color: #24292f;
+pre.rouge .sr {
+  color: #e6db74;
+}
+pre.rouge .s1 {
+  color: #e6db74;
+}
+pre.rouge .ss {
+  color: #e6db74;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #e6db74;
+}
+pre.rouge .na {
+  color: #a6e22e;
+}
+pre.rouge .nc {
+  color: #a6e22e;
   font-weight: bold;
+}
+pre.rouge .nd {
+  color: #a6e22e;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #a6e22e;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a6e22e;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #66d9ef;
+}
+pre.rouge .bp {
+  color: #f8f8f2;
+}
+pre.rouge .nb {
+  color: #f8f8f2;
+}
+pre.rouge .ni {
+  color: #f8f8f2;
+}
+pre.rouge .nn {
+  color: #f8f8f2;
+}
+pre.rouge .vc {
+  color: #f8f8f2;
+}
+pre.rouge .vg {
+  color: #f8f8f2;
+}
+pre.rouge .vi {
+  color: #f8f8f2;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #f8f8f2;
+}
+pre.rouge .w {
+  color: #f8f8f2;
+}
+pre.rouge .nl {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #f92672;
+}
+pre.rouge {
+  color: #f8f8f2;
+  background-color: #49483e;
 }
 </style>
 </head>
@@ -599,17 +705,20 @@ pre.rouge .gs {
 <h2 id="_tp_1_le_chiffre_de_césar">1. TP 1 : Le chiffre de César</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Vous êtes missionné par Jules César pour mettre au point un algorithme de chiffrement afin de sécuriser les communications pendant le siège d&#8217;Alesia.</p>
+<p>Nous sommes en l&#8217;an -52 avant J.-C., en plein siège d&#8217;Alésia. Vous participez à l&#8217;effort de guerre grâce à votre passion pour l&#8217;algorithmie et la logique. Vous êtes le chiffreur préféré de Jules César.
+La situation est critique : les faits et gestes des Romains semblent anticipés par les Gaulois, et l&#8217;imperator soupçonne que ses messages sont interceptés et déchiffrés par l&#8217;ennemi.
+Alors que la bataille tourne en défaveur de Rome, une idée brillante vous traverse l&#8217;esprit : concevoir un nouvel algorithme de chiffrement pour sécuriser les communications.
+C&#8217;est alors que Jules César vous confie une mission de la plus haute importance : développer un système de chiffrement capable de protéger les informations stratégiques et de changer le cours de l&#8217;Histoire de Rome.</p>
 </div>
 <div class="paragraph">
-<p>Vous inventé <code>Le Chiffre de César</code>, un système de chiffrement par décalage simple</p>
+<p>Pour honorer votre empereur, vous inventez le chiffre de César, un système de chiffrement par décalage simple, mais redoutablement efficace.</p>
 </div>
 <div class="paragraph">
 <p>Voici le premier message qui vous donne à chiffrer :</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Légionnaire, vous êtes chargé de la mission cruciale de d'explorer les environs d'Alésia pour recueillir des renseignements sur les mouvements et les effectifs des forces gauloises. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.</pre>
+<pre>Légionnaire, vous êtes chargé de la mission cruciale d'explorer les environs d'Alésia pour recueillir des renseignements sur les mouvements et les effectifs des forces gauloises. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.</pre>
 </div>
 </div>
 </div>
@@ -825,7 +934,7 @@ pre.rouge .gs {
 <div class="ulist">
 <ul>
 <li>
-<p><code>int(variable)</code> : Convertie la variable passé en <code>int</code></p>
+<p><code>int(variable)</code> : Converti la variable passé en <code>int</code></p>
 </li>
 <li>
 <p><code>ord(caractere)</code> : Retourne le code <code>ASCII</code> du caractère passé en paramètre</p>
@@ -959,14 +1068,14 @@ pre.rouge .gs {
 <div class="ulist">
 <ul>
 <li>
-<p>Écrivez le message confié par Jules César dans un fichier texte nommé <code>message.txt</code></p>
+<p>Écriver le message confié par Jules César dans un fichier texte nommé <code>message.txt</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Écrivez une fonction appelée <code>lire_message</code> qui prend en paramètre le chemin d&#8217;un fichier et retourne le contenu du fichier sous forme de chaîne de caractères</p>
+<p>Écriver une fonction appelée <code>lire_message</code> qui prend en paramètre le chemin d&#8217;un fichier et retourne le contenu du fichier sous forme de chaîne de caractères</p>
 </li>
 <li>
-<p>Écrivez une fonction appelée <code>ecrire_message</code> qui prend en paramètre un message et l&#8217;écrit dans un fichier texte nommé message_chiffre.txt.</p>
+<p>Écriver une fonction appelée <code>ecrire_message</code> qui prend en paramètre un message et l&#8217;écrit dans un fichier texte nommé message_chiffre.txt.</p>
 </li>
 </ol>
 </div>
@@ -1010,13 +1119,13 @@ pre.rouge .gs {
 <p>Pour déterminer la fréquence des lettres de la langue, nous allons parcourir un livre classique. Pour ce faire, nous avons choisi le livre "Vingt Mille Lieues sous les Mers" de Jules Verne.</p>
 </div>
 <div class="paragraph">
-<p>Comparez les fréquences des lettres du message chiffré avec celles de la langue.</p>
+<p>Comparer les fréquences des lettres du message chiffré avec celles de la langue.</p>
 </div>
 <div class="paragraph">
-<p>Calculez la clé probable pour chaque lettre du message chiffré en utilisant une base de 26 (l&#8217;alphabet).</p>
+<p>Calculer la clé probable pour chaque lettre du message chiffré en utilisant une base de 26 (l&#8217;alphabet).</p>
 </div>
 <div class="paragraph">
-<p>On attribue un classment aux csur le nombrlés trouvée e d&#8217;occurence de la lettre chiffrée</p>
+<p>On attribue un classment aux clé probables grâce aux nombres d&#8217;occurence de la lettre chiffrée</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1060,10 +1169,10 @@ n = 13 m = 12
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Téléchargez le livre : <a href="https://www.gutenberg.org/cache/epub/5097/pg5097.txt" class="bare">https://www.gutenberg.org/cache/epub/5097/pg5097.txt</a></p>
+<p>Télécharger le livre : <a href="https://www.gutenberg.org/cache/epub/5097/pg5097.txt" class="bare">https://www.gutenberg.org/cache/epub/5097/pg5097.txt</a></p>
 </li>
 <li>
-<p>Écrivez une fonction appelée <code>occurence_lettre_livre</code> qui prend en paramètre le chemin vers un livre et retourne un dictionnaire indiquant le nombre d&#8217;occurrences de chaque lettre, en convertissant toutes les lettres en minuscules.</p>
+<p>Écriver une fonction appelée <code>occurence_lettre_livre</code> qui prend en paramètre le chemin vers un livre et retourne une collection indiquant le nombre d&#8217;occurrences de chaque lettre, en convertissant toutes les lettres en minuscules.</p>
 </li>
 </ol>
 </div>
@@ -1072,7 +1181,8 @@ n = 13 m = 12
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="nf">occurence_lettre_livre</span><span class="p">(</span><span class="sh">"</span><span class="s">livres/vmlslm.txt</span><span class="sh">"</span><span class="p">))</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="nf">occurence_lettre_livre</span><span class="p">(</span><span class="sh">"</span><span class="s">livres/vmlslm.txt</span><span class="sh">"</span><span class="p">)</span>
+<span class="p">{</span><span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="sh">'</span><span class="s">b</span><span class="sh">'</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span></code></pre>
 </div>
 </div>
 <hr>
@@ -1128,7 +1238,7 @@ n = 13 m = 12
 <div class="ulist">
 <ul>
 <li>
-<p>Écrivez une fonction appelée <code>decrypter_cesar</code> qui prend en paramètre un message chiffré et retourne une liste des 3 clés de déchiffrement les plus probables</p>
+<p>Écriver une fonction appelée <code>decrypter_cesar</code> qui prend en paramètre un message chiffré et retourne une liste des 3 clés de déchiffrement les plus probables</p>
 </li>
 <li>
 <p>Afficher les messages dechiffrés à l&#8217;aide des 3 clés</p>
@@ -1429,19 +1539,41 @@ n = 13 m = 12
 <div class="imageblock"><div class="content"><object type="image/svg+xml" data="https://uml.aigyre.fr/svg/U9nzKxjkmp0CtFKL6XqWMJe6HH6W7TkrAo7BTCn0ZrIYXoBDlvUEOqT17fC5tXqfticRp2Pnxvr-xwXj4teC_AAiCpcN9NrG2e02CK1b7RPh7UiTMbweWqVkOdFKTgIdocFEPejhdJajzEfj-5ve3Jxb7TNjz0-qnWbJRg4rO6RmPjTdspki73AdeWS5daWZTCEeOtH2CMxVcHePE8B9bgZQnqnCCS2aa5vBpRzx_BmKvejAXq5rafzRtOogvB0ygOgzC9iq-3bNlZ45uq_B7Lf29oQ9Jln4Jm5ggXr5xl2dnqBqDPedgabJncNSDYRYpYFOIrcLxS_k5xcMUImVj5YNO-w5_opm6JjFWZP53os9MD1ntw_oKIYqYH92Oq9-oXDRolNZQZKPT0sy_WbovsLTiURdDhA7l1x3OtXgWw6Ht-WVGuOhfW00" id="classMessageChiffrement" ><div class="imageblock"><div class="content"><img id="fallback_classMessageChiffrement" class="plantuml" src="https://uml.aigyre.fr/svg/U9nzKxjkmp0CtFKL6XqWMJe6HH6W7TkrAo7BTCn0ZrIYXoBDlvUEOqT17fC5tXqfticRp2Pnxvr-xwXj4teC_AAiCpcN9NrG2e02CK1b7RPh7UiTMbweWqVkOdFKTgIdocFEPejhdJajzEfj-5ve3Jxb7TNjz0-qnWbJRg4rO6RmPjTdspki73AdeWS5daWZTCEeOtH2CMxVcHePE8B9bgZQnqnCCS2aa5vBpRzx_BmKvejAXq5rafzRtOogvB0ygOgzC9iq-3bNlZ45uq_B7Lf29oQ9Jln4Jm5ggXr5xl2dnqBqDPedgabJncNSDYRYpYFOIrcLxS_k5xcMUImVj5YNO-w5_opm6JjFWZP53os9MD1ntw_oKIYqYH92Oq9-oXDRolNZQZKPT0sy_WbovsLTiURdDhA7l1x3OtXgWw6Ht-WVGuOhfW00" /></div></div></object></div></div>
 <div class="sect3">
 <h4 id="_objectif_3">6.4.1. Objectif</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+2 heures
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>Implémenter le chiffre de Vernam en lui donnant le chemin vers un répertoire qui contient plusieurs livres</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.gutenberg.org/cache/epub/4791/pg4791.txt" class="bare">https://www.gutenberg.org/cache/epub/4791/pg4791.txt</a></p>
 </li>
 <li>
-<p>L&#8217;algorithme choisira un livre et un décalage ou commencera la clé</p>
+<p><a href="https://www.gutenberg.org/cache/epub/14287/pg14287.txt&gt" class="bare">https://www.gutenberg.org/cache/epub/14287/pg14287.txt&gt</a>;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>L&#8217;algorithme choisira un livre et un décalage où commencera la clé</p>
 </li>
 <li>
 <p>Le setter de la clef prendra en paramètre le chemin vers la bibliotheque</p>
 </li>
 <li>
-<p>La propriéte <code>clef</code> retournera un tuples <code>(décalage, livre)</code></p>
+<p>La propriéte <code>human_clef</code> retournera un tuples <code>(décalage, livre)</code></p>
 </li>
 </ul>
 </div>
@@ -1456,6 +1588,9 @@ n = 13 m = 12
 <li>
 <p>Vous devez gérer les erreurs sur les ouvertures de fichier</p>
 </li>
+<li>
+<p>Levée des exceptions pour gérer vos erreurs</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1468,18 +1603,8 @@ n = 13 m = 12
 <p><a href="https://docs.python.org/fr/3/library/functions.html#open" class="bare">https://docs.python.org/fr/3/library/functions.html#open</a></p>
 </li>
 <li>
-<p><code>os.walk(chemin_dossier)</code> : Parcourir une arborescence</p>
+<p><code>os.listdir(path)</code> : Parcourir un dossier</p>
 </li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="nf">walk</span><span class="p">(</span><span class="sh">"</span><span class="s">.</span><span class="sh">"</span><span class="p">):</span>
-  <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">dirs</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">files</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p>Génération aléatoire</p>
 </li>
@@ -1610,7 +1735,7 @@ n = 13 m = 12
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-12-09 16:42:17 +0100
+Last updated 2024-12-24 08:11:25 +1300
 </div>
 </div>
 </body>

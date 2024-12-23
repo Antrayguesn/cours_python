@@ -3,6 +3,6 @@ bundle exec asciidoctor-revealjs -r asciidoctor-plantuml Presentation/presentati
 bundle exec asciidoctor -r asciidoctor-plantuml Presentation/presentation.adoc -o build/cours.html
 bundle exec asciidoctor -r asciidoctor-plantuml TP/LaMissionDeCesar.adoc -o build/TP.html
 
-docker build . -t registry.aigyre.fr/tp:latest
-
-docker push registry.aigyre.fr/tp:latest
+#docker build . -t registry.aigyre.fr/tp:latest
+#
+#docker push registry.aigyre.fr/tp:latest

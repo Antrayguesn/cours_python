@@ -11,14 +11,17 @@
 
 == TP 1 : Le chiffre de César
 
-Vous êtes missionné par Jules César pour mettre au point un algorithme de chiffrement afin de sécuriser les communications pendant le siège d'Alesia.
+Nous sommes en l'an -52 avant J.-C., en plein siège d'Alésia. Vous participez à l'effort de guerre grâce à votre passion pour l'algorithmie et la logique. Vous êtes le chiffreur préféré de Jules César.
+La situation est critique : les faits et gestes des Romains semblent anticipés par les Gaulois, et l'imperator soupçonne que ses messages sont interceptés et déchiffrés par l'ennemi.
+Alors que la bataille tourne en défaveur de Rome, une idée brillante vous traverse l'esprit : concevoir un nouvel algorithme de chiffrement pour sécuriser les communications.
+C'est alors que Jules César vous confie une mission de la plus haute importance : développer un système de chiffrement capable de protéger les informations stratégiques et de changer le cours de l'Histoire de Rome.
 
-Vous inventez `Le Chiffre de César`, un système de chiffrement par décalage simple
+Pour honorer votre empereur, vous inventez le chiffre de César, un système de chiffrement par décalage simple, mais redoutablement efficace.
 
 Voici le premier message qui vous donne à chiffrer :
 
 ....
-Légionnaire, vous êtes chargé de la mission cruciale de d'explorer les environs d'Alésia pour recueillir des renseignements sur les mouvements et les effectifs des forces gauloises. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.
+Légionnaire, vous êtes chargé de la mission cruciale d'explorer les environs d'Alésia pour recueillir des renseignements sur les mouvements et les effectifs des forces gauloises. Soyez vigilant, agissez avec détermination et rappelez-vous que le destin de Rome repose sur vos épaules. Que la fortune vous guide.
 ....
 
 == Le chiffre de César
